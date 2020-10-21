@@ -1,0 +1,2 @@
+2016/11/21 19:50:31 [error] [application] rolCDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'where UA.Active=1) A left join
+                        (SELECT UAP.UserActionId ' at line 1

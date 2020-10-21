@@ -1,0 +1,46 @@
+2017/08/25 18:09:09 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Connection refused
+2017/08/25 18:09:09 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:09 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:09 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:09 [error] [application] ------getUserFollowingGroups------EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:09 [error] [application] -------------inside exception ---userFollowingOfGroups--------------EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:09 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:09 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:09 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Connection refused
+2017/08/25 18:09:09 [error] [application] Controller:cookieBasedLogin::EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted--#0 /usr/share/nginx/www/SkiptaTrinity/protected/extensions/YiiMongoDbSuite/EMongoDB.php(193): EMongoDB->getConnection()
+#1 /usr/share/nginx/www/SkiptaTrinity/protected/extensions/YiiMongoDbSuite/EMongoDocument.php(151): EMongoDB->getDbInstance()
+#2 /usr/share/nginx/www/SkiptaTrinity/protected/extensions/YiiMongoDbSuite/EMongoDocument.php(175): EMongoDocument->getDb()
+#3 /usr/share/nginx/www/SkiptaTrinity/protected/extensions/YiiMongoDbSuite/EMongoDocument.php(787): EMongoDocument->getCollection()
+#4 /usr/share/nginx/www/SkiptaTrinity/protected/models/mongo/UserCookie.php(74): EMongoDocument->find(Object(EMongoCriteria))
+#5 /usr/share/nginx/www/SkiptaTrinity/protected/service/SkiptaUserService.php(1432): UserCookie->checkCookieValidityForUser('61', 'EeqJ83CbmFIxrxa...')
+#6 /usr/share/nginx/www/SkiptaTrinity/protected/components/Controller.php(92): SkiptaUserService->checkCookieValidityForUser('61', 'EeqJ83CbmFIxrxa...')
+#7 /usr/share/nginx/www/SkiptaTrinity/protected/components/Controller.php(51): Controller->cookieBasedLogin()
+#8 /usr/share/nginx/www/SkiptaTrinity/protected/controllers/PostController.php(38): Controller->init()
+#9 /usr/share/nginx/www/yii/framework/web/CWebApplication.php(282): PostController->init()
+#10 /usr/share/nginx/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('post')
+#11 /usr/share/nginx/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /usr/share/nginx/www/SkiptaTrinity/index.php(47): CApplication->run()
+#13 {main}
+2017/08/25 18:09:17 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Connection refused
+2017/08/25 18:09:17 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:17 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:17 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:17 [error] [application] ------getUserFollowingGroups------EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:17 [error] [application] -------------inside exception ---userFollowingOfGroups--------------EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:17 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:17 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted
+2017/08/25 18:09:18 [error] [application] EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Connection refused
+2017/08/25 18:09:18 [error] [application] Controller:cookieBasedLogin::EMongoDB failed to open connection: Failed to connect to: 127.0.0.1:27017: Previous connection attempts failed, server blacklisted--#0 /usr/share/nginx/www/SkiptaTrinity/protected/extensions/YiiMongoDbSuite/EMongoDB.php(193): EMongoDB->getConnection()
+#1 /usr/share/nginx/www/SkiptaTrinity/protected/extensions/YiiMongoDbSuite/EMongoDocument.php(151): EMongoDB->getDbInstance()
+#2 /usr/share/nginx/www/SkiptaTrinity/protected/extensions/YiiMongoDbSuite/EMongoDocument.php(175): EMongoDocument->getDb()
+#3 /usr/share/nginx/www/SkiptaTrinity/protected/extensions/YiiMongoDbSuite/EMongoDocument.php(787): EMongoDocument->getCollection()
+#4 /usr/share/nginx/www/SkiptaTrinity/protected/models/mongo/UserCookie.php(74): EMongoDocument->find(Object(EMongoCriteria))
+#5 /usr/share/nginx/www/SkiptaTrinity/protected/service/SkiptaUserService.php(1432): UserCookie->checkCookieValidityForUser('61', 'vaGNejJvQLFjwTB...')
+#6 /usr/share/nginx/www/SkiptaTrinity/protected/components/Controller.php(92): SkiptaUserService->checkCookieValidityForUser('61', 'vaGNejJvQLFjwTB...')
+#7 /usr/share/nginx/www/SkiptaTrinity/protected/components/Controller.php(51): Controller->cookieBasedLogin()
+#8 /usr/share/nginx/www/SkiptaTrinity/protected/controllers/PostController.php(38): Controller->init()
+#9 /usr/share/nginx/www/yii/framework/web/CWebApplication.php(282): PostController->init()
+#10 /usr/share/nginx/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('post')
+#11 /usr/share/nginx/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#12 /usr/share/nginx/www/SkiptaTrinity/index.php(47): CApplication->run()
+#13 {main}

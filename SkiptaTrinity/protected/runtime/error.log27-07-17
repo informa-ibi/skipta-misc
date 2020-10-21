@@ -1,0 +1,6 @@
+2017/07/27 13:11:29 [error] [application] Exception Occurred in getEmailConfigurationDetails==The table "EmailCredentials" for active record class "EmailCredentials" cannot be found in the database.
+2017/07/27 13:11:29 [error] [application] ==Exception Occurred in getEmailConfigurationDetailsCount===CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'Trinity.t' doesn't exist
+2017/07/27 13:11:29 [error] [application] Exception Occurred in getTemplateConfigurationDetails==The table "TemplateManagement" for active record class "TemplateManagement" cannot be found in the database.
+2017/07/27 13:11:29 [error] [application] ==Exception Occurred in getTemplateConfigurationDetailsCount===CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'Trinity.t' doesn't exist
+2017/07/27 13:11:34 [error] [application] Exception Occurred in getEmailConfigurationDetails==The table "EmailCredentials" for active record class "EmailCredentials" cannot be found in the database.
+2017/07/27 13:11:34 [error] [application] ==Exception Occurred in getEmailConfigurationDetailsCount===CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'Trinity.t' doesn't exist

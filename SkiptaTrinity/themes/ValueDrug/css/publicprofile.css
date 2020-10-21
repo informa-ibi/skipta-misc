@@ -1,0 +1,85 @@
+body{background: #fff;font-size: 14px;line-height: 20px;}
+a{	
+    color:#333;
+    -webkit-transition: all 0s ease-in-out;
+    -moz-transition: all 0s ease-in-out;
+    -o-transition: all 0s ease-in-out;
+    -ms-transition: all 0s ease-in-out;
+    transition: all 0s ease-in-out;
+}
+.padding10{padding:10px}
+.marginT10{margin-top:10px}
+.sidebar-nav ul li a{cursor: default}
+.left_home-icon:hover {background-position: 8px top;}
+.left_curbside-icon:hover {background-position: 8px -95px;}
+.left_news-icon:hover {background-position: 8px -384px;}
+.left_games-icon:hover {background-position: 8px -287px;}
+.left_career-icon:hover {background-position: 8px -480px;}
+.sidebar-nav ul li a:hover, .sidebar-nav ul li.active a, .sidebar-nav ul li.active span, .sidebar-nav ul li:hover span {color: #818285;}
+.sp_landingpage_r p {font-size: 23px;}
+
+
+.sp_landingpage_r p .reg_now{font-size: 24px; line-height: 1.2em; color: #555;  font-family: "exo_2.0medium";  font-weight: normal;}
+.sp_landingpage_r{padding:40px 0 10px 0}
+.network_specific { padding: 70px 0 0 0;}
+.social_bar{ padding:0px;}
+footer .container{border-top:1px solid #f4f4f4}
+/*topmenustyles*/
+.publicheadermenu{background:#fff;border-bottom:0px solid #52886d;box-shadow: 5px 5px 8px -9px rgba(0, 0, 0, 0.5);}
+.triheaderarea{background: none;border-bottom:0;padding:6px 0}
+.streamsectionarea{background: transparent;margin-left:0}
+.topheaderareamenu .topmenustyle{}
+.topmenustyle ul{list-style: none}
+.topmenustyle .wah-menu{position: relative;width:auto;z-index: 5;top:0}
+.topheaderareamenu .topmenustyle .sidebar-menunav li{float:left;position: relative}
+.topheaderareamenu .topmenustyle .sidebar-menunav li:last-child{border-right:0}
+.topheaderareamenu .topmenustyle .sidebar-menunav li a{cursor:default;padding:10px 25px;line-height:15px;color:#000}
+.topheaderareamenu .topmenustyle .sidebar-menunav li a i{display: none;line-height:20px;text-align:center}
+.streamsectionareanoleftpanel{margin-left:0}
+.topheaderareamenu .topmenustyle .sidebar-menunav:after, .topheaderareamenu .topmenustyle .wah-menu .wah-ul, .topheaderareamenu .topmenustyle .wah-menu .wah-ul li .sub:after{display: block;clear:both;content:""}
+.tr_singlemenu a i, .tr_Stream a i.fa-stack-exchange, .tr_Curbside a i.fa-quote-left, .tr_Groups a i.fa-users, .tr_PrivateMessaging a i.fa-clipboard, .tr_Admin a i.fa-gears{ color:#52886D; font-size:20px}
+.tr_singlemenu a:hover i, .tr_Stream a:hover i.fa-stack-exchange, .tr_Curbside a:hover i.fa-quote-left, .tr_Groups a:hover i.fa-users, .tr_PrivateMessaging a:hover i.fa-clipboard, .tr_Admin a:hover i.fa-gears, .tr_singlemenu a.tr_active i, .tr_Stream a.tr_active i.fa-stack-exchange, .tr_Curbside a.tr_active i.fa-quote-left, .tr_Groups a.tr_active i.fa-users, .tr_PrivateMessaging a.tr_active i.fa-clipboard, .tr_Admin a.tr_active i.fa-gears{  }
+.topheaderareamenu .container{background: none}
+.streamsection{padding-top:73px}
+
+.topmenustyleicons .topmenustyle .sidebar-menunav li a i{display: block;line-height:20px;text-align:center;padding-right:0}
+.topmenustyleicons .topmenustyle .sidebar-menunav li a span{display:none}
+.topmenustyleicons .container{background:#fff;}
+.topmenustyleicons .topmenustyle .wah-menu .wah-ul{padding:5px;width:auto;position: relative}
+.topmenustyleicons .topmenustyle .sidebar-menunav{display: table;margin:auto;width:auto}
+.topmenustyleicons .topmenustyle .sidebar-menunav li{float:left;border-right:0px solid #023c1f;margin-right:10px;width:40px;height:30px;text-align: center;border-radius:100%;background:#dcdcdc;padding-top:10px;box-shadow: 5px 5px 8px -9px rgba(0, 0, 0, 0.5);position: relative}
+.topmenustyleicons .topmenustyle .sidebar-menunav li a{padding:0px;line-height:15px;color:#000}
+.topmenustyleicons .topmenustyle .wah-menu .wah-ul li .sub li{width:auto;height:auto;border-radius: 0;display: block;margin:0;text-align: left;padding-top:0}
+.topmenustyleicons .topmenustyle .wah-menu .wah-ul li .sub{left:-80px;top:40px;height:auto;bottom:auto;padding-top:10px;background: none}
+.topmenustyleicons .topmenustyle .wah-menu .wah-ul li .sub:before{top: -9px; left: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; border-color: rgba(136, 183, 213, 0); border-bottom-color: #dcdcdc; border-width: 10px; margin-left: -10px;}
+/*end*/
+.horizontalmodewidget .tr_left_pannel .tr_notification_div .pull-left{float:right}
+.horizontalmodewidget .tr_left_pannel .tr_notification_div .pull-left .tr_top_profile{border:2px solid #fff}
+.topmenustyleicons .wah-menu .wah-ul {background:none;box-shadow: 0 0 0px 0px rgba(0, 0, 0, 1);}
+.horizontalmodewidget .tr_left_pannel .tr_notification_div .tr_notifications ul li i,fa{color:#fff}
+.horizontalmodewidget .tr_left_pannel .tr_notification_div .tr_notifications .dropdown-menu .headerpopfooterzero .pull-left{float:left}
+.networkmode{color:#fff}
+/*topmenustyleiconswithlabel*/
+.topmenustyleiconswithlabel{}
+.topmenustyleiconswithlabel .topmenustyle .sidebar-menunav li{width:auto;height:auto;background: none;margin-right:20px;margin-left:20px;box-shadow: 0px 0px 0px -0px rgba(0, 0, 0, 0);border-radius:0;padding-top:0}
+.topmenustyleiconswithlabel .topmenustyle .sidebar-menunav li:first-child{margin-left:0}
+.topmenustyleiconswithlabel .topmenustyle .sidebar-menunav li:last-child{margin-right:0}
+.topmenustyleiconswithlabel .topmenustyle .sidebar-menunav li a span{display:block}
+.topmenustyleiconswithlabel .topmenustyle .sidebar-menunav li a i{width: 40px;height:38px;padding-top:10px;border-radius:100%;background:#dcdcdc;margin:auto}
+.topmenustyleiconswithlabel .topmenustyle .wah-menu .wah-ul li .sub{left:-80px;top:54px;height:auto;bottom:auto;padding-top:10px;background: none}
+/*end*/
+/*thirdmenu*/
+.topmenustyleiconswithsquarelabel .topmenustyle .sidebar-menunav li a span{display:block}
+.topmenustyleiconswithsquarelabel .topmenustyle .sidebar-menunav li a i{display: block}
+.topmenustyleiconswithsquarelabel .topmenustyle .sidebar-menunav li{padding:0;float:left;border-right:0px solid #023c1f;margin-right:5px;width:auto;height:auto;text-align: center;border-radius:5px;background:none;box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0);position: relative}
+.topmenustyleiconswithsquarelabel .topmenustyle .sidebar-menunav li a.tr_active{color:#fff;background: #02783e}
+.topmenustyleiconswithsquarelabel .topmenustyle .sidebar-menunav li a{padding:10px;background: #e8e8e8;border-radius:5px;box-shadow: 5px 5px 8px -9px rgba(0, 0, 0, 0.5);}
+.topmenustyleiconswithsquarelabel .topmenustyle .sidebar-menunav li a:hover{background: #02783e;color:#fff}
+.topmenustyleiconswithsquarelabel .topmenustyle .wah-menu .wah-ul li .sub{left:-70px;top:53px;}
+.topmenustyleiconswithsquarelabel .topmenustyle .sidebar-menunav li ul li{padding:0}
+.topmenustyleiconswithsquarelabel .topmenustyle .sidebar-menunav li .sub li a{border-radius:0}
+.topmenustyleiconswithsquarelabel .topmenustyle .sidebar-menunav li .sub li.n_viewmore a{border-bottom:0;background: #02783e;text-align: center}
+
+@media (min-width: 1000px) and (max-width: 1100px){
+    .sp_landingpage_r{padding:0px 0 10px 0}
+}

@@ -1,0 +1,14 @@
+2017/07/05 16:47:37 [error] [application] State:GetStateCode::CDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1--#0 /usr/share/nginx/www/yii/framework/db/CDbCommand.php(408): CDbCommand->queryInternal('fetch', Array, Array)
+#1 /usr/share/nginx/www/SkiptaTrinity/protected/models/mysql/State.php(98): CDbCommand->queryRow()
+#2 /usr/share/nginx/www/SkiptaTrinity/protected/service/SkiptaUserService.php(1077): State->GetStateName(NULL, NULL)
+#3 /usr/share/nginx/www/SkiptaTrinity/protected/controllers/CommonController.php(575): SkiptaUserService->getUserProfileDetails(6, 6)
+#4 /usr/share/nginx/www/yii/framework/web/actions/CInlineAction.php(50): CommonController->actionProfileDetails()
+#5 /usr/share/nginx/www/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#6 /usr/share/nginx/www/yii/framework/web/CController.php(287): CController->runAction(Object(CInlineAction))
+#7 /usr/share/nginx/www/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 /usr/share/nginx/www/yii/framework/web/CWebApplication.php(283): CController->run('profileDetails')
+#9 /usr/share/nginx/www/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('common/profileD...')
+#10 /usr/share/nginx/www/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#11 /usr/share/nginx/www/SkiptaTrinity/index.php(47): CApplication->run()
+#12 {main}
+2017/07/05 16:47:37 [error] [application] %%%%%%%%%%%%%%%%%get states by using country idddddddddddddddddddCDbCommand failed to execute the SQL statement: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 1
