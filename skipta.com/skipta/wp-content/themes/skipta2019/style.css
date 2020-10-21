@@ -1,0 +1,3379 @@
+/*
+Theme Name: Skipta 2019
+Theme URI: https://sandbox.skipta.com/wp-content/themes/skipta2019
+Description: Skipta 2016 Child Theme
+Author: Robert Graves
+Author URI: http://www.skipta.com/
+Template: twentysixteen
+Version: 1.0
+License:      GNU General Public License v2 or later
+License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: skipta2019
+Tags: light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+*/
+
+@font-face {
+    font-family: Gotham-Book;  
+    src: url('/wp-content/themes/skipta2019/fonts/Gotham-Book.otf');  
+    font-weight: normal;  
+}
+@font-face {
+    font-family: Gotham-Bold;  
+    src: url('/wp-content/themes/skipta2019/fonts/Gotham-Bold.otf');  
+    font-weight: normal;  
+}
+/* Begin Global Customizations */
+
+body, button, input, select, textarea {
+	/* font-family: 'Raleway', sans-serif; */
+	font-family: 'Gotham-Book', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #1f1f1f;
+}
+/* Links */
+a {
+    color: #009acd;
+}
+a:link,
+a:visited {
+	outline: 0;
+}
+a:hover,
+a:focus,
+a:active {
+    color: #009acd;
+	outline: 0;
+}
+.entry-title a:hover,
+.entry-title a:active
+.entry-title a:focus {
+    color: #009acd;
+}
+
+/* H Tags */
+.entry-content h1,
+.site-content h1 {
+	font-family: 'Gotham-Bold', sans-serif;
+	font-size: 48px;
+	line-height: 60px;
+	font-weight: 700;
+}
+.entry-content h2,
+.site-content h2 {
+	font-family: 'Gotham-Bold', sans-serif;
+	font-size: 36px;
+	line-height: 50px;
+	font-weight: 700;
+}
+.entry-content h2 strong {
+	font-weight: 800;
+}
+.entry-content h3,
+.site-content h3 {
+	font-family: 'Gotham-Bold', sans-serif;
+	font-size: 30px;
+	line-height: 42px;
+	font-weight: 700;
+}
+.entry-content h4,
+.site-content h4 {
+	font-family: 'Gotham-Bold', sans-serif;
+	font-size: 24px;
+	line-height: 36px;
+	font-weight: 700;
+	letter-spacing: inherit;
+	text-transform: none;
+	margin-bottom: 0.6em;
+	margin-top: 0em;
+}
+.entry-content .inline {
+	display: inline-block;
+	margin: 0;
+}
+
+
+/* Grey Buttons */
+.grey-button {
+	background-color: #48575C;
+	color: #fff;
+	font-size: 30px;
+	line-height: 42px;
+	padding: 0.1em 0.5em;
+	white-space: nowrap;
+}
+.grey-button:hover,
+.grey-button:active,
+.grey-button:focus {
+	color: #fff;
+	background-color: #009acd;
+}
+/* Red Buttons */
+.red-button {
+	background-color: #009acd;
+	color: #fff;
+	font-size: 30px;
+	line-height: 42px;
+	padding: 0.1em 0.5em;
+	white-space: nowrap;
+}
+.red-button:hover,
+.red-button:active,
+.red-button:focus {
+	color: #fff;
+	background-color: #F26522;
+}
+
+/* Invisible Tables */
+.invisible-table {
+    border: solid 0px;
+    margin: 0;
+    padding: 0;
+}
+.invisible-table th {
+    border-width: 0;
+	vertical-align: top;
+}
+.invisible-table td {
+    border-width: 0;
+	vertical-align: top;
+}
+/* Colors */
+.red {
+	color: #009acd;
+}
+.discount {
+	text-decoration: line-through;
+}
+/* Share Buttons */
+.sharedaddy:before,
+.sharedaddy:last-child:after {
+    background-color: currentColor;
+    content: "";
+    height: 0px;
+    opacity: 0.2;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+/* Text Classes */
+.entry-content .t-24,
+.t-24 {
+	font-size: 24px;
+	line-height: 36px;
+}
+.entry-content .t-30,
+.t-30 {
+	font-size: 30px;
+	line-height: 42px;
+	text-align:center;
+	width: 100%;
+	display: block;
+}
+/* Copy Text */
+.entry-content .copy-text {
+	background-color: #ccc;
+	padding: 1em;
+	border-radius: 12px;
+	border: solid 1px #999;
+	position: relative;
+}
+.entry-content .copy-text::before {
+	content: "copy this text";
+    position: absolute;
+    top: -25px;
+	font-size: 13px;
+}
+/* Drop Shadow */
+.entry-content .drop-shadow {
+	box-shadow: 2px 2px 15px #666;
+}
+/* Lists */
+ul {
+    
+}
+ul ul {
+    list-style-type: circle;
+}
+
+/* Pagination */
+.pagination .prev:hover,
+.pagination .prev:focus,
+.pagination .next:hover,
+.pagination .next:focus {
+    background-color: #009acd;
+    color: #fff;
+}
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+    background: #A1CA52;
+}
+.search-submit:before {
+    color: #fff;
+}
+
+/*** Block Quotes ***/
+blockquote {
+  background: #f9f9f9;
+  border-left: 8px solid #ccc;
+  margin: 1em 10px;
+  padding: 1.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+blockquote:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+blockquote p {
+  display: inline;
+}
+.entry-content blockquote:not(.alignleft):not(.alignright),
+.entry-summary blockquote,
+.comment-content blockquote {
+	margin-left: 0em;
+}
+
+/*********** Begin Local Customizations ************/
+/***************************************************/
+body:not(.custom-background-image).admin-bar:before {
+	top: 0;
+}
+body:not(.custom-background-image):before, 
+body:not(.custom-background-image):after {
+	height: 0;
+}
+.site {
+	margin: 0;
+}
+.site-inner {
+    margin: 0 auto;
+    max-width: 100%;
+    position: relative;
+}
+/*** Left Bar ***/
+.site-header {
+    display: inline-block;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 300px;
+    padding: 0;
+    vertical-align: top;
+	z-index: 1;
+	box-shadow: none;
+}
+.site-branding {
+    margin-top: 18px;
+    margin-bottom: 0px;
+	text-align: center;
+	width: 100%;
+}
+.site-branding a {
+    display: block
+}
+.site-branding .main-logo {
+	width: 260px;
+}
+.site-branding .communities {
+	font-size: 20px;
+	text-transform: uppercase;
+	background-color: #009acd;
+    color: #fff;
+    padding: 10px 0;
+    margin: 10px 0 0;
+}
+/*** Navigation ***/
+.site-header-menu {
+	margin-top: 0;
+    margin-bottom: 0;
+}
+.main-navigation {
+	margin: 0;
+	font-family: 'Gotham-Bold', sans-serif;
+}
+#menu-communities {
+	width: 300px;
+	background-color: #fff;
+}
+#menu-communities li {
+	width: 100%;
+}
+#menu-communities li a {
+	text-transform: uppercase;
+	font-weight: 600;
+	font-size: 13px;
+}
+/** AI UNITE **/
+#menu-communities .menu-item-9 {}
+#menu-communities .menu-item-9 a {
+	color: #22a5b5;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-ai-unite.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-9 a:visited,
+#menu-communities .menu-item-9 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-9 a:active,
+#menu-communities .menu-item-9 a:focus,
+#menu-communities .menu-item-9 a:hover {
+	background-color: #efefef;
+}
+
+/** ANESTHESIA CONNECT **/
+#menu-communities .menu-item-10 {
+	display: none;
+}
+#menu-communities .menu-item-10 a {
+	color: #f58a79;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-anesthesia-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-10 a:visited,
+#menu-communities .menu-item-10 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-10 a:active,
+#menu-communities .menu-item-10 a:focus,
+#menu-communities .menu-item-10 a:hover {
+	background-color: #efefef;
+}
+
+/** CARDIOLOGIST CONNECT **/
+#menu-communities .menu-item-11 {}
+#menu-communities .menu-item-11 a {
+	color: #ef4359;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-cardiologist-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-11 a:visited,
+#menu-communities .menu-item-11 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-11 a:active,
+#menu-communities .menu-item-11 a:focus,
+#menu-communities .menu-item-11 a:hover {
+	background-color: #efefef;
+}
+
+/** CRNA CONNECT **/
+#menu-communities .menu-item-12 {
+	display: none;
+}
+#menu-communities .menu-item-12 a {
+	color: #89c4c4;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-crna-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-12 a:visited,
+#menu-communities .menu-item-12 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-12 a:active,
+#menu-communities .menu-item-12 a:focus,
+#menu-communities .menu-item-12 a:hover {
+	background-color: #efefef;
+}
+
+/** DENTIST ONE WORLD **/
+#menu-communities .menu-item-13 {
+	display: none;
+}
+#menu-communities .menu-item-13 a {}
+#menu-communities .menu-item-13 a:visited,
+#menu-communities .menu-item-13 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-13 a:active,
+#menu-communities .menu-item-13 a:focus,
+#menu-communities .menu-item-13 a:hover {
+	background-color: #efefef;
+}
+
+/** DERMATOLOGIST NATION **/
+#menu-communities .menu-item-14 {}
+#menu-communities .menu-item-14 a {
+	color: #5fa5b1;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-dermatologist-nation.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-14 a:visited,
+#menu-communities .menu-item-14 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-14 a:active,
+#menu-communities .menu-item-14 a:focus,
+#menu-communities .menu-item-14 a:hover {
+	background-color: #efefef;
+}
+
+/** DOCTOR UNITE **/
+#menu-communities .menu-item-15 {}
+#menu-communities .menu-item-15 a {
+	color: #1f9fb4;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-doctor-unite.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-15 a:visited,
+#menu-communities .menu-item-15 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-15 a:active,
+#menu-communities .menu-item-15 a:focus,
+#menu-communities .menu-item-15 a:hover {
+	background-color: #efefef;
+}
+
+/** ENDOCRINOLOGIST NATION **/
+#menu-communities .menu-item-16 {}
+#menu-communities .menu-item-16 a {
+	color: #f36f50;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-endocrinologist-nation.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-16 a:visited,
+#menu-communities .menu-item-16 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-16 a:active,
+#menu-communities .menu-item-16 a:focus,
+#menu-communities .menu-item-16 a:hover {
+	background-color: #efefef;
+}
+
+/** GASTROENTEROLOGIST CONNECT **/
+#menu-communities .menu-item-17 {}
+#menu-communities .menu-item-17 a {
+	color: #5b9d8b;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-gastroenterologist-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-17 a:visited,
+#menu-communities .menu-item-17 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-17 a:active,
+#menu-communities .menu-item-17 a:focus,
+#menu-communities .menu-item-17 a:hover {
+	background-color: #efefef;
+}
+
+/** GENERATION NP **/
+#menu-communities .menu-item-18 {}
+#menu-communities .menu-item-18 a {
+	color: #c96262;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-generation-np.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-18 a:visited,
+#menu-communities .menu-item-18 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-18 a:active,
+#menu-communities .menu-item-18 a:focus,
+#menu-communities .menu-item-18 a:hover {
+	background-color: #efefef;
+}
+
+/** MEDICAL DIRECTORS FORUM **/
+#menu-communities .menu-item-19 {}
+#menu-communities .menu-item-19 a {
+	color: #d38e5e;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-medical-directors-forum.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-19 a:visited,
+#menu-communities .menu-item-19 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-19 a:active,
+#menu-communities .menu-item-19 a:focus,
+#menu-communities .menu-item-19 a:hover {
+	background-color: #efefef;
+}
+
+/** MEDOPTIC CONNECT **/
+#menu-communities .menu-item-20 {}
+#menu-communities .menu-item-20 a {
+	color: #eb8675;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-medoptic-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-20 a:visited,
+#menu-communities .menu-item-20 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-20 a:active,
+#menu-communities .menu-item-20 a:focus,
+#menu-communities .menu-item-20 a:hover {
+	background-color: #efefef;
+}
+
+/** NEPHROLOGIST CONNECT **/
+#menu-communities .menu-item-21 {
+	display: none;
+}
+#menu-communities .menu-item-21 a {
+	color: #dfa364;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-nephrologist-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-21 a:visited,
+#menu-communities .menu-item-21 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-21 a:active,
+#menu-communities .menu-item-21 a:focus,
+#menu-communities .menu-item-21 a:hover {
+	background-color: #efefef;
+}
+
+/** NEUROLOGIST CONNECT **/
+#menu-communities .menu-item-22 {}
+#menu-communities .menu-item-22 a {
+	color: #704fa1;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-neurologist-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-22 a:visited,
+#menu-communities .menu-item-22 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-22 a:active,
+#menu-communities .menu-item-22 a:focus,
+#menu-communities .menu-item-22 a:hover {
+	background-color: #efefef;
+}
+
+/** NURSE INNOVATOR CONNECT **/
+#menu-communities .menu-item-23 {
+	display: none;
+}
+#menu-communities .menu-item-23 a {}
+#menu-communities .menu-item-23 a:visited,
+#menu-communities .menu-item-23 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-23 a:active,
+#menu-communities .menu-item-23 a:focus,
+#menu-communities .menu-item-23 a:hover {
+	background-color: #efefef;
+}
+
+/** OB-GYN CONNECT **/
+#menu-communities .menu-item-24 {}
+#menu-communities .menu-item-24 a {
+	color: #ed5f77;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-ob-gyn-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-24 a:visited,
+#menu-communities .menu-item-24 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-24 a:active,
+#menu-communities .menu-item-24 a:focus,
+#menu-communities .menu-item-24 a:hover {
+	background-color: #efefef;
+}
+
+/** ONCOLOGY NATION **/
+#menu-communities .menu-item-25 {}
+#menu-communities .menu-item-25 a {
+	color: #efbb2f;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-oncology-nation.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-25 a:visited,
+#menu-communities .menu-item-25 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-25 a:active,
+#menu-communities .menu-item-25 a:focus,
+#menu-communities .menu-item-25 a:hover {
+	background-color: #efefef;
+}
+
+/** PA UNITE **/
+#menu-communities .menu-item-26 {}
+#menu-communities .menu-item-26 a {
+	color: #c87e50;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-pa-unite.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-26 a:visited,
+#menu-communities .menu-item-26 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-26 a:active,
+#menu-communities .menu-item-26 a:focus,
+#menu-communities .menu-item-26 a:hover {
+	background-color: #efefef;
+}
+
+/** PATHOLOGIST CONNECT **/
+#menu-communities .menu-item-27 {}
+#menu-communities .menu-item-27 a {
+	color: #ee8a52;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-pathologist-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-27 a:visited,
+#menu-communities .menu-item-27 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-27 a:active,
+#menu-communities .menu-item-27 a:focus,
+#menu-communities .menu-item-27 a:hover {
+	background-color: #efefef;
+}
+
+/** PEDIATRICIAN NATION **/
+#menu-communities .menu-item-28 {}
+#menu-communities .menu-item-28 a {
+	color: #e89024;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-pediatrician-nation.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-28 a:visited,
+#menu-communities .menu-item-28 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-28 a:active,
+#menu-communities .menu-item-28 a:focus,
+#menu-communities .menu-item-28 a:hover {
+	background-color: #efefef;
+}
+
+/** PHARMACIST SOCIETY **/
+#menu-communities .menu-item-29 {}
+#menu-communities .menu-item-29 a {
+	color: #a04d5a;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-pharmacist-society.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-29 a:visited,
+#menu-communities .menu-item-29 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-29 a:active,
+#menu-communities .menu-item-29 a:focus,
+#menu-communities .menu-item-29 a:hover {
+	background-color: #efefef;
+}
+
+/** PLASTIC ONE WORLD **/
+#menu-communities .menu-item-30 {
+	display: none;
+}
+#menu-communities .menu-item-30 a {}
+#menu-communities .menu-item-30 a:visited,
+#menu-communities .menu-item-30 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-30 a:active,
+#menu-communities .menu-item-30 a:focus,
+#menu-communities .menu-item-30 a:hover {
+	background-color: #efefef;
+}
+
+/** PSYCHIATRIST CONNECT **/
+#menu-communities .menu-item-31 {}
+#menu-communities .menu-item-31 a {
+	color: #72bdb4;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-psychiatrist-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-31 a:visited,
+#menu-communities .menu-item-31 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-31 a:active,
+#menu-communities .menu-item-31 a:focus,
+#menu-communities .menu-item-31 a:hover {
+	background-color: #efefef;
+}
+
+/** PULMONOLOGIST CONNECT **/
+#menu-communities .menu-item-32 {}
+#menu-communities .menu-item-32 a {
+	color: #a565a9;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-pulmonologist-connect.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-32 a:visited,
+#menu-communities .menu-item-32 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-32 a:active,
+#menu-communities .menu-item-32 a:focus,
+#menu-communities .menu-item-32 a:hover {
+	background-color: #efefef;
+}
+
+/** RADIOLOGIST CONNECT **/
+#menu-communities .menu-item-33 {
+	display: none;
+}
+#menu-communities .menu-item-33 a {}
+#menu-communities .menu-item-33 a:visited,
+#menu-communities .menu-item-33 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-33 a:active,
+#menu-communities .menu-item-33 a:focus,
+#menu-communities .menu-item-33 a:hover {
+	background-color: #efefef;
+}
+
+/** REIMBURSEMENT CONNECT **/
+#menu-communities .menu-item-34 {
+	display: none;
+}
+#menu-communities .menu-item-34 a {}
+#menu-communities .menu-item-34 a:visited,
+#menu-communities .menu-item-34 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-34 a:active,
+#menu-communities .menu-item-34 a:focus,
+#menu-communities .menu-item-34 a:hover {
+	background-color: #efefef;
+}
+
+/** RHEUMATOLOGY NATION **/
+#menu-communities .menu-item-35 {}
+#menu-communities .menu-item-35 a {
+	color: #c74d5a;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-rheumatology-nation.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-35 a:visited,
+#menu-communities .menu-item-35 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-35 a:active,
+#menu-communities .menu-item-35 a:focus,
+#menu-communities .menu-item-35 a:hover {
+	background-color: #efefef;
+}
+
+/** SURGEON NATION **/
+#menu-communities .menu-item-36 {}
+#menu-communities .menu-item-36 a {
+	color: #35a78d;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-surgeon-nation.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-36 a:visited,
+#menu-communities .menu-item-36 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-36 a:active,
+#menu-communities .menu-item-36 a:focus,
+#menu-communities .menu-item-36 a:hover {
+	background-color: #efefef;
+}
+
+/** UROLOGY NATION **/
+#menu-communities .menu-item-37 {}
+#menu-communities .menu-item-37 a {
+	color: #ecb92b;
+    background-image: url('/wp-content/themes/skipta2019/images/community-icon-urology-nation.png');
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+}
+#menu-communities .menu-item-37 a:visited,
+#menu-communities .menu-item-37 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-37 a:active,
+#menu-communities .menu-item-37 a:focus,
+#menu-communities .menu-item-37 a:hover {
+	background-color: #efefef;
+}
+
+/** VET UNITE **/
+#menu-communities .menu-item-38 {
+	display: none;
+}
+#menu-communities .menu-item-38 a {}
+#menu-communities .menu-item-38 a:visited,
+#menu-communities .menu-item-38 a:link {
+	background-color: #fff;
+}
+#menu-communities .menu-item-38 a:active,
+#menu-communities .menu-item-38 a:focus,
+#menu-communities .menu-item-38 a:hover {
+	background-color: #efefef;
+}
+
+
+/****** Content Wrapper ********/
+#content-wrapper {
+	position: relative;
+    top: 0;
+    left: -4px;
+    display: inline-block;
+    width: 1599px;
+    vertical-align: top;
+}
+/****** Content ******/
+.site-content {
+    padding: 0;
+	margin-left: 0px;
+	margin-right: 300px;
+	background-color: #f3f3f3;
+	background-image: url('/wp-content/themes/skipta2019/images/menu-bg.png');
+    background-repeat: repeat-y;
+}
+.site-content .content-area {;
+    width: 100%;
+}
+.site-content .site-main {
+    margin-bottom: 0;
+}
+.site-content .entry-header {
+	height: 100px;
+	background-color: #fff;
+	background-image: url('/wp-content/themes/skipta2019/images/menu-bg.png');
+    background-repeat: repeat-y;
+}
+.site-content .entry-header .entry-title {
+	font-family: 'Gotham-Book', sans-serif;
+	font-size: 30px;
+	font-style: italic;
+	color: #7da329;
+	font-weight: 400;
+    padding: 44px 0 0 30px;
+    margin-bottom: 0;
+	line-height: 36px;
+}
+.site-content .entry-content {
+	padding: 20px 30px;
+}
+
+/****** Home *******/
+.entry-content .home-h2 {
+	font-family: 'Gotham-Bold', sans-serif;
+	font-size: 20px;
+    font-weight: 500;
+    color: #1f1f1f;
+	line-height: 26px;
+}
+/*** Covid 19 Boxes ***/
+.entry-content ol.covid-box {
+	list-style-type: none;
+}
+.entry-content ol.covid-box li {
+    margin: 30px 0px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 30px;
+	position: relative;
+}
+/*** Universal Feed Styles ***/
+.entry-content ul.display-posts-listing {
+	list-style-type: none;
+}
+.entry-content ul.display-posts-listing li {
+    margin: 30px 0px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 30px;
+	position: relative;
+}
+.entry-content ul.display-posts-listing li .post-url {
+	display: block;
+    width: 95%;
+    height: 200px;
+	box-shadow: none;
+    position: absolute;
+}
+.entry-content ul.display-posts-listing li .community {
+	font-weight: 800;
+	background-repeat: no-repeat;
+    height: 55px;
+    display: block;
+    padding: 15px 0 0 75px;
+}
+/*** Cardiologist Connect ***/
+.entry-content ul.display-posts-listing li .Cardiologist {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-cardiologist-connect.png');
+	color: #90705C;
+}
+/*** Dermatologist Nation ***/
+.entry-content ul.display-posts-listing li .Dermatologist {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-dermatologist-nation.png');
+	color: #a3867a;
+}
+/*** Doctor Unite ***/
+.entry-content ul.display-posts-listing li .Doctor {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-doctor-unite.png');
+	color: #747063;
+}
+/*** Endocrinologist Nation ***/
+.entry-content ul.display-posts-listing li .Endocrinologist {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-endocrinologist-nation.png');
+	color: #7c6d4d;
+}
+/*** Gastroenterologist Connect ***/
+.entry-content ul.display-posts-listing li .Gastroenterologist {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-gastroenterologist-nation.png');
+	color: #887d6a;
+}
+/*** Generation NP ***/
+.entry-content ul.display-posts-listing li .Generation {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-generation-np.png');
+	color: #3e6568;
+}
+/*** Medical Directors Forum ***/
+.entry-content ul.display-posts-listing li .Medical {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-medical-directors-forum.png');
+	color: #217F85;
+}
+/*** Neurologist Connect ***/
+.entry-content ul.display-posts-listing li .Neurologist {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-neurologist-connect.png');
+	color: #78773b;
+}
+/*** Oncology Nation ***/
+.entry-content ul.display-posts-listing li .Oncology {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-oncology-nation.png');
+	color: #848f71;
+}
+/*** PA Unite ***/
+.entry-content ul.display-posts-listing li .PA {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-pa-unite.png');
+	color: #184b4e;
+}
+/*** Pathologist Connect ***/
+.entry-content ul.display-posts-listing li .Pathologist {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-pathologist-connect.png');
+	color: #587953;
+}
+/*** Pharmacist Society ***/
+.entry-content ul.display-posts-listing li .Pharmacist {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-pharmacist-society.png');
+	color: #728fa0;
+}
+/*** Psychiatrist Connect ***/
+.entry-content ul.display-posts-listing li .Psychiatrist {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-psychiatrist-connect.png');
+	color: #7c6d4d;
+}
+/*** Pulmonologist Connect ***/
+.entry-content ul.display-posts-listing li .Pulmonologist {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-pulmonologist-connect.png');
+	color: #6e6054;
+}
+/*** Rheumatology Nation ***/
+.entry-content ul.display-posts-listing li .Rheumatology {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-rheumatology-nation.png');
+	color: #60817f;
+}
+/*** Surgeon Nation ***/
+.entry-content ul.display-posts-listing li .Surgeon {
+	background-image: url('/wp-content/themes/skipta2019/images/community-post-logo-surgeon-nation.png');
+	color: #958b74;
+}
+
+.entry-content ul.display-posts-listing li .date {
+	position: absolute;
+	top: 30px;
+    right: 30px;
+}
+.entry-content ul.display-posts-listing li .title {
+	font-weight: 800;
+    display: block;
+    margin: 10px 0;
+}
+.entry-content ul.display-posts-listing li .excerpt {
+    display: block;
+}
+.entry-content ul.display-posts-listing li .views {
+    display: inline-block;
+    font-weight: 600;
+    padding: 30px 10px 0 0;
+}
+.entry-content ul.display-posts-listing li .views::after { 
+    content: " Views";
+}
+.entry-content ul.display-posts-listing li .likes {
+    display: inline-block;
+    font-weight: 600;
+    padding: 30px 10px 0 0;
+}
+.entry-content ul.display-posts-listing li .likes::after { 
+    content: " Likes";
+}
+.entry-content ul.display-posts-listing li .comments {
+    display: inline-block;
+    font-weight: 600;
+    padding: 30px 10px 0 0;
+}
+.entry-content ul.display-posts-listing li .comments::after { 
+    content: " Comments";
+}
+.entry-content ul.display-posts-listing li .follows {
+    display: inline-block;
+    font-weight: 600;
+    padding: 30px 10px 0 0;
+}
+.entry-content ul.display-posts-listing li .follows::after { 
+    content: " Follows";
+}
+.entry-content ul.display-posts-listing li .read-more { 
+    padding: 5px 17px;
+    border: 1px solid #747063;
+    color: #747063;
+    border-radius: 50px;
+    text-decoration: underline;
+    font-size: 13px;
+    background: #ffffff;
+    float: right;
+	position: relative;
+    top: 20px;
+}
+
+/*** Hide Social Actions for Compete **/
+.entry-content ul.display-posts-listing:nth-of-type(2) li .views,
+.entry-content ul.display-posts-listing:nth-of-type(2) li .likes,
+.entry-content ul.display-posts-listing:nth-of-type(2) li .follows,
+.entry-content ul.display-posts-listing:nth-of-type(2) li .comments {
+	text-indent: -9999px;
+}
+    
+/*** Conversations ***/
+.entry-content .conversations {
+	font-family: 'Gotham-Book', sans-serif;
+	margin: 0;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: #fff;
+    width: 105%;
+    background-color: #009acd;
+    position: relative;
+    left: -30px;
+}
+.entry-content ul.display-posts-listing:first-of-type .image-url {
+	display: none;
+}
+/*** Compete ***/
+.entry-content .compete {
+	font-family: 'Gotham-Book', sans-serif;
+	margin: 0;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: #fff;
+    width: 105%;
+    background-color: #00cd96;
+    position: relative;
+    left: -30px;
+}
+.entry-content ul.display-posts-listing:nth-of-type(2) .title {
+	display: none;
+}
+.entry-content ul.display-posts-listing:nth-of-type(2) .image-url {
+	width: 100%;
+	display: block;
+	max-width: 874px;
+	margin: 20px auto 0;
+	
+}
+.entry-content ul.display-posts-listing:nth-of-type(2) li .post-url {
+    display: block;
+    width: 95%;
+    height: 300px;
+    box-shadow: none;
+    position: absolute;
+}
+/*** News ***/
+.entry-content .news {
+	font-family: 'Gotham-Book', sans-serif;
+	margin: 0;
+    padding: 10px 30px;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 26px;
+    text-transform: uppercase;
+    color: #fff;
+    width: 105%;
+    background-color: #9fcc3b;
+    position: relative;
+    left: -30px;
+}
+.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+    display: block;
+    width: 95%;
+    height: 300px;
+    box-shadow: none;
+    position: absolute;
+}
+.entry-content ul.display-posts-listing:nth-of-type(3) .box {
+    margin: 20px 0px 0px;
+    padding: 0px;
+    border: 1px solid #dddddd;
+    background-color: #f3f3f3;
+    display: block;
+    width: 100%;
+}
+.entry-content ul.display-posts-listing:nth-of-type(3) .box .left {
+    display: inline-block;
+    margin: 20px;
+    vertical-align: top;
+}
+.entry-content ul.display-posts-listing:nth-of-type(3) .box .right {
+    display: inline-block;
+    width: 85%;
+    margin: 20px 0 10px;
+    vertical-align: top;
+}
+.entry-content ul.display-posts-listing:nth-of-type(3) .image-url {
+    width: 100%;
+	max-width: 130px;
+	display: block;
+}
+.entry-content ul.display-posts-listing:nth-of-type(3) .title {
+	display: block;
+    margin: 0 0 10px;
+}
+.entry-content ul.display-posts-listing:nth-of-type(3) .excerpt {
+    display: block;
+}
+
+/****** Contact Form ******/
+.wpcf7 .wpcf7-form {
+    background-color: #A1CA52;
+	color: #fff;
+	padding: 30px;
+}
+.wpcf7 .wpcf7-form p {
+	line-height: 0;
+}
+.wpcf7 .wpcf7-form h2 {
+    font-size: 24px;
+	line-height: 30px;
+	margin: 0;
+	display: block;
+	font-weight: 500;
+    color: #fff;
+    text-align: center;
+    padding: 0px 0px 10px;
+}
+.wpcf7 .wpcf7-form .text {
+    font-size: 16px;
+	line-height: 22px;
+	text-align: center;
+	padding: 0 0 30px;
+}
+.wpcf7 .wpcf7-form .first-name {
+	display: inline-block;
+	padding: 10px;
+	width: 48%;
+	text-transform: uppercase;
+}
+.wpcf7 .wpcf7-form .first-name .first-name {
+	display: block;
+	padding: 6px 0 0;
+	width: 100%;
+	text-transform: none;
+}
+.wpcf7 .wpcf7-form .last-name {
+	display: inline-block;
+	padding: 10px;
+	width: 48%;
+	text-transform: uppercase;
+}
+.wpcf7 .wpcf7-form .last-name .last-name {
+	display: block;
+	padding: 6px 0 0;
+	width: 100%;
+	text-transform: none;
+}
+.wpcf7 .wpcf7-form .email-address {
+	display: inline-block;
+	padding: 10px;
+	width: 48%;
+	text-transform: uppercase;
+}
+.wpcf7 .wpcf7-form .email-address .email-address {
+	display: block;
+	padding: 6px 0 0;
+	width: 100%;
+	text-transform: none;
+}
+.wpcf7 .wpcf7-form .phone-number {
+	display: inline-block;
+	padding: 10px;
+	width: 48%;
+	text-transform: uppercase;
+}
+.wpcf7 .wpcf7-form .phone-number .phone-number {
+	display: block;
+	padding: 6px 0 0;
+	width: 100%;
+	text-transform: none;
+}
+.wpcf7 .wpcf7-form .contact-type {
+	display: inline-block;
+	padding: 10px;
+	width: 48%;
+	text-transform: uppercase;
+}
+.wpcf7 .wpcf7-form .contact-type .contact-type {
+	display: block;
+	padding: 6px 0 0;
+	width: 100%;
+	text-transform: none;
+}
+.wpcf7 .wpcf7-form .company-name {
+	display: inline-block;
+	padding: 10px;
+	width: 48%;
+	text-transform: uppercase;
+}
+.wpcf7 .wpcf7-form .company-name .company-name {
+	display: block;
+	padding: 6px 0 0;
+	width: 100%;
+	text-transform: none;
+}
+.wpcf7 .wpcf7-form .message {
+	display: inline-block;
+	padding: 10px;
+	width: 98%;
+	text-transform: uppercase;
+}
+.wpcf7 .wpcf7-form .message .message {
+	display: block;
+	padding: 6px 0 0;
+	width: 100%;
+	text-transform: none;
+}
+
+.wpcf7 .wpcf7-form .wpcf7-radio label {
+	background: #88b237;
+    border-radius: 90px;
+    padding: 10px 20px;
+    width: 100%;
+    display: block;
+}
+
+.wpcf7 .wpcf7-form .recaptcha {
+	margin: 20px auto;
+    display: block;
+    width: 233px;
+}
+    
+.wpcf7 .wpcf7-form .wpcf7-form-control-wrap input {
+	padding-left: 1em;
+}
+.wpcf7 .wpcf7-form input[type="date"],
+.wpcf7 .wpcf7-form input[type="time"],
+.wpcf7 .wpcf7-form input[type="datetime-local"],
+.wpcf7 .wpcf7-form input[type="week"],
+.wpcf7 .wpcf7-form input[type="month"],
+.wpcf7 .wpcf7-form input[type="text"],
+.wpcf7 .wpcf7-form input[type="email"],
+.wpcf7 .wpcf7-form input[type="url"],
+.wpcf7 .wpcf7-form input[type="password"],
+.wpcf7 .wpcf7-form input[type="search"],
+.wpcf7 .wpcf7-form input[type="tel"],
+.wpcf7 .wpcf7-form input[type="number"],
+.wpcf7 .wpcf7-form textarea {
+    background: #f7f7f7;
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    border: 1px solid #d1d1d1;
+    border-radius: 4px;
+    color: #000;
+    padding: 0.5em 0.75;
+    width: 100%;
+    font-size: 12px;
+    line-height: 18px;
+}
+/*** fix for placeholder text ***/
+::-webkit-input-placeholder { /* WebKit browsers */
+    color: #333 !important; 
+    opacity: 1;
+	font-size: 12px !important;
+	padding: 0.5em 0.75 !important;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+    color: #333 !important; 
+    opacity: 1;
+	font-size: 12px !important;
+	padding: 0.5em 0.75 !important;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+    color: #333 !important; 
+    opacity: 1;
+	font-size: 12px !important;
+	padding: 0.5em 0.75 !important;
+}
+:-ms-input-placeholder { /* Internet Explorer 10+ */
+    color: #333 !important; 
+    opacity: 1;
+	font-size: 12px !important;
+	padding: 0.5em 0.75 !important;
+}
+.wpcf7 .wpcf7-form .wpcf7-textarea {
+	padding-left: 1em;
+    max-height: 10em;
+}
+.wpcf7 .wpcf7-form .wpcf7-select {
+	padding-left: 1em;
+	font-size: 18px;
+	color: #253B3E;
+	font-family: 'Gotham-Book', sans-serif;
+	background: #f7f7f7;
+    background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+    border: 1px solid #d1d1d1;
+    border-radius: 2px;
+    padding: 0.625em 0.4375em;
+    width: 100%;
+}
+.wpcf7 .wpcf7-form input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	font-size: 18px;
+	color: #253B3E;
+	font-family: 'Gotham-Book', sans-serif;
+}
+.wpcf7 .wpcf7-form input::-moz-placeholder { /* Firefox 19+ */
+    font-size: 18px;
+	color: #253B3E;
+	font-family: 'Gotham-Book', sans-serif;
+}
+.wpcf7 .wpcf7-form input:-ms-input-placeholder { /* IE 10+ */
+	font-size: 18px;
+	color: #253B3E;
+	font-family: 'Gotham-Book', sans-serif;
+}
+.wpcf7 .wpcf7-form input:-moz-placeholder { /* Firefox 18- */
+	font-size: 18px;
+	color: #253B3E;
+	font-family: 'Gotham-Book', sans-serif;
+}
+.wpcf7 .wpcf7-form textarea::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+	font-size: 18px;
+	color: #253B3E;
+	font-family: 'Gotham-Book', sans-serif;
+}
+.wpcf7 .wpcf7-form textarea::-moz-placeholder { /* Firefox 19+ */
+	font-size: 18px;
+	color: #253B3E;
+	font-family: 'Gotham-Book', sans-serif;
+}
+.wpcf7 .wpcf7-form textarea:-ms-input-placeholder { /* IE 10+ */
+	font-size: 18px;
+	color: #253B3E;
+	font-family: 'Gotham-Book', sans-serif;
+}
+.wpcf7 .wpcf7-form textarea:-moz-placeholder { /* Firefox 18- */
+	font-size: 18px;
+	color: #253B3E;
+	font-family: 'Gotham-Book', sans-serif;
+}
+.wpcf7 .wpcf7-form .wpcf7-recaptcha {
+	-webkit-transform:scale(0.77);
+	transform:scale(0.77);
+	-webkit-transform-origin:0 0;
+	transform-origin:0 0;
+}
+.wpcf7 .wpcf7-form .wpcf7-submit {
+	background-color: #A1CA52;
+    color: #fff;
+    padding: 0.75em 0em;
+    border: 2px solid #fff;
+    text-transform: uppercase;
+    width: 180px;
+    font-weight: 600;
+    font-family: 'Gotham-Book', sans-serif;
+    margin: 0 auto;
+    display: block;
+	border-radius: 4px;
+
+}
+.wpcf7 .wpcf7-form .wpcf7-submit:active,
+.wpcf7 .wpcf7-form .wpcf7-submit:hover,
+.wpcf7 .wpcf7-form .wpcf7-submit:focus {
+	color: #000;
+    border: 2px solid #000;
+}
+
+    
+
+/****** Sidebar ******/
+.sidebar {
+    width: 300px;
+	position: absolute;
+	right: 0;
+    float: none;
+	margin-left: 0;
+}
+.widget {
+    border-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+}
+.widget .social {
+	height: 100px;
+	background-color: #fff;
+}
+.widget .social ul {
+	list-style-type: none;
+    margin-bottom: 0;
+    margin: 0 auto;
+    width: 205px;
+	padding: 40px 0 0;
+}
+.widget .social li {
+	display: inline-block;
+    padding: 0 20px;
+}
+.widget .social li a {}
+.widget .social li .twitter {
+	text-indent: -9999px;
+    display: block;
+    background-image: url(/wp-content/themes/skipta2019/images/twitter.png);
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    box-shadow: none;
+}
+.widget .social li .facebook {
+	text-indent: -9999px;
+    display: block;
+    background-image: url(/wp-content/themes/skipta2019/images/facebook.png);
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    box-shadow: none;
+}
+.widget .social li .linkedin {
+	text-indent: -9999px;
+    display: block;
+    background-image: url(/wp-content/themes/skipta2019/images/linkedin.png);
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 24px;
+    box-shadow: none;
+}
+.widget .focus-centers {
+	margin: -10px 0 0 0;
+}
+.widget .focus-centers .title {
+	background-color: #9fcc3b;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 0;
+    margin: 10px 0 0;
+    text-align: center;
+}
+/*** Covid-19 Unite ***/
+.widget .focus-centers .covid-19-unite {}
+.widget .focus-centers .covid-19-unite a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0;
+}
+.widget .focus-centers .covid-19-unite a:link,
+.widget .focus-centers .covid-19-unite a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .covid-19-unite a:hover,
+.widget .focus-centers .covid-19-unite a:active,
+.widget .focus-centers .covid-19-unite a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .covid-19-unite .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #3c3c3b;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-covid-19-unite.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .covid-19-unite .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+/*** Diabetes Network ***/
+.widget .focus-centers .diabetes-network {}
+.widget .focus-centers .diabetes-network a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0;
+}
+.widget .focus-centers .diabetes-network a:link,
+.widget .focus-centers .diabetes-network a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .diabetes-network a:hover,
+.widget .focus-centers .diabetes-network a:active,
+.widget .focus-centers .diabetes-network a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .diabetes-network .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #e24942;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-diabetes-network.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .diabetes-network .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+/*** I-O Connect ***/
+.widget .focus-centers .io-connect {}
+.widget .focus-centers .io-connect a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0;
+}
+.widget .focus-centers .io-connect a:link,
+.widget .focus-centers .io-connect a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .io-connect a:hover,
+.widget .focus-centers .io-connect a:active,
+.widget .focus-centers .io-connect a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .io-connect .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #301e57;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-io-connect.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .io-connect .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+/*** Infectious Disease ***/
+.widget .focus-centers .infectious-disease {}
+.widget .focus-centers .infectious-disease a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0;
+}
+.widget .focus-centers .infectious-disease a:link,
+.widget .focus-centers .infectious-disease a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .infectious-disease a:hover,
+.widget .focus-centers .infectious-disease a:active,
+.widget .focus-centers .infectious-disease a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .infectious-disease .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #a0af5a;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-infectious-disease.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+    display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .infectious-disease .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+/*** KRAS Oncogene Connect ***/
+.widget .focus-centers .kras-oncogene-connect {}
+.widget .focus-centers .kras-oncogene-connect a {
+	box-shadow: none;
+    color: #102338;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0;
+}
+.widget .focus-centers .kras-oncogene-connect a:link,
+.widget .focus-centers .kras-oncogene-connect a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .kras-oncogene-connect a:hover,
+.widget .focus-centers .kras-oncogene-connect a:active,
+.widget .focus-centers .kras-oncogene-connect a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .kras-oncogene-connect .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #301e57;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-kras-oncogene-connect.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .kras-oncogene-connect .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+/*** Lipid Management Connect ***/
+.widget .focus-centers .lipid-management-connect {}
+.widget .focus-centers .lipid-management-connect a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0;
+}
+.widget .focus-centers .lipid-management-connect a:link,
+.widget .focus-centers .lipid-management-connect a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .lipid-management-connect a:hover,
+.widget .focus-centers .lipid-management-connect a:active,
+.widget .focus-centers .lipid-management-connect a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .lipid-management-connect .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #925da5;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-lipid-management-connect.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .lipid-management-connect .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+/*** Migraine DX Connect ***/
+.widget .focus-centers .migraine-dx-connect {}
+.widget .focus-centers .migraine-dx-connect a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0 4px;
+}
+.widget .focus-centers .migraine-dx-connect a:link,
+.widget .focus-centers .migraine-dx-connect a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .migraine-dx-connect a:hover,
+.widget .focus-centers .migraine-dx-connect a:active,
+.widget .focus-centers .migraine-dx-connect a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .migraine-dx-connect .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #1b2444;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-migraine-dx-connect.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .migraine-dx-connect .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+/*** Tardive Dyskinesia Connect ***/
+.widget .focus-centers .tardive-dyskinesia-connect {}
+.widget .focus-centers .tardive-dyskinesia-connect a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0 4px;
+}
+.widget .focus-centers .tardive-dyskinesia-connect a:link,
+.widget .focus-centers .tardive-dyskinesia-connect a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .tardive-dyskinesia-connect a:hover,
+.widget .focus-centers .tardive-dyskinesia-connect a:active,
+.widget .focus-centers .tardive-dyskinesia-connect a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .tardive-dyskinesia-connect .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #d6144e;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-tardive-dyskinesia-connect.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .tardive-dyskinesia-connect .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+/*** Type 2 Diabetes Dx Connect ***/
+.widget .focus-centers .type-2-diabetes-dx-connect {}
+.widget .focus-centers .type-2-diabetes-dx-connect a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0 14px;
+}
+.widget .focus-centers .type-2-diabetes-dx-connect a:link,
+.widget .focus-centers .type-2-diabetes-dx-connect a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .type-2-diabetes-dx-connect a:hover,
+.widget .focus-centers .type-2-diabetes-dx-connect a:active,
+.widget .focus-centers .type-2-diabetes-dx-connect a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .type-2-diabetes-dx-connect .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #539ca3;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-type-2-diabetes-dx-connect.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .type-2-diabetes-dx-connect .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+.widget #ad-space {}
+.widget .textwidget .fixed-top {
+	position: fixed;
+    top: 0px;
+}
+
+/****** Footer ******/
+.site-footer {
+	background-color: #0399be;
+	color: #fff;
+	padding: 0;
+	background-image: url('/wp-content/themes/skipta2019/images/menu-bg.png');
+    background-repeat: repeat-y;
+	z-index: 1;
+    position: relative;
+}
+.site-footer a {
+	color: #fff;
+	font-weight: 700;
+}
+.site-footer .footer-content {
+	margin-left: 100px;
+	padding: 40px 0;
+}
+.site-footer .footer-content .info {
+	display: inline-block;
+	width: 350px;
+	vertical-align: top;
+	line-height: 24px;
+}
+.site-footer .footer-content .menu1 {
+	display: inline-block;
+	width: 250px;
+	vertical-align: top;
+	color: #85e3fc;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+}
+.site-footer .footer-content .menu1 ul {
+	list-style-type: none;
+    margin: 0;
+}
+.site-footer .footer-content .menu1 li {}
+.site-footer .footer-content .menu1 li a {
+	font-weight: 400;
+    text-transform: capitalize;
+    padding: 6px 0 0;
+    display: block;
+}
+.site-footer .footer-content .menu2 {
+	display: inline-block;
+	width: 250px;
+	vertical-align: top;
+	color: #85e3fc;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+}
+.site-footer .footer-content .menu2 ul {
+	list-style-type: none;
+    margin: 0;
+}
+.site-footer .footer-content .menu2 li {}
+.site-footer .footer-content .menu2 li a {
+	font-weight: 400;
+    text-transform: capitalize;
+    padding: 6px 0 0;
+    display: block;
+}
+.site-footer .footer-content .connect {
+	display: inline-block;
+	width: 250px;
+	vertical-align: top;
+	color: #85e3fc;
+    text-transform: uppercase;
+    font-size: 13px;
+    font-weight: 600;
+}
+.site-footer .footer-content .connect ul {
+	list-style-type: none;
+    margin: 0;
+}
+.site-footer .footer-content .connect li {
+	display: inline-block;
+    padding: 10px 10px 0 0;
+}
+.site-footer .footer-content .connect li a {
+	font-weight: 400;
+    text-transform: capitalize;
+    padding: 6px 0 0;
+    display: block;
+}
+.site-footer .footer-content .connect .twitter {
+	text-indent: -9999px;
+    display: block;
+    background-image: url('/wp-content/themes/skipta2019/images/footer-twitter.png');
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    box-shadow: none;
+}
+.site-footer .footer-content .connect .facebook {
+	text-indent: -9999px;
+    display: block;
+    background-image: url('/wp-content/themes/skipta2019/images/footer-facebook.png');
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    box-shadow: none;
+}
+.site-footer .footer-content .connect .linkedin {
+	text-indent: -9999px;
+    display: block;
+    background-image: url('/wp-content/themes/skipta2019/images/footer-linkedin.png');
+    background-repeat: no-repeat;
+    width: 32px;
+    height: 32px;
+    box-shadow: none;
+}
+
+/*** About Page ***/
+.entry-content .about-skipta {}
+.entry-content .about-skipta .wp-block-column {
+	flex-basis: 100% !important;
+	flex-grow: 1 !important;
+	margin: 10px 0px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+	/* background-image: url('images/about-skipta.PNG');
+	background-repeat: no-repeat;
+	background-position: 95% 0; */
+}
+.entry-content .about-skipta .wp-block-column:nth-of-type(2) {
+	display: none;
+}
+.entry-content .about-skipta .wp-block-column p {
+    width: 80%;
+}
+/*** Communities Page ***/
+.entry-content .communities {}
+.entry-content .communities .wp-block-column {
+	flex-basis: 100% !important;
+	flex-grow: 1 !important;
+	text-align: center;
+}
+.entry-content .communities .wp-block-column:nth-of-type(2) {
+	display: none;
+}
+.entry-content .communities select {
+	-webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+	width: 100%;
+    padding: 0.5em 1em;
+	margin: 0 0 40px;
+	background-image: linear-gradient(45deg, transparent 50%, gray 50%), linear-gradient(135deg, gray 50%, transparent 50%), linear-gradient(to right, #ccc, #ccc);
+    background-position: calc(100% - 20px) calc(1em + 2px), calc(100% - 15px) calc(1em + 2px), calc(100% - 2.5em) 0.5em;
+    background-size: 5px 5px, 5px 5px, 1px 1.5em;
+    background-repeat: no-repeat;
+}
+.entry-content .communities .community {
+	display: inline-block;
+    width: 400px;
+    height: 249px;
+	margin: 0 8px 10px 0px;
+}
+.entry-content .communities .community a {
+	display: block;
+    box-shadow: none;
+    width: 400px;
+    height: 249px;
+	background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+	text-transform: uppercase;
+    font-weight: 600;
+    font-size: 13px;
+	color: #fff;
+	text-align: left;
+}
+.entry-content .communities #ai-unite {
+	background-image: url('images/ai-unite-block.jpg');
+}
+.entry-content .communities #ai-unite a {
+    background-image: url('images/community-icon-ai-unite-white.png');
+}
+.entry-content .communities #cardiologist-connect {
+	background-image: url('images/cardiologist-connect-block.jpg');
+}
+.entry-content .communities #cardiologist-connect a {
+	background-image: url('images/community-icon-cardiologist-connect-white.png');
+}
+.entry-content .communities #dermatologist-nation {
+	background-image: url('images/dermatologist-nation-block.jpg');
+}
+.entry-content .communities #dermatologist-nation a {
+	background-image: url('images/community-icon-dermatologist-nation-white.png');
+}
+.entry-content .communities #doctor-unite {
+	background-image: url('images/doctor-unite-block.jpg');
+}
+.entry-content .communities #doctor-unite a {
+	background-image: url('images/community-icon-doctor-unite-white.png');
+}
+.entry-content .communities #endocrinologist-nation {
+	background-image: url('images/endocrinologist-nation-block.jpg');
+}
+.entry-content .communities #endocrinologist-nation a {
+	background-image: url('images/community-icon-endocrinologist-nation-white.png');
+}
+.entry-content .communities #gastroenterologist-connect {
+	background-image: url('images/gastrointernologist-connect-block.jpg');
+}
+.entry-content .communities #gastroenterologist-connect a {
+	background-image: url('images/community-icon-gastroenterologist-connect-white.png');
+}
+.entry-content .communities #generation-np {
+	background-image: url('images/generation-np-block.jpg');
+}
+.entry-content .communities #generation-np a {
+	background-image: url('images/community-icon-generation-np-white.png');
+}
+.entry-content .communities #medical-directors-forum {
+	background-image: url('images/medical-directors-forum-block.jpg');
+}
+.entry-content .communities #medical-directors-forum a {
+	background-image: url('images/community-icon-medical-directors-forum-white.png');
+}
+.entry-content .communities #medoptic-connect {
+	background-image: url('images/medoptic-connect-block.jpg');
+}
+.entry-content .communities #medoptic-connect a {
+	background-image: url('images/community-icon-medoptic-connect-white.png');
+}
+.entry-content .communities #nephrologist-connect {
+	background-image: url('images/nephrologist-connect-block.jpg');
+}
+.entry-content .communities #nephrologist-connect a {
+	background-image: url('images/community-icon-nephrologist-connect-white.png');
+}
+.entry-content .communities #neurologist-connect {
+	background-image: url('images/neurologist-connect-block.jpg');
+}
+.entry-content .communities #neurologist-connect a {
+	background-image: url('images/community-icon-neurologist-connect-white.png');
+}
+.entry-content .communities #obgyn-connect {
+	background-image: url('images/obgyn-connect-block.jpg');
+}
+.entry-content .communities #obgyn-connect a {
+	background-image: url('images/community-icon-ob-gyn-connect-white.png');
+}
+.entry-content .communities #oncology-nation {
+	background-image: url('images/oncology-nation-block.jpg');
+}
+.entry-content .communities #oncology-nation a {
+	background-image: url('images/community-icon-oncology-nation-white.png');
+}
+.entry-content .communities #pa-unite {
+	background-image: url('images/pa-unite-block.jpg');
+}
+.entry-content .communities #pa-unite a {
+	background-image: url('images/community-icon-pa-unite-white.png');
+}
+.entry-content .communities #pathologist-connect {
+	background-image: url('images/pathologist-connect-block.jpg');
+}
+.entry-content .communities #pathologist-connect a {
+	background-image: url('images/community-icon-pathologist-connect-white.png');
+}
+.entry-content .communities #pediatrician-nation {
+	background-image: url('images/pediatrician-nation-block.jpg');
+}
+.entry-content .communities #pediatrician-nation a {
+	background-image: url('images/community-icon-pediatrician-nation-white.png');
+}
+.entry-content .communities #pharmacist-society {
+	background-image: url('images/pharmacist-society-block.jpg');
+}
+.entry-content .communities #pharmacist-society a {
+	background-image: url('images/community-icon-pharmacist-society-white.png');
+}
+.entry-content .communities #psychiatrist-connect {
+	background-image: url('images/psychiatrist-connect-block.jpg');
+}
+.entry-content .communities #psychiatrist-connect a {
+	background-image: url('images/community-icon-psychiatrist-connect-white.png');
+}
+.entry-content .communities #pulmonologist-connect {
+	background-image: url('images/pulmonologist-connect-block.jpg');
+}
+.entry-content .communities #pulmonologist-connect a {
+	background-image: url('images/community-icon-pulmonologist-connect-white.png');
+}
+.entry-content .communities #rheumatology-nation {
+	background-image: url('images/rheumatology-nation-block.jpg');
+}
+.entry-content .communities #rheumatology-nation a {
+	background-image: url('images/community-icon-rheumatology-nation-white.png');
+}
+.entry-content .communities #surgeon-nation {
+	background-image: url('images/surgeon-nation-block.jpg');
+}
+.entry-content .communities #surgeon-nation a {
+	background-image: url('images/community-icon-surgeon-nation-white.png');
+}
+.entry-content .communities #urology-nation {
+	background-image: url('images/urology-nation-block.jpg');
+}
+.entry-content .communities #urology-nation a {
+	background-image: url('images/community-icon-urology-nation-white.png');
+}
+.entry-content .communities .view-all {}
+.entry-content .communities .view-all a {
+	background-color: #9fcc3b;
+    font-size: 20px;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 10px 0;
+    margin: 10px 0 0;
+    text-align: center;
+	display: block;
+}
+
+/*** Our Team ***/
+.entry-content .our-team-h2 {
+	font-size: 24px;
+    font-family: 'Gotham-Book', sans-serif;
+}
+.entry-content .leadership-team {}
+.entry-content .leadership-team > div:first-child {
+	flex-basis: 100% !important;
+	flex-grow: 1 !important;
+	margin: 0px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+.entry-content .leadership-team > div:nth-child(2) {
+	display: none;
+}
+.entry-content .leadership-team .leadership-team-member {
+	border: 1px solid #e1eec7;
+    padding: 8px;
+	color: #8D8D8D;
+	font-size: 12px;
+	max-height: 78px;
+}
+.entry-content .leadership-team .leadership-team-member > div:first-child {
+	flex-basis: calc(14% - 16px);
+}
+.entry-content .leadership-team .leadership-team-member h3 {
+	font-size: 14px;
+	color: #1f1f1f;
+	font-family: 'Gotham-Book', sans-serif;
+	line-height: 20px;
+    margin: 10px 0px 0px;
+}
+.entry-content .leadership-team .leadership-team-member > div:nth-child(2) {
+	margin: 0 0 0 20px;
+	flex-basis: calc(85% - 16px);
+}
+.entry-content .functional-management-team {}
+.entry-content .functional-management-team > div:first-child {
+	flex-basis: 100% !important;
+	flex-grow: 1 !important;
+	margin: 20px 0px 0px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+.entry-content .functional-management-team > div:nth-child(2) {
+	display: none;
+}
+.entry-content .functional-management-team .functional-management-team-member {
+	border: 1px solid #e1eec7;
+    padding: 8px;
+	color: #8D8D8D;
+	font-size: 12px;
+	max-height: 78px;
+}
+.entry-content .functional-management-team .functional-management-team-member h3 {
+	font-size: 14px;
+	color: #1f1f1f;
+	font-family: 'Gotham-Book', sans-serif;
+	line-height: 20px;
+    margin: 2px 0px 0px;
+}
+
+.entry-content .medical-advisory-board {}
+.entry-content .medical-advisory-board > div:first-child {
+	flex-basis: 100% !important;
+	flex-grow: 1 !important;
+	margin: 20px 0px 0px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+.entry-content .medical-advisory-board > div:nth-child(2) {
+	display: none;
+}
+.entry-content .medical-advisory-board .medical-advisory-board-member {
+	border: 1px solid #e1eec7;
+    padding: 8px;
+	color: #8D8D8D;
+	font-size: 12px;
+	max-height: 78px;
+}
+.entry-content .medical-advisory-board .medical-advisory-board-member h3 {
+	font-size: 14px;
+	color: #1f1f1f;
+	font-family: 'Gotham-Book', sans-serif;
+	line-height: 20px;
+    margin: 2px 0px 0px;
+}
+
+/*** Our Company ***/
+.entry-content .our-company {}
+.entry-content .our-company h2,
+.entry-content .our-company h3 {
+	font-size: 24px;
+    font-family: 'Gotham-Book', sans-serif;
+	line-height: 30px;
+	text-align: center;
+}
+.entry-content .our-company > div:first-child {
+	flex-basis: 100% !important;
+	flex-grow: 1 !important;
+	margin: 0px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+.entry-content .our-company > div:nth-child(2) {
+	display: none;
+}
+.entry-content .our-company ul {
+	margin-left: 20px;
+}
+
+/*** Privacy Policy ***/
+.entry-content .privacy-policy {}
+.entry-content .privacy-policy h2,
+.entry-content .privacy-policy h3 {
+	font-size: 24px;
+    font-family: 'Gotham-Book', sans-serif;
+	line-height: 30px;
+	text-align: center;
+}
+.entry-content .privacy-policy > div:first-child {
+	flex-basis: 100% !important;
+	flex-grow: 1 !important;
+	margin: 0px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+.entry-content .privacy-policy > div:nth-child(2) {
+	display: none;
+}
+.entry-content .privacy-policy ul {
+	margin-left: 20px;
+}
+/*** Terms of Service ***/
+.entry-content .terms {}
+.entry-content .terms h2,
+.entry-content .terms h3 {
+	font-size: 24px;
+    font-family: 'Gotham-Book', sans-serif;
+	line-height: 30px;
+	text-align: center;
+}
+.entry-content .terms > div:first-child {
+	flex-basis: 100% !important;
+	flex-grow: 1 !important;
+	margin: 0px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+.entry-content .terms > div:nth-child(2) {
+	display: none;
+}
+.entry-content .terms ol {
+	margin-left: 20px;
+	list-style-type: lower-alpha;
+}
+.entry-content .terms ol ol {
+	list-style-type: lower-roman;
+}
+/*** FAQs ***/
+.entry-content .faqs {}
+.entry-content .faqs h2,
+.entry-content .faqs h3 {
+	font-size: 24px;
+    font-family: 'Gotham-Book', sans-serif;
+	line-height: 30px;
+	text-align: center;
+}
+.entry-content .faqs > div:first-child {
+	flex-basis: 100% !important;
+	flex-grow: 1 !important;
+	margin: 0px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 30px;
+    position: relative;
+}
+.entry-content .faqs > div:nth-child(2) {
+	display: none;
+}
+.entry-content .faqs ul,
+.entry-content .faqs ol {
+	margin-left: 20px;
+}
+/*** Blog ***/
+.site-content .pagination {
+	margin: 0px 30px 30px;
+    background-color: #fff;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    padding: 0px;
+    position: relative;
+}
+.site-content .pagination .nav-links {
+	padding-left: 30px;
+}
+.site-content .pagination .nav-links .current {
+	color: #aaa;
+	font-weight: 400;
+}
+.site-content .pagination .page-numbers {
+    padding: 1.5em 1em;
+}
+.site-content .pagination .prev,
+.site-content .pagination .next {
+    display: none;
+}
+.site-content .pagination:before,
+.site-content .pagination:after,
+.site-content .pagination .nav-links:before,
+.site-content .pagination .nav-links:after {
+    content: "";
+    right: 0px;
+	display: none;
+}
+
+/**
+ * Gravity Forms - W9
+ */
+.entry-content .about-skipta.no-deco .wp-block-column{
+	background-image: none;
+}
+.w9-consent p, .w9-consent li{
+	font-size: 12px;
+}
+.w9-consent ol{
+	margin-left: 10px;
+}
+.w9-consent p{
+	margin-bottom: 5px;
+}
+.w9-form .gform_button{
+	padding: 10px 40px;
+}
+.w9-form .gsection {
+	padding-bottom: 0px !important;
+	color: #009acd;
+}
+.w9-form .address_state select{
+	background-color: #f7f7f7;
+	border: 1px solid #d1d1d1;
+	border-radius: 2px;	
+	height: 35px;
+}
+.w9-secure{
+	color: #155724;
+	background-color: #d4edda;
+	border: 1px solid #c3e6cb;
+	padding: 10px;
+	font-size: 13px;
+}
+.w9-secure img{
+	width: 42px;
+	float: left;
+	margin-right: 10px;	
+}
+
+/*********************/
+/* Responsive Styles */
+/*********************/
+/* minimum 0px */
+@media (min-width: 0em) {
+	.site-header {
+		width: 100%;
+	}
+	#content-wrapper {
+        left: 0;
+        width: 100%;
+    }
+	.site-content {
+        margin-right: 0px;
+        background-image: none;
+    }
+	/*** Navigation ***/
+	.menu-toggle {
+        border: 1px solid #7da329;
+        color: #7da329;
+		margin: 20px auto;
+    }
+	.menu-toggle.toggled-on,
+	.menu-toggle.toggled-on:hover,
+	.menu-toggle.toggled-on:focus {
+        background-color: #7da329;
+        border-color: #7da329;
+        color: #fff;
+    }
+	#menu-communities {
+        width: 100%;
+    }
+	/*** Content Area ***/
+	/*** Margins ***/
+	.entry-header,
+	.entry-summary,
+	.entry-content,
+	.entry-footer,
+	.page-content {
+        margin-right: 0;
+        margin-left: 0;
+    }
+	.site-content .entry-header {
+        height: 60px;
+        background-image: none;
+    }
+	.site-content .entry-header .entry-title {
+        font-size: 20px;
+        padding: 10px 0 0 0px;
+        line-height: 26px;
+        text-align: center;
+    }
+	.site-content .entry-content {
+        padding: 20px 0px;
+    }
+	.entry-content .home-h2 {
+        padding: 0 30px;
+    }
+	.entry-content p {
+        padding: 0 30px;
+    }
+	.entry-content .wp-block-columns {
+		padding: 0 30px;
+	}
+	.entry-content .wp-block-columns p {
+        padding: 0;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 100%;
+        left: 0px;
+	    font-size: 18px;
+		text-align: center;
+    }
+	.entry-content ul.display-posts-listing {
+		margin: 0 15px;
+	}
+	.entry-content ul.display-posts-listing li .views,
+	.entry-content ul.display-posts-listing li .likes,
+	.entry-content ul.display-posts-listing li .follows,
+	.entry-content ul.display-posts-listing li .comments {
+        font-size: 12px;
+		font-weight: 600;
+        padding: 30px 10px 0 0;
+    }
+	.entry-content ul.display-posts-listing li .date {
+        position: relative;
+        top: 0;
+        right: 0;
+        padding: 10px 0 0;
+        display: block;
+    }
+	.entry-content ul.display-posts-listing li .post-url {
+        width: 90%;
+        height: 340px;
+		z-index: 1;
+    }
+	.entry-content ul.display-posts-listing li .read-more {
+        float: none;
+        margin: 0 auto 10px;
+        text-align: center;
+        width: 150px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(2) li .post-url {
+		width: 90%;
+        height: 300px;
+	}
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+		width: 90%;
+		height: 620px;
+	}
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(2) .post-url {
+		width: 90%;
+		height: 680px;
+	}
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(3) .post-url {
+		width: 90%;
+		height: 660px;
+	}
+	.entry-content ul.display-posts-listing:nth-of-type(3) .box .right {
+        width: 90%;
+        margin: 0 20px 20px;
+    }
+	.wpcf7 .wpcf7-form .company-name {
+        vertical-align: top;
+    }
+	.wpcf7 .wpcf7-form .wpcf7-radio label {
+        margin: 0 0 10px; 
+    }
+    
+	/*** Right Side ***/
+	.sidebar {
+        width: 100%;
+        position: relative;
+		margin-bottom: 0;
+        padding: 0;
+		background-color: #fff;
+    }
+	.widget .textwidget .fixed-top {
+		position: relative;
+        top: 0px;
+	}
+	.widget #ad-space {
+        width: 300px;
+        margin: 40px auto;
+    }
+	
+	/*** Footer ***/
+	.site-footer .footer-content {
+        margin-left: 0px;
+        padding: 40px 20px;
+		width: 100%;
+    }
+	.site-footer .footer-content .info {
+		width: 100%;
+		text-align: center;
+	}
+	.site-footer .footer-content .menu1,
+	.site-footer .footer-content .menu2 {
+        width: 48%;
+        margin: 40px 0;
+		text-align: center;
+    }
+	.site-footer .footer-content .connect {
+		width: 100%;
+        text-align: center;
+	}
+	.site-footer .footer-content .connect li {
+        padding: 10px 5px 0 5px;
+    }
+	/*** About ***/
+	.entry-content .about-skipta .wp-block-column {
+	    background-image: none;
+    }
+    .entry-content .about-skipta .wp-block-column p {
+        width: 100%;
+    }
+	/*** Communities ***/
+	.entry-content .communities .community {
+	    width: 300px;
+        height: 187px;
+	    margin: 0 8px 10px 0px;
+    }
+    .entry-content .communities .community a {
+	    width: 300px;
+        height: 187px;
+	}
+	/*** Our Team ***/
+	.entry-content .our-team-h2 {
+        line-height: 30px;
+        text-align: center;
+    }
+	.entry-content .leadership-team .leadership-team-member {
+        max-height: none;
+    }
+	.entry-content .leadership-team .leadership-team-member > div:first-child {
+        flex-basis: calc(100% - 16px);
+		margin: 0;
+    }
+	.entry-content .leadership-team .leadership-team-member > div:nth-child(2) {
+        margin: 0px;
+        flex-basis: calc(100% - 16px);
+    }
+	.entry-content .leadership-team .leadership-team-member h3 {
+        margin: 0px;
+    }
+}
+/* minimum 600px */
+@media (min-width: 37.500em) {
+	.entry-content ul.display-posts-listing li .date {
+        position: absolute;
+        top: 45px;
+        right: 30px;
+        padding: 0;
+        display: block;
+    }
+	.entry-content ul.display-posts-listing li .post-url {
+        height: 230px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(2) li .post-url {
+        height: 250px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+        height: 490px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(2) .post-url {
+        height: 560px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(3) .post-url {
+        height: 540px;
+    }
+	.entry-content ul.display-posts-listing li .read-more {
+        float: right;
+        margin: 0;
+    }
+    /*** Communities ***/
+	.entry-content .communities .community {
+	    width: 400px;
+        height: 249px;
+	    margin: 0 8px 10px 0px;
+    }
+    .entry-content .communities .community a {
+	    width: 400px;
+        height: 249px;
+	}
+}
+/* minimum 700px */
+@media (min-width: 43.750em) {
+	/*** Footer ***/
+	.site-footer .footer-content .menu1,
+	.site-footer .footer-content .menu2 {
+        width: 32%;
+    }
+	.site-footer .footer-content .connect {
+        margin: 40px 0;
+		width: 32%;
+    }
+	/*** Our Team ***/
+    .entry-content .leadership-team .leadership-team-member > div:first-child {
+	    flex-basis: calc(34% - 16px);
+    }
+    .entry-content .leadership-team .leadership-team-member h3 {
+	    margin: 10px 0px 0px;
+    }
+    .entry-content .leadership-team .leadership-team-member > div:nth-child(2) {
+	    margin: 0 0 0 20px;
+	    flex-basis: calc(65% - 16px);
+    }
+}
+/* minimum 800px */
+@media (min-width: 50.000em) {
+	.entry-content ul.display-posts-listing li .post-url {
+        height: 220px;
+		width: 94%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(2) li .post-url {
+        height: 270px;
+		width: 94%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+        height: 340px;
+		width: 94%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(2) .post-url {
+        height: 390px;
+		width: 94%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(3) .post-url {
+        height: 340px;
+		width: 94%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) .box .right {
+        width: 73%;
+        margin: 20px 0;
+    }
+	/*** Communities ***/
+	.entry-content .communities .community {
+	    width: 300px;
+        height: 187px;
+	    margin: 0 8px 10px 0px;
+    }
+    .entry-content .communities .community a {
+	    width: 300px;
+        height: 187px;
+	}
+}
+/* minimum 910px */
+@media (min-width: 56.875em) {
+	.site-header {
+		/* width: 300px; */
+		width: 33%;
+	}
+	#content-wrapper {
+        left: -4px;
+        /* width: 589px; */
+		width: 66.5%;
+    }
+	.site-content {
+        background-image: url('/wp-content/themes/skipta2019/images/menu-bg.png');
+    }
+	/*** Navigation ***/
+	#menu-communities {
+        width: 99.9%;
+    }
+	
+	/*** Content Area ***/
+    .site-content .content-area {
+        width: 100%;
+        position: relative;
+        top: 0;
+        left: 0;
+        float: none;
+    }
+	.site-content .entry-header {
+        height: 100px;
+        background-image: url('/wp-content/themes/skipta2019/images/menu-bg.png');
+    }
+	.site-content .entry-header .entry-title {
+        text-align: left;
+		font-size: 30px;
+        padding: 44px 0 0 30px;
+        line-height: 36px;
+    }
+	.site-content .entry-content {
+        padding: 20px 30px;
+    }
+	.entry-content .home-h2 {
+        padding: 0;
+    }
+	.entry-content p {
+        padding: 0;
+    }
+	.entry-content .wp-block-columns {
+		padding: 0;
+	}
+    .entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 110.8%;
+        left: -30px;
+		font-size: 20px;
+		text-align: left;
+    }
+	.entry-content ul.display-posts-listing {
+        margin: 0;
+    }
+	.entry-content ul.display-posts-listing li .views,
+	.entry-content ul.display-posts-listing li .likes,
+	.entry-content ul.display-posts-listing li .follows,
+	.entry-content ul.display-posts-listing li .comments {
+        font-size: 12px;
+		font-weight: 600;
+        padding: 30px 10px 0 0;
+    }
+	.entry-content ul.display-posts-listing li .post-url {
+        width: 95%;
+		height: 230px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(2) li .post-url {
+		width: 95%;
+		height: 240px;
+	}	
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+        height: 530px;
+		width: 95%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(2) .post-url {
+        height: 560px;
+		width: 95%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(3) .post-url {
+        height: 540px;
+		width: 95%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) .box .right {
+        width: 92%;
+        margin: 0 20px 20px;
+    }
+	.wpcf7 .wpcf7-form .wpcf7-radio label {
+        margin: 0; 
+    }
+	/*** Right Side ***/
+	.widget .social,
+	.widget .focus-centers .title,
+	.widget .focus-centers .diabetes-network a,
+	.widget .focus-centers .infectious-disease a,
+	.widget #ad-space {
+        background-image: url('/wp-content/themes/skipta2019/images/menu-bg.png');
+        background-repeat: repeat-y;
+    }
+	.widget #ad-space {
+        width: 100%;
+        margin: 0 auto;
+        padding: 40px;
+	}
+	.widget #ad-space a {
+		display: block;
+        width: 300px;
+        margin: 0 auto;
+        box-shadow: none;
+	}
+	/*** Communities ***/
+	.entry-content .communities .community {
+	    width: 400px;
+        height: 249px;
+	    margin: 0 8px 10px 0px;
+    }
+    .entry-content .communities .community a {
+	    width: 400px;
+        height: 249px;
+	}
+}
+/* minimum 1000px */
+@media (min-width: 62.500em) {
+	.site-header {
+		width: 30%;
+	}
+	#content-wrapper {
+		width: 69.55%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 109.8%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+        height: 490px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(2) .post-url {
+        height: 540px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(3) .post-url {
+        height: 490px;
+    }
+}
+/* minimum 1050px */
+@media (min-width: 65.625em) {
+	.site-header {
+		width: 29%;
+	}
+	#content-wrapper {
+		width: 70.59%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 108.9%;
+    }
+}
+/* minimum 1100px */
+@media (min-width: 68.750em) {
+	.site-header {
+		width: 27%;
+	}
+	#content-wrapper {
+		width: 72.6%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 108.2%;
+    }
+	/*** Communities ***/
+	.entry-content .communities .community {
+	    width: 300px;
+        height: 187px;
+	    margin: 0 8px 10px 0px;
+    }
+    .entry-content .communities .community a {
+	    width: 300px;
+        height: 187px;
+	}
+}
+/* minimum 1150px */
+@media (min-width: 71.875em) {
+	.site-header {
+		width: 26%;
+	}
+	#content-wrapper {
+		width: 73.6%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 107.7%;
+    }
+}
+/* minimum 1200px */
+@media (min-width: 75.000em) {
+	.site-header {
+		width: 25%;
+	}
+	#content-wrapper {
+		width: 74.64%;
+    }
+	.site-content {
+        margin-right: 300px;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 111.6%;
+    }
+	.entry-content ul.display-posts-listing li .post-url {
+        height: 270px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+        height: 500px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(2) .post-url {
+        height: 560px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(3) .post-url {
+        height: 540px;
+    }
+	/*** Right Side ***/
+	.sidebar {
+        width: 300px;
+        position: absolute;
+		top: 0px;
+		margin-bottom: 3.5em;
+        padding: 0;
+    }
+	.widget .textwidget .fixed-top {
+		position: fixed;
+        top: 0px;
+	}
+    .widget #ad-space {
+		padding: 0;
+	}
+	.widget #ad-space a {
+		width: 100%;
+	}
+	.widget .social,
+	.widget .focus-centers .title,
+	.widget .focus-centers .diabetes-network a,
+	.widget .focus-centers .infectious-disease a,
+	.widget #ad-space {
+        background-image: none;
+        }
+	/*** Footer ***/
+	.site-footer .footer-content .info {
+        width: 350px;
+        text-align: left;
+    }
+	.site-footer .footer-content .menu1, .site-footer .footer-content .menu2 {
+		width: 20%;
+        text-align: left;
+        margin: 10px 0;
+	}
+	.site-footer .footer-content .connect {
+        margin: 10px 0;
+        width: 16%;
+        text-align: left;
+    }
+	/*** About ***/
+	.entry-content .about-skipta .wp-block-column {
+        min-height: 814px;
+    }
+	.entry-content .about-skipta .wp-block-column {
+	    /* background-image: url('images/about-skipta.PNG');
+	    background-position: 50% 100%; */
+    }
+	/*** Communities ***/
+	.entry-content .communities .wp-block-column {
+        min-height: 814px;
+    }
+	/*** Communities ***/
+	.entry-content .communities .community {
+	    width: 400px;
+        height: 249px;
+	    margin: 0 8px 10px 0px;
+    }
+    .entry-content .communities .community a {
+	    width: 400px;
+        height: 249px;
+	}
+}
+/* minimum 1250px */
+@media (min-width: 78.125em) {
+	.site-header {
+		width: 24%;
+	}
+	#content-wrapper {
+		width: 75.66%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 110.5%;
+    }
+	.entry-content ul.display-posts-listing li .views,
+	.entry-content ul.display-posts-listing li .likes,
+	.entry-content ul.display-posts-listing li .follows,
+	.entry-content ul.display-posts-listing li .comments {
+        font-size: 14px;
+    }
+}
+/* minimum 1300px */
+@media (min-width: 81.250em) {
+	.site-header {
+		width: 23%;
+	}
+	#content-wrapper {
+		width: 76.67%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 109.6%;
+    }
+	.site-footer .footer-content {
+        padding: 40px 40px;
+    }
+	/*** Our Team ***/
+    .entry-content .leadership-team .leadership-team-member > div:first-child {
+	    flex-basis: calc(24% - 16px);
+    }
+    .entry-content .leadership-team .leadership-team-member > div:nth-child(2) {
+	    margin: 0 0 0 20px;
+	    flex-basis: calc(75% - 16px);
+    }
+}
+/* minimum 1350px */
+@media (min-width: 84.375em) {
+	.site-header {
+		width: 22%;
+	}
+	#content-wrapper {
+		width: 77.68%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 108.9%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(2) li .post-url {
+        height: 260px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+        height: 470px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(2) .post-url {
+        height: 520px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(3) .post-url {
+        height: 500px;
+    }
+	/*** Communities ***/
+	.entry-content .communities .community {
+	    width: 300px;
+        height: 187px;
+	    margin: 0 8px 10px 0px;
+    }
+    .entry-content .communities .community a {
+	    width: 300px;
+        height: 187px;
+	}
+}
+/* minimum 1400px */
+@media (min-width: 87.500em) {
+	.site-header {
+		width: 21%;
+	}
+	#content-wrapper {
+		width: 78.69%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 108.2%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) .box .right {
+        width: 72%;
+        margin: 20px 0;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+        height: 360px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(2) .post-url {
+        height: 390px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(3) .post-url {
+        height: 390px;
+    }
+	/*** About ***/
+	.entry-content .about-skipta .wp-block-column {
+	    /* background-position: 100% 0;
+		background-size: 30%; */
+    }
+	.entry-content .about-skipta .wp-block-column p {
+        width: 80%;
+    }
+}
+/* minimum 1450px */
+@media (min-width: 90.625em) {
+	.site-header {
+		width: 21%;
+	}
+	#content-wrapper {
+		width: 78.69%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 107.8%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(2) li .post-url {
+        height: 280px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+        height: 350px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(2) .post-url {
+        height: 380px;
+    }
+}
+/* minimum 1500px */
+@media (min-width: 93.750em) {
+	.site-header {
+		width: 20%;
+	}
+	#content-wrapper {
+		width: 79.71;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 107.3%;
+    }
+	/*** Our Team ***/
+    .entry-content .leadership-team .leadership-team-member > div:first-child {
+	    flex-basis: calc(20% - 16px);
+    }
+    .entry-content .leadership-team .leadership-team-member > div:nth-child(2) {
+	    margin: 0 0 0 20px;
+	    flex-basis: calc(79% - 16px);
+    }
+}
+/* minimum 1550px */
+@media (min-width: 96.875em) {
+	.site-header {
+		width: 19%;
+	}
+	#content-wrapper {
+		width: 80.72%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 106.9%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(2) li .post-url {
+        height: 300px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+        height: 340px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(2) .post-url {
+        height: 360px;
+    }
+	/*** Communities ***/
+	.entry-content .communities .community {
+	    width: 400px;
+        height: 249px;
+	    margin: 0 8px 10px 0px;
+    }
+    .entry-content .communities .community a {
+	    width: 400px;
+        height: 249px;
+	}
+}
+/* minimum 1600px */
+@media (min-width: 100.000em) {
+	.site-header {
+		width: 19%;
+	}
+	#content-wrapper {
+		width: 80.73%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 106.5%;
+    }
+}
+/* minimum 1650px */
+@media (min-width: 103.125em) {
+	.site-header {
+		width: 18%;
+	}
+	#content-wrapper {
+		width: 81.74%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 106.1%;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li .post-url {
+        height: 310px;
+    }
+	.entry-content ul.display-posts-listing:nth-of-type(3) li:nth-of-type(3) .post-url {
+        height: 320px;
+    }
+	/*** Communities ***/
+	.entry-content .communities .community {
+	    width: 300px;
+        height: 187px;
+	    margin: 0 8px 10px 0px;
+    }
+    .entry-content .communities .community a {
+	    width: 300px;
+        height: 187px;
+	}
+}
+/* minimum 1700px */
+@media (min-width: 106.250em) {
+	.site-header {
+		width: 18%;
+	}
+	#content-wrapper {
+		width: 81.75%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 105.9%;
+    }
+	.site-footer .footer-content {
+        padding: 40px 60px;
+    }
+	.site-footer .footer-content .info {
+        width: 400px;
+    }
+}
+/* minimum 1750px */
+@media (min-width: 109.375em) {
+	.site-header {
+		width: 17%;
+	}
+	#content-wrapper {
+		width: 82.75%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 105.6%;
+    }
+	/*** Our Team ***/
+    .entry-content .leadership-team .leadership-team-member > div:first-child {
+	    flex-basis: calc(15% - 16px);
+    }
+    .entry-content .leadership-team .leadership-team-member > div:nth-child(2) {
+	    margin: 0 0 0 20px;
+	    flex-basis: calc(84% - 16px);
+    }
+}
+/* minimum 1800px */
+@media (min-width: 112.500em) {
+	.site-header {
+		width: 17%;
+	}
+	#content-wrapper {
+		width: 82.76%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 105.4%;
+    }
+}
+/* minimum 1850px */
+@media (min-width: 115.625em) {
+	.site-header {
+		width: 16.01%;
+	}
+	#content-wrapper {
+		width: 83.76%;
+    }
+	.entry-content .conversations,
+	.entry-content .compete,
+	.entry-content .news {
+        width: 105.1%;
+    }
+}
+/* minimum 1900px */
+@media (min-width: 118.750em) {
+    /*** Communities ***/
+	.entry-content .communities .community {
+	    width: 400px;
+        height: 249px;
+	    margin: 0 8px 10px 0px;
+    }
+    .entry-content .communities .community a {
+	    width: 400px;
+        height: 249px;
+	}
+}
