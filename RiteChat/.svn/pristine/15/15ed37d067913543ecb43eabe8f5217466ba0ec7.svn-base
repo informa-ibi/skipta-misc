@@ -1,0 +1,86 @@
+<?php
+
+/* @author Swathi
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+class Badges extends CActiveRecord {
+
+    public $id;
+    public $context;//context name Ex: Heart badge context could be “Love”.
+    public $badgeName;//Badge name
+    public $hover_text;//Text to be displayed up on hover
+    public $description;//Text to be displayed in description
+    public $instant;//is immediate process or background process
+    public $has_level;//whether badge has levels or not
+    public $stream_effect;//whether the badge info to be displayed as stream obj to followers or not
+    public $honor_level;//priority of the badge
+    public $image_path;//path of the badge icon
+    public $units;//the number of actions to be performed by which the badge will be given
+  
+//    public $CreatedOn;
+//    public $Type=13;
+   
+  
+
+    public static function model($className = __CLASS__) {
+        return parent::model($className);
+    }
+
+    public function tableName() {
+        return 'Badges';
+    }
+
+      public function getBadgeDetails() {
+        $returnValue = 'failure';
+        try {
+            
+            $badgesData = Badges::model()->findAll();
+            if(isset($badgesData) && !empty($badgesData)){
+                $returnValue=$badgesData;
+            }
+            return $badgesData;
+        } catch (Exception $exc) {
+            Yii::log("rol", 'error', 'application');
+            $returnValue = 'failure';
+        }
+    }
+    
+     public function getBadgeDetailsByCriteria($context) {
+        $returnValue = 'failure';
+        try {
+               $cond=   array("context" => $context);
+              $badgesData =  Badges::model()->findByAttributes($cond);
+          
+            if(isset($badgesData) ){
+                $returnValue=$badgesData;
+            }
+           
+       
+            return $returnValue;
+        } catch (Exception $exc) {
+            Yii::log("rol", 'error', 'application');
+            $returnValue = 'failure';
+        }
+    }
+    
+       public function getBadgeById($id) {
+        $returnValue = 'failure';
+        try {
+            
+            $badgesData =  Badges::model()->findByAttributes(array("id" => $id));
+       
+            if(isset($badgesData) ){
+                $returnValue=$badgesData;
+            }
+           
+       
+            return $returnValue;
+        } catch (Exception $exc) {
+            Yii::log("rol", 'error', 'application');
+            $returnValue = 'failure';
+        }
+    }
+}

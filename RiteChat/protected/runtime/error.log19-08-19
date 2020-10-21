@@ -1,0 +1,90 @@
+2019/08/19 12:09:20 [error] [application] Exception occurred in getUserProfileCollectionByUserId==CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'failure' in 'where clause'. The SQL statement executed was: SELECT `u`.*
+FROM `User` `u`
+WHERE u.UserId=failure
+in /usr/share/nginx/www/RiteChat/protected/models/mysql/User.php (266)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (960)
+in /usr/share/nginx/www/RiteChat/protected/controllers/CommonController.php (606)
+2019/08/19 12:53:11 [error] [application] Exception occurred in getUserProfileCollectionByUserId==CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'failure' in 'where clause'. The SQL statement executed was: SELECT `u`.*
+FROM `User` `u`
+WHERE u.UserId=failure
+in /usr/share/nginx/www/RiteChat/protected/models/mysql/User.php (266)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (960)
+in /usr/share/nginx/www/RiteChat/protected/controllers/CommonController.php (606)
+2019/08/19 13:01:08 [error] [application] Exception occurred in getUserProfileCollectionByUserId==CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'failure' in 'where clause'. The SQL statement executed was: SELECT `u`.*
+FROM `User` `u`
+WHERE u.UserId=failure
+in /usr/share/nginx/www/RiteChat/protected/models/mysql/User.php (266)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (960)
+in /usr/share/nginx/www/RiteChat/protected/controllers/CommonController.php (606)
+2019/08/19 13:07:38 [error] [application] Exception occurred in getUserProfileCollectionByUserId==CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'failure' in 'where clause'. The SQL statement executed was: SELECT `u`.*
+FROM `User` `u`
+WHERE u.UserId=failure
+in /usr/share/nginx/www/RiteChat/protected/models/mysql/User.php (266)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (960)
+in /usr/share/nginx/www/RiteChat/protected/controllers/CommonController.php (606)
+2019/08/19 14:14:18 [error] [application] 1166306------saveCookieRandomKeyForUser-------vxhDb8HgpQZ8qh6W
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/08/19 14:40:56 [error] [application] 1376919------saveCookieRandomKeyForUser-------OgUP3vnfBccy9vcZ
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/08/19 15:15:26 [error] [application] Exception occurred in getUserProfileCollectionByUserId==CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'failure' in 'where clause'. The SQL statement executed was: SELECT `u`.*
+FROM `User` `u`
+WHERE u.UserId=failure
+in /usr/share/nginx/www/RiteChat/protected/models/mysql/User.php (266)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (960)
+in /usr/share/nginx/www/RiteChat/protected/controllers/CommonController.php (606)
+2019/08/19 15:54:28 [error] [application] 1166306------saveCookieRandomKeyForUser-------zrPmUosagrYdrrJW
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/08/19 16:05:28 [error] [application] 1376919------saveCookieRandomKeyForUser-------o9B6cBA87PaWY7V3
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/08/19 16:20:17 [error] [application] 1679783------saveCookieRandomKeyForUser-------FrLZd5ti8YTg9zqt
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/08/19 16:22:10 [error] [application] Exception occurred in getUserProfileCollectionByUserId==CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'failure' in 'where clause'. The SQL statement executed was: SELECT `u`.*
+FROM `User` `u`
+WHERE u.UserId=failure
+in /usr/share/nginx/www/RiteChat/protected/models/mysql/User.php (266)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (960)
+in /usr/share/nginx/www/RiteChat/protected/controllers/CommonController.php (606)
+2019/08/19 16:22:11 [error] [application] Exception occurred in getUserProfileCollectionByUserId==CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'failure' in 'where clause'. The SQL statement executed was: SELECT `u`.*
+FROM `User` `u`
+WHERE u.UserId=failure
+in /usr/share/nginx/www/RiteChat/protected/models/mysql/User.php (266)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (960)
+in /usr/share/nginx/www/RiteChat/protected/controllers/CommonController.php (606)
+2019/08/19 16:41:36 [error] [application] Exception occurred in getUserProfileCollectionByUserId==CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'failure' in 'where clause'. The SQL statement executed was: SELECT `u`.*
+FROM `User` `u`
+WHERE u.UserId=failure
+in /usr/share/nginx/www/RiteChat/protected/models/mysql/User.php (266)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (960)
+in /usr/share/nginx/www/RiteChat/protected/controllers/CommonController.php (606)
+2019/08/19 18:22:39 [error] [application] 1016623------saveCookieRandomKeyForUser-------enP3XHw9afsRzycL
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/08/19 18:23:05 [error] [application] 1376919------saveCookieRandomKeyForUser-------NBdVtkEyEVZcelbb
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/08/19 18:23:37 [error] [application] Normal Post
+in /usr/share/nginx/www/RiteChat/protected/controllers/PostController.php (149)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/08/19 18:28:06 [error] [application] 1027357------saveCookieRandomKeyForUser-------T4vYGNs9yeEwaOMJ
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/08/19 18:29:01 [error] [application] Normal Post
+in /usr/share/nginx/www/RiteChat/protected/controllers/PostController.php (149)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/08/19 21:26:02 [error] [application] 1679783------saveCookieRandomKeyForUser-------nH7sDTZSr0Vx8Bfw
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)

@@ -1,0 +1,4 @@
+2019/03/24 16:10:52 [error] [application] 1467505------saveCookieRandomKeyForUser-------T9iYu1NyXBFUT6ib
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)

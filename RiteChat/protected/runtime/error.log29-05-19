@@ -1,0 +1,395 @@
+2019/05/29 01:39:51 [error] [application] 1655670------saveCookieRandomKeyForUser-------rVuUt7gzjW12mZym
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 13:00:41 [error] [application] 1359042------saveCookieRandomKeyForUser-------wGXSOOQWy13XE5gr
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 13:02:49 [error] [application] 831967------saveCookieRandomKeyForUser-------Z873BUEobzvoNNf6
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (268)
+2019/05/29 13:06:03 [error] [application] Event
+in /usr/share/nginx/www/RiteChat/protected/controllers/PostController.php (149)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 13:29:21 [error] [application] 1166306------saveCookieRandomKeyForUser-------2hIbV4t7eRT0eOzS
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 13:33:19 [error] [application] 1166306------saveCookieRandomKeyForUser-------GSHlzIRnEbuconTr
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 14:23:13 [error] [application] 1272998------saveCookieRandomKeyForUser-------5qOXAdJFx0dvcp6j
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 14:39:48 [error] [application] 1376919------saveCookieRandomKeyForUser-------4TeEit0TvsMurx6Q
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 14:40:18 [error] [application] 1641829------saveCookieRandomKeyForUser-------mT1ngNC0YYOL3rso
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 14:44:37 [error] [application] 1359042------saveCookieRandomKeyForUser-------0Wg66xQflOYk6E2L
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 15:00:59 [error] [application] 1016623------saveCookieRandomKeyForUser-------cr7uu270rN1KadAa
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 15:26:58 [error] [application] 1557399------saveCookieRandomKeyForUser-------hRIjw46NHFeYDx8X
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 15:28:07 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:28:08 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:28:18 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:28:21 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:30:59 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:31:00 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:25 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:26 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:26 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:27 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:28 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:29 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:30 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:31 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:34 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:35 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:40 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:33:40 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:34:53 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:34:54 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:34:54 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:34:56 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:34:56 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:34:57 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:02 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:02 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:03 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:03 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:04 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:04 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:05 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:06 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:06 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:08 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:08 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:09 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:09 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:10 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:10 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:11 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:12 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:12 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:25 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:25 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:26 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:26 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:27 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:27 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:28 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:28 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:28 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:29 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:29 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:30 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:30 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:31 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:31 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:32 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:32 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:33 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:33 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:34 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:34 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:35 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:35 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:36 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:36 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:37 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:37 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:38 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:38 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:39 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:39 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:40 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:40 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:41 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:41 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:35:42 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 15:38:27 [error] [application] 1638112------saveCookieRandomKeyForUser-------rQQxd3fwFaan4Ckn
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 16:06:18 [error] [application] 1562329------saveCookieRandomKeyForUser-------R3s4ekArNAzvXztX
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 16:17:27 [error] [application] 1557399------saveCookieRandomKeyForUser-------GOZc5XhorHtd06KL
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 16:18:28 [error] [application] 1359042------saveCookieRandomKeyForUser-------4A3qiKnDCZq6LqDS
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 16:18:31 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:00 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:04 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:06 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:08 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:12 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:13 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:16 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:18 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:21 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:22 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:25 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:19:32 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 16:24:30 [error] [application] 1641829------saveCookieRandomKeyForUser-------m2a3iQ5B2QzCdVaP
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 16:56:57 [error] [application] 1376919------saveCookieRandomKeyForUser-------q3Es6vQgp4bXdns6
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 17:12:14 [error] [application] 1713870------saveCookieRandomKeyForUser-------QRWkg8fJ6r48vyyl
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 17:23:01 [error] [application] 1574601------saveCookieRandomKeyForUser-------bsgAi05vYgpm3hXA
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 17:30:30 [error] [application] 1359042------saveCookieRandomKeyForUser-------E0RjYw9S9IpFi7ME
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 17:55:29 [error] [application] 831967------saveCookieRandomKeyForUser-------DcEkh7yuLJJgN64T
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (268)
+2019/05/29 18:08:30 [error] [application] 1359042------saveCookieRandomKeyForUser-------cxcGQz2It7iYrgMM
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 18:15:51 [error] [application] 1641449------saveCookieRandomKeyForUser-------Se0QPeAY6dfC6MGV
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 18:32:07 [error] [application] 1562329------saveCookieRandomKeyForUser-------6hGwhklc2uM2hA6a
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 18:47:12 [error] [application] 1679783------saveCookieRandomKeyForUser-------dRyQPbBGZlLtZoi3
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 19:17:15 [error] [application] 1557399------saveCookieRandomKeyForUser-------SOAY4sUE1EMw6hQF
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 19:18:03 [error] [application] ==actionUserFollowUnfollowActions==
+in /usr/share/nginx/www/RiteChat/protected/controllers/UserController.php (87)
+in /usr/share/nginx/www/RiteChat/index.php (32)
+2019/05/29 20:12:27 [error] [application] 1713870------saveCookieRandomKeyForUser-------cGZxk79L59FzJi3E
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 21:18:19 [error] [application] 1562329------saveCookieRandomKeyForUser-------nkWjWbDlg5w86Dez
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2019/05/29 22:36:10 [error] [application] 1655921------saveCookieRandomKeyForUser-------M6HqEp99SNcTOEFb
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)

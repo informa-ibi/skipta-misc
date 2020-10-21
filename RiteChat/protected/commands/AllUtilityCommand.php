@@ -1,0 +1,505 @@
+<?php
+
+/**
+ * @author Reddy
+ * @class 
+ */
+class AllUtilityCommand extends CConsoleCommand {
+
+    public function actionRemoveGroups($postId = '', $searchKey = '') {
+
+
+        try {
+            echo $postId . "***********" . $searchKey;
+            $criteria = new EMongoCriteria;
+            $criteria1 = new EMongoCriteria;
+            $criteria2 = new EMongoCriteria;
+            $GroupId = '';
+
+            if ($searchKey != '') {
+                $criteria->addCond('_id', '==', '');
+                $criteria->GroupName = new MongoRegex('/' . $searchKey . '.*/i');
+            }
+
+            if ($postId != '') {
+                $postId = $postId;
+                $criteria->addCond('_id', '==', new MongoId($postId));
+            }
+
+            $data = GroupCollection::model()->findAll($criteria);
+
+
+
+            foreach ($data as $obj) {
+
+                $GroupId = $obj->_id;
+                $displayNameArray = explode(" ", $obj->GroupName);
+
+                echo $obj->GroupName . '______' . $GroupId;
+
+                for ($i = 0; $i < sizeof($obj->GroupMembers); $i++) {
+                    $mongoCriteria = new EMongoCriteria;
+                    $mongoModifier = new EMongoModifier;
+                    $userId = $obj->GroupMembers[$i];
+                    $mongoCriteria->addCond('UserId', '==', (int) $userId);
+                    $mongoModifier->addModifier('groupsFollowing', 'pop', $obj->_id);
+
+                    UserProfileCollection::model()->updateAll($mongoModifier, $mongoCriteria);
+                }
+            }
+            /* Criteria for Deleting Group from Group collections */
+            $criteria1->addCond('GroupId', '==', $GroupId);
+
+            /* Criteria for Deleting Group related stuff from all the collections */
+            $criteria2->addCond('_id', '==', $GroupId);
+            UserInteractionCollection::model()->deleteAll($criteria1);
+            UserActivityCollection::model()->deleteAll($criteria1);
+            UserStreamCollection::model()->deleteAll($criteria1);
+            FollowObjectStream::model()->deleteAll($criteria1);
+            GroupPostCollection::model()->deleteAll($criteria1);
+            GroupCollection::model()->deleteAll($criteria2);
+        } catch (Exception $exc) {
+            echo '_________Exception______________________' . $exc->getMessage();
+        }
+    }
+
+    public function actionUpdateStreamGroupPost($postId) {
+        $criteria = new EMongoCriteria;
+        $criteria->addCond('_id', '==', new MongoId($postId));
+        $data = GroupPostCollection::model()->find($criteria);
+        echo $data->GroupId;
+        CommonUtility::prepareStreamObject((int) $data->UserId, 'Post', $postId, (int) 3, '', '', '');
+    }
+
+    public function actionUpdateStreamGames() {
+        
+    }
+
+    public function actionUpdateUniqueHandles() {
+        
+    }
+
+    public function actionMakeGroupAdmin() {
+        try {
+
+            //  $criteria->GroupName = new MongoRegex('/' . $searchKey . '.*/i');
+            $data = GroupCollection::model()->findAll();
+
+            foreach ($data as $obj) {
+
+                echo $obj->GroupName . '______';
+
+
+                $mongoCriteria = new EMongoCriteria;
+                $mongoModifier = new EMongoModifier;
+                if (isset(YII::app()->params['NetworkAdminEmail'])) {
+                    $netwokAdminObj = ServiceFactory::getSkiptaUserServiceInstance()->getUserByType(YII::app()->params['NetworkAdminEmail'], 'Email');
+                    $mongoModifier->addModifier('GroupAdminUsers', 'push', (int) $netwokAdminObj->UserId);
+                    $mongoCriteria->addCond('GroupAdminUsers', '!=', (int) $netwokAdminObj->UserId);
+                    $mongoModifier->addModifier('CreatedUserId', 'set', (int) $netwokAdminObj->UserId);
+                }
+                $mongoCriteria->addCond('_id', '==', $obj->_id);
+
+                $return = GroupCollection::model()->updateAll($mongoModifier, $mongoCriteria);
+            }
+        } catch (Exception $exc) {
+            echo '_________Exception______________________' . $exc->getMessage() . $exc->getLine();
+        }
+    }
+
+    /* This method will Mark the User as the Admin for the Given Group and Auto Follow the Group */
+
+    public function actionMakeGroupAdminGivenUser($userId = '', $groupName = '') {
+        try {
+            $mongoCriteria = new EMongoCriteria;
+            $mongoCriteria->GroupName = new MongoRegex('/' . $groupName . '/i');
+            $data = GroupCollection::model()->findAll($mongoCriteria);
+            $mongoCriteriaG = new EMongoCriteria;
+            $mongoModifierG = new EMongoModifier;
+
+            $mongoCriteriaGM = new EMongoCriteria;
+            $mongoModifierGM = new EMongoModifier;
+
+            $mongoCriteriaU = new EMongoCriteria;
+            $mongoModifierU = new EMongoModifier;
+
+            $mongoCriteriaUG = new EMongoCriteria;
+
+
+            if ($userId != '' && $groupName != '') {
+                foreach ($data as $obj) {
+
+                    echo $obj->GroupName . '______';
+
+                    $netwokAdminObj = User::model()->getUserDetailsByUserId($userId);
+                    $mongoCriteriaUG->addCond('GroupMembers', '==', (int) $netwokAdminObj->UserId);
+                    $mongoCriteriaUG->addCond('_id', '==', $obj->_id);
+                    $userIsAMemberOfGroup = GroupCollection::model()->find($mongoCriteriaUG);
+                    if (is_object($userIsAMemberOfGroup)) {
+                        echo "I am following this group, so just make me the admin";
+
+                        $mongoModifierG->addModifier('GroupAdminUsers', 'push', (int) $netwokAdminObj->UserId);
+                        $mongoCriteriaG->addCond('GroupAdminUsers', '!=', (int) $netwokAdminObj->UserId);
+                        $mongoCriteriaG->addCond('_id', '==', $obj->_id);
+                        $return = GroupCollection::model()->updateAll($mongoModifierG, $mongoCriteriaG);
+                    } else {
+                        echo "I am ! following this group, make me the admin and auto-follow";
+
+                        $mongoModifierG->addModifier('GroupAdminUsers', 'push', (int) $netwokAdminObj->UserId);
+                        $mongoCriteriaG->addCond('GroupAdminUsers', '!=', (int) $netwokAdminObj->UserId);
+                        $mongoCriteriaG->addCond('_id', '==', $obj->_id);
+                        $returnG = GroupCollection::model()->updateAll($mongoModifierG, $mongoCriteriaG);
+
+                        $mongoModifierGM->addModifier('GroupMembers', 'push', (int) $netwokAdminObj->UserId);
+                        $mongoCriteriaGM->addCond('GroupMembers', '!=', (int) $netwokAdminObj->UserId);
+                        $mongoCriteriaGM->addCond('_id', '==', $obj->_id);
+                        $returnGM = GroupCollection::model()->updateAll($mongoModifierGM, $mongoCriteriaGM);
+
+                        $mongoModifierU->addModifier('groupsFollowing', 'push', new MongoId($obj->_id));
+                        $mongoCriteriaU->addCond('groupsFollowing', '!=', new MongoId($obj->_id));
+                        $mongoCriteriaU->addCond('userId', '==', (int) $netwokAdminObj->UserId);
+                        $returnU = UserProfileCollection::model()->updateAll($mongoModifierU, $mongoCriteriaU);
+                    }
+                }
+            } else {
+                echo "No supply to run.";
+            }
+        } catch (Exception $exc) {
+            echo '_________Exception______________________' . $exc->getMessage() . $exc->getLine();
+        }
+    }
+
+    /* This method will Clean up the inconsistencies between the following groups of a users */
+
+    public function actionCleanUpUnMatchedGroupsFromUserProfile($userId = '') {
+        try {
+            $mongoCriteriaG = new EMongoCriteria;
+            $mongoModifierU = new EMongoModifier;
+            $mongoCriteriaU = new EMongoCriteria;
+            $mongoCriteriaInitialU = new EMongoCriteria;
+            if ($userId != '') {
+                $mongoCriteriaInitialU->userId = (int) $userId;
+                $userData = UserProfileCollection::model()->findAll($mongoCriteriaInitialU);
+            } else {
+                $userData = UserProfileCollection::model()->findAll();
+            }
+
+            foreach ($userData as $userIndividualData) {
+
+                foreach ($userIndividualData->groupsFollowing as $groupFData) {
+                    $mongoCriteriaG->addCond('_id', '==', new MongoId($groupFData));
+                    $data = GroupCollection::model()->find($mongoCriteriaG);
+
+                    if (is_object($data)) {
+                        echo "\n" . $userIndividualData->userId . "\n";
+                        echo "\n" . $data->GroupName . "\n";
+                        continue;
+                    } else {
+                        echo "\n" . "I am removed" . $groupFData . "\n";
+                        $mongoModifierU->addModifier('groupsFollowing', 'pull', new MongoId($groupFData));
+                        $mongoCriteriaU->addCond('userId', '==', (int) $userIndividualData->userId);
+                        $data = UserProfileCollection::model()->updateAll($mongoModifierU, $mongoCriteriaU);
+                    }
+                }
+            }
+        } catch (Exception $exc) {
+            echo '_________Exception______________________' . $exc->getMessage() . $exc->getLine();
+        }
+    }
+
+    public function actionFixAllPostResource($typeOfPost = '') {
+        $mongoCriteriaRC = new EMongoCriteria;
+        $mongoModifierRC = new EMongoModifier;
+        $mongoCriteriaPC = new EMongoCriteria;
+        $mongoModifierPC = new EMongoModifier;
+        $model = '';
+        $postData = '';
+        $ResourceArray = array();
+
+        if ($typeOfPost == 'post') {
+            $postData = PostCollection::model()->findAll($mongoCriteriaPC);
+        } else if ($typeOfPost == 'curbside') {
+            $postData = CurbsidePostCollection::model()->findAll($mongoCriteriaPC);
+        } else if ($typeOfPost == 'group') {
+            $postData = GroupPostCollection::model()->findAll($mongoCriteriaPC);
+        }
+
+        if (is_array($postData) && !empty($postData)) {
+
+
+            foreach ($postData as $postIndData) {
+                echo $postIndData->_id . "\n";
+
+                $mongoCriteriaRC->addCond('PostId', '==', new MongoId($postIndData->_id));
+                $ResourseData = ResourceCollection::model()->findAll($mongoCriteriaRC);
+                if (is_array($ResourseData)) {
+                    foreach ($ResourseData as $ResourseIndData) {
+                        array_push($ResourceArray, $ResourseIndData->attributes);
+                    }
+                    $mongoModifierPC->addModifier('Resource', 'set', $ResourceArray);
+                    $mongoCriteriaPC->addCond('_id', '==', new MongoId($postIndData->_id));
+
+                    if ($typeOfPost == 'post') {
+                        $postData = PostCollection::model()->updateAll($mongoModifierPC,$mongoCriteriaPC);
+                    } else if ($typeOfPost == 'curbside') {
+                        $postData = CurbsidePostCollection::model()->updateAll($mongoModifierPC,$mongoCriteriaPC);
+                    } else if ($typeOfPost == 'group') {
+                        $postData = GroupPostCollection::model()->updateAll($mongoModifierPC,$mongoCriteriaPC);
+                    }
+                    $ResourceArray = array();
+                }
+                
+            }
+        } else {
+            echo "Sorry We can't process $typeOfPost this action!";
+        }
+    }
+    
+    function actionRestartNodeServices() {
+            
+        $networkName = Yii::app()->params['WebrootPath'];
+        $networkName = explode("/", $networkName);
+        $networkName = $networkName[5];
+        echo $networkName."\n";
+        $ququeName = substr($networkName, 1);
+        $firstChar = substr($networkName, 0, 1);
+        $ququeName = "[" . $firstChar . "]" . $ququeName;    
+            
+        echo shell_exec("kill  $(ps -ef | grep '/opt/softwares/node/".$networkName."' | grep -v grep | awk '{print $2}')");
+        echo "Proxy Node Not Running";
+        $date = date("Y-m-d-H:i");
+        $f1 = "/data/logs/node/" . $networkName ;
+        if (!file_exists($f1)) {
+            mkdir($f1, 0755, true);
+        }
+       
+        $f1 = "/data/logs/node/" . $networkName . "/ProxyNode";
+        if (!file_exists($f1)) {
+            mkdir($f1, 0755, true);
+        }
+        $f1 = "/data/logs/node/" . $networkName . "/Chat";
+        if (!file_exists($f1)) {
+            mkdir($f1, 0755, true);
+        }
+        $f1 = "/data/logs/node/" . $networkName . "/Post";
+        if (!file_exists($f1)) {
+            mkdir($f1, 0755, true);
+        }
+        $f1 = "/data/logs/node/" . $networkName . "/Search";
+        if (!file_exists($f1)) {
+            mkdir($f1, 0755, true);
+        }
+        $f1 = "/data/logs/node/" . $networkName . "/Notification";
+        if (!file_exists($f1)) {
+            mkdir($f1, 0755, true);
+        }
+        shell_exec("touch /data/logs/node/" . $networkName . "/ProxyNode/" . $date . ".log");
+        shell_exec("touch /data/logs/node/" . $networkName . "/Chat/" . $date . ".log");
+        shell_exec("touch /data/logs/node/" . $networkName . "/Post/" . $date . ".log");
+        shell_exec("touch /data/logs/node/" . $networkName . "/Search/" . $date . ".log");
+        shell_exec("touch /data/logs/node/" . $networkName . "/Notification/" . $date . ".log");
+        shell_exec("touch /data/logs/amqp/" . $networkName . "/" . $date . ".log");
+        chdir("/opt/softwares/node/$networkName");
+        shell_exec("nohup /usr/local/bin/node /opt/softwares/node/".$networkName."/proxyNode.js > /data/logs/node/" . $networkName . "/ProxyNode/" . $date . ".log & ");
+        shell_exec("nohup /usr/local/bin/node /opt/softwares/node/".$networkName."/chat.js > /data/logs/node/" . $networkName . "/Chat/" . $date . ".log & ");
+        shell_exec("nohup /usr/local/bin/node /opt/softwares/node/".$networkName."/search.js > /data/logs/node/" . $networkName . "/Search/" . $date . ".log & ");
+        shell_exec("nohup /usr/local/bin/node /opt/softwares/node/".$networkName."/posts.js > /data/logs/node/" . $networkName . "/Post/" . $date . ".log & ");
+        shell_exec("nohup /usr/local/bin/node /opt/softwares/node/".$networkName."/notification.js > /data/logs/node/" . $networkName . "/Notification/" . $date . ".log &");
+        shell_exec(exit());
+        }
+        
+     public function actionupdateNotificationMentions(){
+       try {
+            $mongoCriteria = new EMongoCriteria;
+             $mongoModifier = new EMongoModifier;
+             $mongoCriteria->addCond('RecentActivity', '==', 'mention');
+           $notifications=Notifications::model()->findAll($mongoCriteria);
+           if(count($notifications)>0){
+              foreach ($notifications as $notification){
+                $mongoCriteriaIL = new EMongoCriteria;
+                $mongoModifierIL = new EMongoModifier;
+                if($notification['MentionedUserId']!=null){
+                    $notiArray=array();
+                    echo '__inside not null_'.$notification['MentionedUserId'];
+                    array_push($notiArray,(int)$notification['MentionedUserId']);
+                    $mongoModifierIL->addModifier('MentionedUserId','set',$notiArray);                    
+                    $mongoCriteriaIL->addCond('_id', '==', $notification['_id']);
+                    Notifications::model()->updateAll($mongoModifierIL,$mongoCriteriaIL);
+                }else{
+                    echo '__inside  null***_';
+                    $notiArray=array();                    
+                    $mongoModifierIL->addModifier('MentionedUserId','set',$notiArray);
+                    $mongoCriteriaIL->addCond('_id', '==', $notification['_id']);
+                    Notifications::model()->updateAll($mongoModifierIL,$mongoCriteriaIL);
+                }
+                
+             }     
+           }
+          
+       } catch (Exception $exc) {
+           echo $exc->getMessage();
+       }
+      }  
+      public function actionFTPCreateUser()
+    {
+         $xml = simplexml_load_file(dirname(__FILE__). "/../employee.xml");
+         
+$count =  count($xml);
+$i=0;
+
+
+ $status=1;
+    foreach($xml->{'Employee'} as $value)
+    {
+ $user=new User();
+ $userCollectionModel = new UserCollection();
+
+$values="INSERT IGNORE INTO User (UserId,FirstName,LastName,Password,Email,NetworkId,DisplayName,Status,RegistredDate,WhenUpdated,UserTypeId) VALUES  ";
+ $values2="INSERT IGNORE INTO UserHierarchy (UserId,Division,Region,District,Store,Type) VALUES  ";
+ $i++;
+
+     if(trim($value->EmployeeNumber)=='' || preg_match("/^x|X/i", $value->EmployeeNumber) || trim($value->EmailAddress)=='')
+     continue;
+ 
+     
+     if($value->EmailAddress!='')
+      {
+       $userPresent = $user->checkUserExist($value->EmailAddress);
+       if(isset($userPresent->Email))
+       {
+       $user->updateUserWithLatestDate($userPresent->Email);
+       echo "<br>Email of the User".$userPresent->Email."<br><br>";
+       continue;
+       }
+       else
+       echo "<br><br>I am not Present".$value->EmailAddress."<br><br>";
+      }
+
+      if($value->EmailAddress=='')
+      {
+          $status=0;
+      }
+      
+       
+      if($value->Division!='0000' && $value->Region!='0000' && $value->District!='0000' && $value->Store!='0000')
+     {
+      $type='Store Employee';
+      $userTypeId=3;
+     }
+     if($value->Division!='0000' && $value->Region!='0000' && $value->District!='0000' && $value->Store=='0000')    
+     {
+         $type='District Leader';
+         $userTypeId=2;
+     }
+    if($value->Division!='0000' && $value->Region!='0000' && $value->District=='0000' && $value->Store=='0000')    
+     {
+     $type='Regional Leader';
+     $userTypeId=2;
+     }
+     if($value->Division!='0000' && $value->Region=='0000' && $value->District=='0000' && $value->Store=='0000')    
+     {
+         $type='Divisional Leader';
+         $userTypeId=2;
+     }
+     if($value->Division=='0000' && $value->Region=='0000' && $value->District=='0000' && $value->Store=='0000')    
+     {
+         $type='Corporate';
+         $userTypeId=1;
+     }
+     
+     $values .="('".trim(addslashes($value->EmployeeNumber))."',";
+     $values .="'".trim(addslashes($value->FirstName))."',";
+     $values .="'".trim(addslashes($value->LastName))."',";
+     $values .="'d66ad5b60bcdc4f89efc9c06059ea83e',";
+     $values .="'".trim(addslashes($value->EmailAddress))."',";
+     $values .="$value->Store,";
+     $values .="'".trim(addslashes($value->FirstName))." ".trim(addslashes($value->LastName))."',";
+     $values .="$status,";
+     $values .="'".date('Y-m-d')."',";
+     $values .="'".date('Y-m-d')."',";
+     $values .="$userTypeId);";
+     //$values .=$i==$count?";":",";
+     
+   
+     
+     $values2 .="('".$value->EmployeeNumber."',";
+     $values2 .="'".$value->Division."',";
+     $values2 .="'".$value->Region."',";
+     $values2 .="'".$value->District."',";
+     $values2 .="'".$value->Store."',";
+     $values2 .="'".trim(addslashes($type))."');";
+     //$values2 .=$i==$count?";":",";
+
+     $sql =$values;
+     $command = Yii::app()->db->createCommand($sql);
+     $command->execute();
+     $sql2 =$values2;
+     $command2 = Yii::app()->db->createCommand($sql2);
+     $command2->execute();
+     
+     $users = UserCollection::model()->getTinyUserCollection($value->EmployeeNumber);
+     if(empty($users))
+    {
+    $userCollectionModel->UserId=$value->EmployeeNumber;
+    $userCollectionModel->NetworkId=(int)$value['Store'];
+    $userCollectionModel->ProfilePicture='/user_noimage.png';
+    $userCollectionModel->AboutMe='About Me';
+    $userCollectionModel->Status=(int)$status;
+    $userCollectionModel->DisplayName=trim(addslashes($value->FirstName))." ".trim(addslashes($value->LastName));
+   UserCollection::model()->saveUserCollection($userCollectionModel);  
+   UserProfileCollection::model()->saveUserProfileCollection('',$userCollectionModel->UserId);
+   UserNotificationSettingsCollection::model()->saveUserSettings($value->EmployeeNumber,$userCollectionModel->NetworkId);
+   $displayNameArray = explode(" ", $userCollectionModel->DisplayName);
+   echo $userCollectionModel->DisplayName.'______';
+   $mongoCriteria = new EMongoCriteria;
+   $mongoModifier = new EMongoModifier;
+   $handler = $this->generateUniqueHandleForUser($displayNameArray[0], $displayNameArray[1]);
+   $mongoCriteria->addCond('UserId', '==', (int) $userCollectionModel->UserId);
+   $mongoModifier->addModifier("uniqueHandle", 'set', $handler);
+   UserCollection::model()->updateAll($mongoModifier, $mongoCriteria);
+     }
+   unset($user);
+   unset($userCollectionModel);
+   $users = User::model()->getAllUsersByType(1,'');
+   // $TinyUser=  UserCollection::model()->getTinyUserCollection($value->EmployeeNumber);
+    foreach($users as $admin)
+         {
+                   if($value->EmployeeNumber!=$admin->UserId)
+                   {
+                       UserProfileCollection::model()->followAction($admin->UserId,$value->EmployeeNumber);
+                       echo $value->EmployeeNumber."Follow User Id  $admin->UserId \n";
+                   }
+         }
+    }
+    
+    // update query to mark the users inactive whose whenupdated dated is not current date.
+     ServiceFactory::getSkiptaUserServiceInstance()->updateUserStatusForInactive();
+     
+  }
+ function generateUniqueHandleForUser($firstName, $lastName) {
+        $handle = $firstName . "." . $lastName;
+        while ($this->checkHandleExist($handle)) {
+            $randomNumber = mt_rand(1, 99999);
+            $handle = $firstName . "." . $lastName . $randomNumber;
+        }
+        return $handle;
+    }
+     function checkHandleExist($handle) {
+        $criteria = new EMongoCriteria();
+        $criteria->addCond('uniqueHandle', '==', $handle);
+        $result = UserCollection::model()->find($criteria);
+        if (is_object($result)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function actionUsersInactive() {
+        try {
+            ServiceFactory::getSkiptaUserServiceInstance()->updateUserStatusForInactive();
+        } catch (Exception $exc) {
+            echo $exc->getMessage();
+        }
+    }
+
+}

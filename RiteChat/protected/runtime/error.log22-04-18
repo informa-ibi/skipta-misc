@@ -1,0 +1,8 @@
+2018/04/22 17:04:41 [error] [application] 1611531------saveCookieRandomKeyForUser-------hxeHNrfP8ceSDC95
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2018/04/22 22:57:02 [error] [application] 819939------saveCookieRandomKeyForUser-------DK6Dj0kU18MJVnhH
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)

@@ -1,0 +1,250 @@
+header{background: transparent}
+.pdf_header{background:#bfd819;}
+body {background: url("/images/system/newbackground.png") repeat-y scroll center top #1D4060;color: #1E1D1B;}
+.dropdown-menu, .navigation li:hover .dropdownmenudiv{background:#fff;}
+label{color:#a3a3a3}
+.topmenulink li a, .topmenulink li a:hover, input.login-bt, input.login-bt:hover, input.login-bt:focus, .navigation li a.submenu:hover span {color:#fff;}
+topmenulink li.open a span, .topmenulink li.top-nav-login:hover a span{ color:#333}
+.logininput[type="text"], .logininput[type="password"] {border: 1px solid #969696 !important;border-width: 1px solid #DEDEDE;}
+.notification a, .navigation li a span {color: #333333;}
+.topmenulink li p.login-text-blue a{color:#105291}
+.navigation li a:hover span{color:#1b4a76}
+.navigation li a.submenu:hover, .navigation li:hover a.submenu{background:#1b4a76}
+.navigation li:hover a.submenu span{color:#fff}
+.top-search-area .open{/*background:#1d4060*/}
+.top-search-area .open a, .notificationwidth .headerpoptitle, .notificationwidth .headerpoptitle a{color:#fff}
+
+.notificationwidth .padding10{  border-top: 1px solid #DFDFDF}
+.notificationwidth .padding10:hover{background:#f4f4f4}
+.notificationwidth .padding10 .notificationdate a i {color: #017BC4}
+.headerpopfooter {background:#F9F9F9;border-top: 2px solid #DFDFDF;}
+.top-search-area .open .headerpopfooter a {color: #1b4a76;}
+.top-search-area .open .headerpopfooter a:hover{text-decoration: underline}
+.sidebar-nav_right, .sidebar-nav{}
+
+footer, .wah-menu {z-index:1002;}
+.top-search-area .open a.notificationlink{color:#333}
+/*headermenu*/
+#searchtextbox input {
+   border:1px solid #ccc;
+   
+}
+.network_positionabsolutediv {
+  left: 250px;
+    right: auto;
+    top: 6px;
+}
+.networkmode{color:#fff}
+input[type="text"].email, input[type="password"].pwd, input[type="text"].textfield{border:1px solid #c6c6c6;background-color:#fff;}
+.footerlinksarea .footerlinks a{color:#017BC4}
+
+
+.btn { background: none repeat scroll 0 0 #1A95D6;
+    box-shadow: 0 2px #196E9B;
+    color: #FFFFFF;}
+.btn:hover {box-shadow: 0 1px #6B9207;color:#5F6468}
+.btn:active{box-shadow: 0 0 #6B9207;}
+.btn_prelogin{font-size:17px;font-family: 'latoregular';padding:5px 10px}
+.select {background-color: #ffffff;border: 1px solid #cccccc; -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075); box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);}
+a.infolink, a:hover.infolink, .footercopyrightarea{color:#7f7f7f;}
+.footercopyrightarea{border-top:2px solid #e4e5e5;}
+.btn_gray{background:#cccccc;color:#707070; box-shadow: 0 2px #919191;}
+.btn_gray:hover{ box-shadow: 0 1px #919191;color:#707070}
+.btn_gray:active {box-shadow: 0 0 #196e9b;}
+/*end*/
+
+
+
+/*end*/
+
+/*facebook Twitter*/
+.facebook, .facebook:hover{background:#486397;color:#fff;}
+.twitter, .twitter:hover{background:#68a7cc;color:#fff;}
+.facebook_gray, .facebook_gray:hover, .twitter_gray, .twitter_gray:hover{background:#cccccc;color:#5a5b5b; box-shadow: 0 2px #636162;}
+.facebook i, .twitter i {color:#fff}
+.facebook .fa-check, .twitter .fa-check{color:#87cd7c;background:#fff;border-radius:50px;padding:2px;font-size:18px}
+.facebook .fa-times, .twitter .fa-times{display:none}
+.facebook_gray .fa-check, .twitter_gray .fa-check{display:none}
+.facebook_gray .fa-times, .twitter_gray .fa-times{color:#ff0024;background:#fff;border-radius:50px;padding:1px 3px;font-size:18px}
+.facebook_gray i, .twitter_gray i{color:#5a5b5b}
+
+/*end*/ 
+
+/*editableicons start here*/
+
+.editable_buttons{box-shadow:0 1px #196E9B}
+.editable_buttons i{font-size:13px;padding:2px;border-right:1px solid #196E9B;}
+.redcolorbuttons i{border-right:1px solid #b60b0b;}
+.redcolorbuttons{background:#ff0000; box-shadow:0 1px #7f0606}
+.greencolorbuttons{background:#7a9836; box-shadow:0 1px #738f32}
+.greencolorbuttons i{border-right:1px solid #738f32;}
+.graycolorbuttons{background:#ccc; box-shadow:0 1px #ccc}
+.editnoborder{padding:0}
+.editnoborder i{border:0;}
+.normalcursor{cursor:default}
+/*editableicons end here*/
+/* OverRide Chat Styles */
+.chat_plus i{ background: none repeat scroll 0 0 #484848;border: 2px solid #FFFFFF;border-radius: 100px 100px 100px 100px;color: #FFFFFF;font-size: 20px;line-height: 18px;padding: 2px 3px 2px 4px;}
+.closedchat {background: none repeat scroll 0 0 #484848; padding: 5px;}
+/* End Chat OverRide Styles*/
+.open > .dropdown-menu { display: block;}
+
+/* Override Search Bar*/
+
+/* search Flow*/
+.searchwidth {  left: 10px; margin-top: 10px; padding: 0;right: 10px;}
+header .container .nav > li .searchwidth {right:-232px;margin-top:-8px;padding:0;}
+.searchwidth:before{ content: '';position: absolute; top: -26px;right: 50px;  width: 0;height: 0;border: 12px solid transparent;border-bottom: 13px solid #ccc;}
+.searchwidth:after{ content: ''; position: absolute; top: -25px; right: 50px;width: 0;height: 0;border: 12px solid transparent; border-color: rgba(0, 0, 80, 0); border-bottom: 13px solid #fff;}
+.search3{padding:0px;margin-bottom:7px;background-color: #FFF;-moz-box-shadow: 0 0 4px #ccc;-webkit-box-shadow: 0 0 6px #ccc;box-shadow: 0 0 6px #ccc;filter:progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=0,strength=4),progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=45,strength=4), progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=90,strength=4), progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=135,strength=4), progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=180,strength=4),progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=225,strength=4),progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=270,strength=4),progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=315,strength=4);}
+.ndf { background: none repeat scroll 0 0 #E8E8E8; border-radius: 10px 10px 10px 10px; color: #222222;  display: table;  font-size: 15px;font-weight: bold; margin: auto;padding: 10px;text-align: center;
+}.bordertop{border-top:1px solid #DFDFDF}
+.search_p_data{margin-left: 45px}
+.minheight30{min-height: 30px}
+.paddingtop12{padding-top:12px}
+.search_p_data{font-weight: normal;font-family:"latobold";font-size:14px;word-wrap: break-word;cursor: pointer}
+.s_g_div{ overflow: hidden; word-wrap: break-word;}
+.s_g_icon{max-width: 100px;margin-right:5px}
+.s_p_icon{position: absolute;top:0;left:0}
+.search_bar{border-top:1px solid #f4f4f4}
+.social_bar .margin-right10, .margin-right10{margin-right:10px}
+.search3 .dd-tags b{font-size:14px;font-family: "latobold";}
+.social_bar  i img.s_conversations{ background-position:left -1742px;}
+.social_bar  i img.s_followers{ background-position:left -1696px;}
+.socialicons img{background:url("/images/system/social_icons.png") no-repeat left top;}
+.socialicons_s_wh, .socialicons_s_wh img {width:35px;height:35px}
+.socialicons .s_crubside{background-position: left -1928px;}
+.socialicons .s_posts{background-position: left -2017px;}
+.search_p_data38{margin-left:38px;cursor: pointer}
+.paddingtop6{padding-top:6px}
+.font15{font-size:15px;font-family: "latobold";color:#999}
+.font15 span{font-size:17px;font-family: "latobold";color:#333}
+.search3 .bghover:hover{background: #f4f4f4}
+.search_bar_noclear, .search_bar_noclear:after{clear:none;}
+.search3 .search_bar_noclear{display: none}
+.search3 .bghover:hover .search_bar_noclear{display: block}
+.paddingl3r3{padding:0 3px}
+/*end*/
+/*End Override Search Bar*/
+
+.r_profilewidth {left: auto;right: 0; width: 274px;}
+.top-search-area .open a.markasreadlink{color:#fff}
+.notificationwidth .headerpoptitle {
+    background: none repeat scroll 0 0 #1D4060;
+}
+.row-fluid_profilesummary [class*="span8custom"] { margin-left: 1.5641%; width: 63.61%;}
+.notification .badge {font-family: latoregular;}
+.invitebox{background:#eeeeee;border:1px solid #e8e6e7}
+.arrow_box { position: relative; background: #88b7d5; border: 4px solid #c2e1f5; } .arrow_box:after, .arrow_box:before { bottom: 100%; left: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; } .arrow_box:after { border-color: rgba(136, 183, 213, 0); border-bottom-color: #88b7d5; border-width: 30px; margin-left: -30px; } .arrow_box:before { border-color: rgba(194, 225, 245, 0); border-bottom-color: #c2e1f5; border-width: 36px; margin-left: -36px; }
+.invitebox{position:relative;margin-top:14px}
+.invitebox:before{ content: '';
+  position: absolute;
+  top: -29px;
+  left: 48px;
+  width: 0;
+  height: 0;
+  border: 14px solid transparent;
+  border-bottom: 14px solid #e9e7e7;}
+.invitebox:after{ content: '';
+  position: absolute;
+  top: -28px;
+  left: 48px;
+  width: 0;
+  height: 0;
+  border: 14px solid transparent;
+   border-color: rgba(0, 0, 80, 0);
+  border-bottom: 14px solid #eeeeee;}
+.actionmoredivtop{  right: -39px;}
+.preferences_popup{width:310px}
+.newgrouppopupdivtop:before {
+    left: auto;
+    right: 50px;
+}
+.newgrouppopupdivtop:after {
+    left: auto;
+    right: 50px;
+}
+.btn-group.open .btn.dropdown-toggle {
+    background-color: #1A95D6;
+}
+.invitebox{background:#eeeeee;border:1px solid #e8e6e7}
+.arrow_box { position: relative; background: #88b7d5; border: 4px solid #c2e1f5; } .arrow_box:after, .arrow_box:before { bottom: 100%; left: 50%; border: solid transparent; content: " "; height: 0; width: 0; position: absolute; pointer-events: none; } .arrow_box:after { border-color: rgba(136, 183, 213, 0); border-bottom-color: #88b7d5; border-width: 30px; margin-left: -30px; } .arrow_box:before { border-color: rgba(194, 225, 245, 0); border-bottom-color: #c2e1f5; border-width: 36px; margin-left: -36px; }
+.invitebox{position:relative;margin-top:14px}
+.invitebox:before{ content: '';
+ position: absolute;
+ top: -29px;
+ left: 48px;
+ width: 0;
+ height: 0;
+ border: 14px solid transparent;
+ border-bottom: 14px solid #e9e7e7;}
+.invitebox:after{ content: '';
+ position: absolute;
+ top: -28px;
+ left: 48px;
+ width: 0;
+ height: 0;
+ border: 14px solid transparent;
+  border-color: rgba(0, 0, 80, 0);
+ border-bottom: 14px solid #eeeeee;} 
+.social_bar a i img.invite_frds {
+    background-position: left -140px;
+}
+cur img, .atwho-view .atwho-view-ul li img {
+    border:0px;
+    border-radius:0px;
+    height: 18px;
+    width: 20px;
+}
+.atwho-view .atwho-view-ul li i.d_n_border {
+    display: inline-block;
+    height: 20px;
+    line-height: 1px;
+    overflow: hidden;
+    width: 20px;
+}
+@media (max-width: 1024px){
+.navigation li a span {
+    font-size: 18px;
+  }
+}
+
+
+/*custombadges*/
+.custom_badgesul{margin:0;padding:0;list-style:none}
+.custom_badgesul li{float:left;}
+.custom_badgesul li .badgelist{padding:4px 8px;position: relative;}
+.custom_badgesul li .badgelist .badgesbox{/** Hide items initially to avoid a flicker effect **/  padding:1px;margin-bottom:7px;background-color: #fff;-moz-box-shadow: 0 0 4px #ccc;-webkit-box-shadow: 0 0 6px #ccc;box-shadow: 0 0 6px #ccc;filter:progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=0,strength=4),progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=45,strength=4), progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=90,strength=4), progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=135,strength=4), progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=180,strength=4),progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=225,strength=4),progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=270,strength=4),progid:DXImageTransform.Microsoft.Shadow(color=#e8e8e8,direction=315,strength=4);}
+.custom_badgesul li .badgelist .badgeimages{ 
+  padding:4px;
+    cursor: pointer;
+    width: 120px;text-align: center}
+.custom_badgesul li.active .badgelist .badgesbox{ 
+    
+  
+  }
+  .custom_badgesul li.active .badgelist .badgesbox:after{ 
+      content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 35%;
+  width: 0;
+  height: 0;
+  border: 20px solid transparent;
+  border-bottom: 19px solid #e8e8e8;
+  
+  }
+  .custom_badgesul li .badgelist .badgeimages a{display: block;width:120px;}
+  .custombagesresults{background: #e8e8e8;margin-top:10px}
+  .custom_badgesul:after, .custombagesresults:after{content:"";clear:both;display: block}
+  .actionfielddiv{background-color: #f4f4f4;padding:4px;text-align: right}
+  .assigncustbadgeheader{color:#333;font-size:14px}
+  .assigncustbadgebuttonsection{padding:0 6px 6px}
+/*custombadgesend*/
+
+
+/*for delete icon*/
+.social_bar .icon-trash:before{
+    font-size: 22px;
+    text-decoration: none;
+}

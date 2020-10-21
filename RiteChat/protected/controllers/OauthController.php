@@ -1,0 +1,290 @@
+<?php
+
+/* 
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+class OauthController extends   Controller{
+    
+ 
+    public function __construct($id, $module = null) {
+        parent::__construct($id, $module);
+    }
+ public function init() {
+     $this->initializeforms();
+   $this->layout='main';
+    
+     }
+
+    public function actionAuthorize() {
+        $_POST = array("client_id" => 1234567890, 'response_type' => 'token', 'redirect_uri' => 'http://10.10.73.102:8080/site/login');
+        $oauth = YiiOAuth2::instance();
+        $auth_params = $oauth->getAuthorizeParams();
+        $app = $oauth->getClients($auth_params['client_id']);
+        $oauth->setVariable("user_id", 1);
+        $oauth->finishClientAuthorization(TRUE, $_POST);
+        
+
+        if ($_POST) {
+// $this->authorization();
+            //add your verify username and password code here;
+            //$user_id = User::model()->getIdByUsername($_POST['username']);
+        }
+    }
+
+    public function authorization() {
+
+        $token = YiiOAuth2::instance()->verifyToken();
+        // If we have an user_id, then login as that user (for this request)
+        if ($token && isset($token['user_id'])) {
+
+            self::setUid($token['user_id']);
+            self::$_oauth = true;
+        } else {
+
+            $msg = "Can't verify request, missing oauth_consumer_key or oauth_token";
+            throw new CHttpException(401, $msg);
+            exit();
+        }
+    }
+
+    public static function setUid($uid) {
+        if (empty($uid)) {
+            $msg = "authorization failed, missing login user id.";
+            throw new CHttpException(401, $msg);
+            exit();
+        }
+        self::$_uid = $uid;
+    }
+
+    public static function getUid() {
+        //return "test";
+
+        if (empty(self::$_uid)) {
+            $msg = "Not found";
+            throw new CHttpException(403, $msg);
+            exit();
+        }
+
+        return self::$_uid;
+    }
+
+    public function actionAccess_token() {
+        if (isset(Yii::app()->session['TinyUserCollectionObj'])) {
+            $_GET['response_type']="token";
+            $_POST = $_GET;
+            $oauth = YiiOAuth2::instance();
+            $auth_params = $oauth->getAuthorizeParams();
+            $app = $oauth->getClients($auth_params['client_id']);
+//          rror_log(print_r($oauth->setVariable("user_id", Yii::app()->session['TinyUserCollectionObj']->UserId), true));
+            $oauth->setVariable("user_id", Yii::app()->session['TinyUserCollectionObj']->UserId);
+            $oauth->finishClientAuthorization(TRUE, $_POST);
+        } else {
+            $this->redirect('/oauth/apiLogin?client_id=' . $_GET['client_id'] . '&redirect_uri=' . $_GET['redirect_uri']);
+        }
+    }
+
+    public function actionApiLogin() {
+        try {
+          
+            $cs = Yii::app()->getClientScript();
+            $consumerObj="";
+            $baseUrl = Yii::app()->baseUrl;
+            $cs->registerCssFile($baseUrl . '/css/oauth-skiptaNeo.css');
+            $cs->registerCssFile($baseUrl . '/css/oauth-skiptatheme.css');
+            $_GET['response_type']="token";
+              $oauth = YiiOAuth2::instance();
+              $app = $oauth->getClients($_GET['client_id']);
+              $isValidClient="false";
+             
+              if(isset($app['client_id']) ){
+                 $consumerObj= $this->setConsumerAppProperties($app);
+                  $isValidClient="true";
+              }
+              
+            $model = new LoginForm;
+          
+            if (isset($_POST['LoginForm'])) {
+                $model->attributes = $_POST['LoginForm'];
+                
+                if (isset($_POST['cancel'])) {
+                  
+                    $oauth->finishClientAuthorization(FALSE, '', $app['domain_name'], "CANCEL");
+                }
+
+
+                $loginForm_errors = CActiveForm::validate($model);
+                if ($loginForm_errors != "[]") {
+
+                    $obj = array('status' => 'fail', 'data' => '', 'error' => $loginForm_errors);
+                } else {
+                    $resultArray = ServiceFactory::getSkiptaUserServiceInstance()->userAuthentication($model);
+                    if ($resultArray == 'success') {
+                         $status = "success";
+                    /*Cookie based login*/
+                     $identity= new UserIdentity($model->email,$model->password);
+                     $duration=$model->rememberMe ? 3600*24*60 : 0; // 30 days
+                 
+                    $identity->authenticate();//must
+                    Yii::app()->user->login($identity,$duration);
+                    $randomKey  = Yii::app()->user->getState('s_k');
+                     /*Cookie based login*/
+                   $userObj=ServiceFactory::getSkiptaUserServiceInstance()->getUserByType($model->email,'Email');                   
+                   ServiceFactory::getSkiptaUserServiceInstance()->saveCookieRandomKeyForUser($userObj->UserId,$randomKey);    
+                   
+                  $tinyUserCollectionObj=ServiceFactory::getSkiptaUserServiceInstance()->getTinyUserCollection($userObj->UserId); 
+                  $userPrivileges=ServiceFactory::getSkiptaUserServiceInstance()->getUserActionsByUserType($userObj->UserId, $userObj->UserTypeId);
+                  $userFollowingGroups=ServiceFactory::getSkiptaUserServiceInstance()->groupsUserFollowing($userObj->UserId);
+                  
+                  $userHierarchy = ServiceFactory::getSkiptaUserServiceInstance()->getUserHierarchy($userObj->UserId);
+                  Yii::app()->session['UserFollowingGroups']=$userFollowingGroups;
+                  Yii::app()->session['TinyUserCollectionObj']=$tinyUserCollectionObj;
+                  Yii::app()->session['UserPrivileges']=$userPrivileges;
+                  Yii::app()->session['UserPrivilegeObject']=CommonUtility::getUserPrivilege();
+                  Yii::app()->session['UserStaticData']=$userObj;
+                  Yii::app()->session['IsAdmin']=Yii::app()->session['UserStaticData']->UserTypeId;
+                  Yii::app()->session['UserHierarchy']=$userHierarchy;
+
+                        //             $_POST=$_GET;
+
+                        $_POST = $_GET;
+                        $oauth = YiiOAuth2::instance();
+                        $auth_params = $oauth->getAuthorizeParams();
+
+                        $app = $oauth->getClients($auth_params['client_id']);
+
+                        $oauth->setVariable("user_id", Yii::app()->session['TinyUserCollectionObj']->UserId);
+                        $oauth->finishClientAuthorization(TRUE, $_POST);
+                    } else {
+                        if ($resultArray == 'suspend' || $resultArray == 'register' || $resultArray == 'wrongEmail' || $resultArray == 'contactAdmin') {
+                            $errormsg = Yii::t('translation', $resultArray);
+                            $obj = array('status' => 'fail', 'data' => $errormsg, 'error' => '');
+                            $model->addError('email', Yii::t('translation',$resultArray));
+                        }if ($resultArray == 'passwordIncorrect') {
+                            $errormsg = Yii::t('translation', $resultArray);
+                            $obj = array('status' => 'fail', 'data' => $errormsg, 'error' => '');
+                            $model->addError('password', Yii::t('translation',$resultArray));
+                        }
+                    }
+                }
+            }
+
+        
+            $this->render('apiLogin', array('model' => $model,'consumerObj'=>$consumerObj, 'isValidClient'=> $isValidClient));
+        } catch (Exception $exc) {
+            Yii::log($exc->getMessage(), 'error', 'userController');
+        }
+    }
+
+    function setConsumerAppProperties($array) {
+        $consumerProperties = New ConsumerProperties();
+        try {
+            $consumerProperties->ClientId = $array['client_id'];
+            $consumerProperties->ClientSecret = $array['client_secret'];
+            $consumerProperties->RedirectURI = $array['redirect_uri'];
+            $consumerProperties->Title = $array['app_title'];
+            $consumerProperties->Description = $array['app_desc'];
+            $consumerProperties->Picture = $array['pic'];
+             $consumerProperties->DomainName = $array['domain_name'];
+            return $consumerProperties;
+        } catch (Exception $ex) {
+            Yii::log($ex->getMessage(), 'error', 'userController');
+        }
+    }
+    
+    function actionGetUserProfileDetails() {
+        try {
+            if (isset($_GET['access_token'])) {
+                $oauth = YiiOAuth2::instance();
+                $tokenDetails = $oauth->getToken($_GET['access_token'], 'access');
+                if (isset($tokenDetails)) {
+
+                    $userId = $tokenDetails['user_id'];
+                    $tinyUserCollectionObj = ServiceFactory::getSkiptaUserServiceInstance()->getTinyUserCollection((int) $userId);
+
+                    $userObj = ServiceFactory::getSkiptaUserServiceInstance()->getUserByType((int) $userId,'UserId');
+                    
+                    $userBean = new TinyUserBean();
+                    $userBean->APIAccessKey = $userObj->APIAccessKey;
+                    $userBean->DisplayName = $tinyUserCollectionObj->DisplayName;
+                    $userBean->AboutMe = $tinyUserCollectionObj->AboutMe;
+                   //   $userBean->Network = $tinyUserCollectionObj->Network;
+                    $userBean->ProfilePicture = $tinyUserCollectionObj->profile250x250;
+                    $obj = array("status" => "success", "data" => array("Response"=>$userBean));
+                    echo CJSON::encode($obj);
+                }
+                else{
+                     $obj = array("status" => "error", "data" => array("Response"=>"","errorMessage"=>"access token mismatch!"));
+                    echo CJSON::encode($obj);
+                }
+            }
+        } catch (Exception $e) {
+            Yii::log($exc->getMessage(), 'error', 'userController');
+        }
+    }
+    
+    function actionGetUserData() {
+        
+       
+        try {
+            if (isset($_GET['UserApiAccessKey'])) {
+               
+                
+                    $UserApiAccessKey = $_GET['UserApiAccessKey'];
+                    
+                   
+                    $userObj = ServiceFactory::getSkiptaUserServiceInstance()->getUserByType( $UserApiAccessKey,'APIAccessKey');
+                   
+                    $tinyUserCollectionObj = ServiceFactory::getSkiptaUserServiceInstance()->getTinyUserCollection((int)($userObj->UserId));
+                
+                 
+                   $userBean= $this->prepareUserRegisterBean($userObj,$tinyUserCollectionObj,$_GET['fromNetwork']);
+                  
+                    $obj = array("status" => "success", "data" => array("Response"=>$userBean));
+                    echo CJSON::encode($obj);
+            }
+                else{
+                     $obj = array("status" => "error", "data" => array("Response"=>"","errorMessage"=>"Invalid UserAPIAccessKey!"));
+                    echo CJSON::encode($obj);
+                }
+            
+        } catch (Exception $exc) {
+            Yii::log("******ddddddddddddddddddddddddddddddddddddd*********".$exc->getMessage(), 'error', 'userController');
+        }
+    }
+    
+    public function prepareUserRegisterBean($userObj,$tinyUserCollectionObj,$fromNetwork)
+    { 
+           $userBean=new UserRegisterBean();
+          $userBean->firstName=$userObj->FirstName;
+         
+          $userBean->lastName=$userObj->LastName;
+         
+          $userBean->displayName=$userObj->DisplayName;
+          $countryData=Countries::model()->getCountryById($userObj->Country);
+          $userBean->country=$countryData->Name;
+          $userBean->state=$userObj->State;
+          $userBean->city=$userObj->City;
+          $userBean->zip=$userObj->Zip;
+          $userBean->companyName=$userObj->Company;
+          $userBean->aboutMe=$tinyUserCollectionObj->AboutMe;
+         
+          $userBean->profilePicture=$tinyUserCollectionObj->profile250x250;
+         
+        
+          $userBean->status=$userObj->Status;
+	  $userBean->email=$userObj->Email;
+          $userBean->registredDate = date('Y-m-d H:i:s', time());
+        
+          $userBean->apiAccessKey = $userObj->APIAccessKey;
+          
+          $userBean->fromNetwork = $fromNetwork;
+         
+          return $userBean;
+           
+         
+    }
+
+}

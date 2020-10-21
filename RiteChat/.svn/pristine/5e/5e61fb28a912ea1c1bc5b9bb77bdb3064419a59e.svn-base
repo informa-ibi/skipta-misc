@@ -1,0 +1,127 @@
+/*#css3menu1{padding-top:10px}*/
+#css3menu1 ul,#css3menu1 ul ul{
+	margin:0;list-style:none;padding:0;}
+#css3menu1 ul ul{width:180px;
+	display:none;position:absolute;left:0;top:100%;-moz-box-shadow:0.7px 0.7px 1px #e8e8e8;-webkit-box-shadow:0.7px 0.7px 1px #e8e8e8;box-shadow:0.7px 0.7px 1px #e8e8e8;background-color:#f4f4f4;background-image:none;border-width:1px;border-style:solid;border-color:#d8d9da;padding:0;}
+#css3menu1 ul li:hover>*{
+	display:block;}
+#css3menu1 ul li{
+	position:relative;display:block;white-space:nowrap;font-size:0;float:left;}
+#css3menu1 ul li:hover{
+	z-index:1;}
+#css3menu1 ul ul ul{
+	position:absolute;left:100%;top:0;}
+#css3menu1 ul{
+	font-size:0;z-index:999;position:relative;display:inline-block;zoom:1;padding:1px 1px 1px 0;
+	*display:inline;}
+* html #css3menu1 ul li a{
+	display:inline-block;}
+#css3menu1 ul>li{
+	margin:0 0 0 1px;}
+#css3menu1 ul ul>li{
+	margin:1px 0 0;}
+#css3menu1 ul a:active, #css3menu1 ul a:focus{
+	outline-style:none;}
+#css3menu1 ul a{
+	padding:0 3px;display:block;vertical-align:middle;text-align:left;text-decoration:none;font:bold 12px Lucida Grande,Lucida Sans,Arial,sans-serif;color:#2370b8;cursor:pointer;background-color:#f4f4f4;border-width:0px;border-style:none;border-color:;}
+#css3menu1 ul ul li{
+	float:none;margin:0px 0 0;}
+#css3menu1 ul ul a{
+	text-align:left;padding:8px 0 0 0;background-color:#f4f4f4;border-width:1px 0 0 0;border-style:solid;border-color:#D9D9D9;border-radius:0px;-moz-border-radius:0px;-webkit-border-radius:0px;font:13px Lucida Grande,Lucida Sans,Arial,sans-serif;color:#2370b8;text-decoration:none;}
+#css3menu1 ul li:hover>a,#css3menu1 ul li a.pressed{
+	background-color:#e8e8e8;border-style:none;color:#2370b8;text-decoration:none;}
+#css3menu1 ul span{
+	display:block;overflow:visible;padding-right:0px;}
+#css3menu1 ul ul span{
+	background-image:url("../images/arrowsub.gif");padding-right:15px;}
+#css3menu1 ul > label.switch{
+	display:none;cursor:pointer;width:25px;height:20px;padding:10px;}
+#css3menu1 ul > label.switch:before{
+	content:"";position:absolute;display:block;height:4px;width:25px;border-radius:4px;background:#262626;-moz-box-shadow:0 8px #262626, 0 16px #262626;-webkit-box-shadow:0 8px #262626, 0 16px #262626;box-shadow:0 8px #262626, 0 16px #262626;}
+#css3menu1 ul > label.switch:hover:before{
+	background:#efefef;-moz-box-shadow:0 8px #efefef, 0 16px #efefef;-webkit-box-shadow:0 8px #efefef, 0 16px #efefef;box-shadow:0 8px #efefef, 0 16px #efefef;}
+#css3menu1 ul > .switchbox{
+	display:none;}
+#css3menu1 ul ul li:hover>a,#css3menu1 ul ul li a.pressed{
+	border-style:solid;border-color:#D9D9D9;color:#0088CC;text-decoration:none;}
+#css3menu1 ul li.topfirst>a{
+	border-radius:4px 0 0 4px;-moz-border-radius:4px 0 0 4px;-webkit-border-radius:4px;-webkit-border-top-right-radius:0;-webkit-border-bottom-right-radius:0;}
+#css3menu1 ul li.topfirst:hover>a,#css3menu1 ul li.topfirst a.pressed{
+	}
+#css3menu1 ul li.topmenu>a{
+	}
+#css3menu1 ul li.topmenu:hover>a,#css3menu1 ul li.topmenu a.pressed{
+	}
+#css3menu1 ul li.toplast>a{
+	border-radius:0 4px 4px 0;-moz-border-radius:0 4px 4px 0;-webkit-border-radius:0;-webkit-border-top-right-radius:4px;-webkit-border-bottom-right-radius:4px;}
+#css3menu1 ul li.toplast:hover>a,#css3menu1 ul li.toplast a.pressed{
+	}
+#css3menu1 ul _>li>a{
+	padding:0;}
+	#css3menu1 ul>li>a span{
+	 padding: 15px 10px 15px 10px;display:block}
+#css3menu1 ul li.subfirst>a{
+	border-width:0;border-style:none;padding-top:0;}
+#css3menu1 ul li.subfirst:hover>a,#css3menu1 ul li.subfirst a.pressed{
+	border-style:none;}
+	#css3menu1 ul li.toplast>a span {
+  
+}
+#css3menu1 ul li.o_evencalender>a span, #css3menu1 ul li.o_Announcements>a span,  #css3menu1 ul li.o_Noteworthy>a span, #css3menu1 ul li ul  li.o_Library>a span, #css3menu1 ul li ul  li.o_Abilify>a span{
+    padding: 15px 41px 15px 10px;display:block
+}
+
+ #css3menu1 ul li.o_Therapeutic_Areas>a span, #css3menu1 ul li.Otsuka_Products>a span {
+    padding: 15px 32px 15px 10px;display:block
+}
+
+.o_Abilify a , .o_Library a{ background: url("../images/o_lefticons_blue.png") no-repeat scroll 0 -200px rgba(0, 0, 0, 0);
+    padding-left: 22px;}
+.o_Abilify a.active , .o_Library a.active{ background: url("../images/o_lefticons_gray.png") no-repeat scroll 0 -200px rgba(0, 0, 0, 0);
+    padding-left: 22px;}
+#css3menu1 ul li ul  li.o_Library>a span {
+    background: url("../images/o_lefticons_blue.png") no-repeat scroll 95% -42px rgba(0, 0, 0, 0);
+}
+#css3menu1 ul li ul  li.o_Library>a.active span{ background: url("../images/o_lefticons_gray.png") no-repeat scroll 95% -42px  transparent;
+}
+.o_Noteworthy span{background: url("../images/o_lefticons_blue.png") no-repeat 95% 11px;}
+.o_Noteworthy a.active span{
+    background: url("../images/o_lefticons_gray.png") no-repeat scroll 95% 11px;
+}
+.Otsuka_Products span, .o_Therapeutic_Areas span{background:url(../images/plusSign.gif) no-repeat 95% 13px;}
+.Otsuka_Products span:hover, .o_Therapeutic_Areas span:hover{background:url(../images/minusSign.gif) no-repeat 95% 13px;}
+.o_Announcements span{background: url("../images/o_lefticons_blue.png") no-repeat 95% -99px;}
+.o_Announcements a.active span{
+    background: url("../images/o_lefticons_gray.png") no-repeat 95% -99px;;
+}
+.o_evencalender  span{background: url("../images/o_lefticons_blue.png") no-repeat 95% -154px;}
+.o_evencalender a.active  span{background: url("../images/o_lefticons_gray.png") no-repeat 95% -154px;}
+#css3menu1 ul li a.active{background-color: #dcdcdc;}
+#css3menu1 ul li ul  li{border-bottom:1px solid #CCC}
+#css3menu1 ul li ul  li:last-child{border-bottom:0px solid #CCC}
+#css3menu1 ul li ul a{padding-left:22px}
+#css3menu1 > ul > li > a {
+ 
+  text-transform: uppercase;
+  -webkit-transition: color 0.25s ease-out;
+  -moz-transition: color 0.25s ease-out;
+  -ms-transition: color 0.25s ease-out;
+  -o-transition: color 0.25s ease-out;
+  transition: color 0.25s ease-out;
+}
+@media screen and (max-width: 768px) {
+	#css3menu1 ul > li {
+		position: initial;}
+	#css3menu1 ul ul .submenu,#css3menu1 ul li > ul {
+		left: 0; right:auto; top: 100%;}
+	#css3menu1 ul .submenu,#css3menu1 ul ul,#css3menu1 ul .column {
+		-webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;padding-right: 0;width: 100% !important;}
+}
+@media screen and (max-width: 295px) {
+	#css3menu1 ul{
+		width: 100%;}
+	#css3menu1 ul > li {
+		display: none !important;		position: relative;		width: 100% !important;}
+	#css3menu1 ul > label.switch,#css3menu1 ul .switchbox:checked ~ li {
+		display: block !important;}
+}

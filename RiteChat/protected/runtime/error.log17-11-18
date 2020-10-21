@@ -1,0 +1,20 @@
+2018/11/17 00:06:20 [error] [application] 1651167------saveCookieRandomKeyForUser-------HJe3HdfImDNoEJLM
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2018/11/17 00:53:26 [error] [application] 1707193------saveCookieRandomKeyForUser-------CtKm1FmQkAJR37lf
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2018/11/17 01:05:42 [error] [application] 1655670------saveCookieRandomKeyForUser-------hR0X5Y6xtwWnOoje
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2018/11/17 15:42:27 [error] [application] 1563873------saveCookieRandomKeyForUser-------I32HssOtwiqB0HfE
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)
+2018/11/17 20:09:08 [error] [application] 1565841------saveCookieRandomKeyForUser-------Ckyflyo8IiDL3kQI
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (925)

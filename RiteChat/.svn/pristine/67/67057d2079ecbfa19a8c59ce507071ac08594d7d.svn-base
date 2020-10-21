@@ -1,0 +1,119 @@
+#css3menu1{padding-top:0}
+#myIframeContent{margin-top:42px}
+#css3menu1 ul li#menu-button{display:none}
+#css3menu1{display:table;width:200px}
+#css3menu1 ul li#menu-button{display:block}
+  #css3menu1 {
+   border:1px solid #ccc;position:absolute;
+   background:#f4f4f4;
+   z-index: 3
+  }
+  #css3menu1.align-center ul {
+    text-align: left;
+  }
+  #css3menu1.align-right > ul > li {
+    float: none;
+  }
+  #css3menu1 ul {
+    width: auto;
+  }
+  #css3menu1 .submenuArrow,
+  #css3menu1 #indicatorContainer {
+    display: none;
+  }
+  #css3menu1 > ul {
+    height: auto;
+    display: block;
+  }
+  #css3menu1 > ul > li {
+    float: none;
+  }
+  #css3menu1 li,
+  #css3menu1 > ul > li {
+    display: none;
+  }
+  #css3menu1 ul ul,
+  #css3menu1 ul ul ul,
+  #css3menu1 ul > li:hover > ul,
+  #css3menu1 ul ul > li:hover > ul,
+  #css3menu1.align-right ul ul,
+  #css3menu1.align-right ul ul ul,
+  #css3menu1.align-right ul > li:hover > ul,
+  #css3menu1.align-right ul ul > li:hover > ul {
+    position: absolute;
+    left: 197px;
+    top: -2px;
+    opacity: 1;
+    padding-left: 0;
+    padding-right: 0;
+    right: auto;
+  }
+  #css3menu1 ul .has-sub::after {
+    display: none;
+  }
+ 
+ 
+  #css3menu1.align-right ul ul li a {
+    text-align: left;
+  }
+  
+  #css3menu1 ul ul ul a {
+    padding: 8px 50px;
+  }
+  #css3menu1 ul ul ul ul a {
+    padding: 8px 65px;
+  }
+  #css3menu1 ul ul ul ul ul a {
+    padding: 8px 80px;
+  }
+  #css3menu1 ul ul ul ul ul ul a {
+    padding: 8px 95px;
+  }
+  #css3menu1 > ul > #menu-button {
+    display: block;
+    cursor: pointer;
+  }
+  #css3menu1 #menu-button > a {
+    padding: 14px 20px;
+  }
+  #css3menu1 ul.open li,
+  #css3menu1 > ul.open > li {
+    display: block;
+	border-bottom:1px solid #ccc
+  }
+   #css3menu1 > ul.open > li:last-child {
+  border-bottom:0px solid #ccc
+  }
+  #css3menu1 > ul.open > li#menu-button > a {
+    color: #000;
+    border-bottom: 1px solid rgba(150, 150, 150, 0.1);
+  }
+  #css3menu1 ul ul::after {
+    display: none;
+  }
+  #css3menu1 #menu-button::after {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 22px;
+    border-top: 2px solid #7a8189;
+    border-bottom: 2px solid #7a8189;
+    right: 20px;
+    top: 15px;
+  }
+  #css3menu1 #menu-button::before {
+    display: block;
+    content: '';
+    position: absolute;
+    height: 3px;
+    width: 22px;
+    border-top: 2px solid #7a8189;
+    right: 20px;
+    top: 25px;
+  }
+  #css3menu1 ul.open #menu-button::after,
+  #css3menu1 ul.open #menu-button::before {
+    border-color: #336699;
+  }
+ 

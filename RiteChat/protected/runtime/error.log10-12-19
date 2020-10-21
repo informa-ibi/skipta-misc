@@ -1,0 +1,24 @@
+2019/12/10 14:35:00 [error] [application] 1359042------saveCookieRandomKeyForUser-------QPl0AMIWblEjs9Xa
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/12/10 15:22:23 [error] [application] 1359042------saveCookieRandomKeyForUser-------sm932UPuZgkpOtES
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/12/10 16:23:20 [error] [application] 1272998------saveCookieRandomKeyForUser-------sNPejnRscPtUxfS1
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/12/10 19:35:35 [error] [application] 831009------saveCookieRandomKeyForUser-------wkjv9lB9dRrl1W0w
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (271)
+2019/12/10 19:59:56 [error] [application] 1562329------saveCookieRandomKeyForUser-------V4kxzPq6kv894Wal
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)
+2019/12/10 20:54:33 [error] [application] 1605432------saveCookieRandomKeyForUser-------jWzg5OpPWtJPPZXF
+in /usr/share/nginx/www/RiteChat/protected/models/mongo/UserCookie.php (43)
+in /usr/share/nginx/www/RiteChat/protected/service/SkiptaUserService.php (1250)
+in /usr/share/nginx/www/RiteChat/protected/controllers/SiteController.php (929)

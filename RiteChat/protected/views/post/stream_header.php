@@ -1,0 +1,40 @@
+<div class="stream_title paddingt5lr10" style="position: relative"  >      
+    <?php if($data->IsCustomBadge==0 && $data->CategoryType!=10){?>          
+    <a  <?php if($data->CategoryType==11)echo "style= 'display:none;'"?> class="<?php if($data->isGroupAdminPost == 'true' && $data->ActionType=='Post') { echo 'grpIntro'; } else if($data->Store!=0 && $data->CategoryType==10) { echo '';} else {echo 'userprofilename';} ?> " data-streamId="<?php echo $data->_id;?>" data-id="<?php if($data->isGroupAdminPost == 'true' && $data->ActionType=='Post') { echo $data->MainGroupId; } else { echo $data->FirstUserId; } ?>" style="cursor:pointer">
+    <?php }?>
+                    <b><?php if($data->isGroupAdminPost == 'true' && $data->ActionType=='Post') {
+                           echo $data->GroupName; 
+                        }else{
+                            echo $data->FirstUserDisplayName;
+                        } ?>
+                    </b>
+       <?php if($data->IsCustomBadge==0){?>    
+                </a>
+       <?php }?>
+ <?php  echo $data->SecondUserData?> 
+                <span  <?php if($data->CategoryType==10) echo "data-original-title='$data->Title' rel='tooltip'"; ?>> 
+                    <?php  echo $data->StreamNote." "; if($data->CategoryType==12) { if(isset($data->Title) && $data->Title!=""){ echo "- ".$data->Title; };} if($data->CategoryType!=10 &&$data->CategoryType!=11 ) echo $data->PostTypeString; else if($data->CategoryType==11){ $networkUrl=$data->NetworkRedirectUrl;$networkUrl=  split("/site", $networkUrl);
+     echo "".$data->BadgeName ." ".$data->PostTypeString; }else {echo "$data->BadgeName"; if($data->Store==0){ echo " badge";}} ?></span><!-- if($data->BadgeHasLevel==1) echo "Level ".$data->BadgeLevelValue; -->
+
+                <span class='userprofilename'> <?php if($data->PostType==2 || $data->PostType==3){ if(isset($data->Title) && $data->Title!=""){ echo "- ".$data->Title; };} ?></span> 
+                <?php if ($data->PostType==11){ echo '- "'.$data->Title.'"' ?> <i><?php  echo $data->PostOn; ?></i><?php } else if ($data->PostType==5){echo "- ".$data->CurbsideConsultTitle ?> <i><?php  echo $data->PostOn; ?></i><?php }else{?><i><?php  echo $data->PostOn; ?></i><?php }?>
+               <?php if(($data->CategoryType!=3 || $data->IsIFrameMode==1) && $data->CategoryType!=5  && $data->CategoryType!=6 && $data->CategoryType!=10  && $data->PostType!=15 && $data->CategoryType!=11){  ?>
+                <div class="postmg_actions">
+                    <i class="fa fa-chevron-down" data-toggle="dropdown" data-placement="right"></i>
+                    <i class="fa fa-chevron-up" data-toggle="dropdown" data-placement="right"></i>
+                    <div class="dropdown-menu ">
+                         <ul class="PostManagementActions" data-streamId="<?php echo $data->_id ?>"  data-postId="<?php echo $data->PostId ?>" data-categoryType="<?php echo $data->CategoryType ?>" data-networkId="<?php echo $data->NetworkId ?>">
+                            <?php  if($data->CanFeaturePost==1 && $data->IsFeatured==0 && $data->CategoryType!=8 &&  $data->CategoryType!=3){?>
+                            <li><a id="MarkAsFeatured_<?php  echo $data->_id ?>"  class="featured m_featured"><span class="featuredicon"><img src="/images/system/spacer.png" /></span> Mark As Featured Item</a></li><?php  }?>
+                            <?php if($data->CategoryType!=9 && $data->CategoryType!=8){?>
+                            <li><a class="abuse"><span class="abuseicon"><img src="/images/system/spacer.png" /></span> Flag as abuse</a></li>
+                            <?php }?>
+                            <?php if (($data->CanPromotePost == 1 && $data->CategoryType!=8 && $data->CategoryType!=3) || ($data->CategoryType==3 && $data->IsNativeGroup ==1)) { ?><li><a class="promote"><span class="promoteicon"><img src="/images/system/spacer.png" /></span> Promote</a>
+                            </li><?php } ?>
+                            <?php if ($data->CanDeletePost == 1 && $data->CategoryType!=8 ) { ?><li><a class="delete"><span class="deleteicon"><img src="/images/system/spacer.png" /></span> Delete</a></li><?php } ?>
+                          <?php if ($data->CanCopyURL == 1 &&  $data->CategoryType!=3 ) { ?><li><a class="copyurl"><span class="copyicon"><img src="/images/system/spacer.png" /></span> Copy URL</a></li> <?php }?>
+                         </ul>
+                        </div>
+                </div>
+               <?php } ?>
+               </div>

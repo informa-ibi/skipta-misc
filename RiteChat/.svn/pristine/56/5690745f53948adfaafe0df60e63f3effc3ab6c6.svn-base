@@ -1,0 +1,867 @@
+<?php
+
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+class User extends CActiveRecord {
+
+    public $UserId;
+    public $FirstName;
+    public $LastName;
+    public $DisplayName;
+    public $Password;
+    public $OldPassowrd1;
+    public $OldPassowrd2;
+    public $Email;
+    public $RegistredDate;
+    public $LastLoginDate;
+    public $Country;
+    public $State;
+    public $City;
+    public $Zip;
+    public $Status;
+    public $UpdatedPassword;
+    public $Company;
+    public $PasswordResetToken;
+    public $CustomFieldId;
+    public $NetworkId;
+    public $PreviousLastLoginDate;
+    public $cookieRandomKey;
+    public $UserTypeId=2;
+    public $UserType;
+    public $Level;
+    public $JobCode;
+    public $APIAccessKey;
+    public $CuratorAccessToken;
+    public $ReferenceUserId;
+    public $migratedUserId;
+    public $userSessionsCount=0;
+    public $disableJoyRide=0;
+    public $referralLinkId;
+    public $referralUserEmail;
+    public $AccessToken;
+    public $FromNetwork;
+    //   public $Designation ;
+
+    public static function model($className = __CLASS__) {
+        return parent::model($className);
+    }
+
+    public function tableName() {
+        return 'User';
+    }
+
+    public function saveUser($profileModel) {
+        try {
+            $returnValue = false;
+            $userObj = new User();
+
+            $userObj->FirstName = $profileModel['firstName'];
+            $userObj->LastName = $profileModel['lastName'];
+            $userObj->DisplayName = $profileModel['firstName'] . $profileModel['lastName'];
+            /*
+             * find md5 string 
+             */
+            $encryption_salt = Yii::app()->params['ENCRYPTION_SALT'];
+            if (CommonUtility::isValidMd5($profileModel['pass'])) {//*********for data migration
+                $userObj->Password = strtolower($profileModel['pass']);
+                $userObj->RegistredDate = $profileModel['registredDate'];
+                $userObj->LastLoginDate = $profileModel['lastLoginDate'];
+            } else {//****************for new user registration
+                $userObj->Password = md5($encryption_salt . $profileModel['pass']);
+                $userObj->RegistredDate = date('Y-m-d H:i:s', time());
+                $userObj->LastLoginDate = '';
+            }
+
+            $userObj->OldPassowrd1 = '';
+            $userObj->OldPassowrd2 = '';
+            $userObj->Email = $profileModel['email'];
+            $userObj->Country = 1;
+            $userObj->State = $profileModel['state'];
+            $userObj->City = $profileModel['city'];
+            $userObj->Zip = $profileModel['zip'];
+            $userObj->Status = isset($profileModel['status'])?$profileModel['status']:0;
+            $userObj->Company = $profileModel['companyName'];
+            $userObj->PasswordResetToken = '';
+            $userObj->CustomFieldId = '';
+            $userObj->NetworkId = 1;
+             $userObj->APIAccessKey=  $this->generateAPIKeyForUser();
+             $userObj->ReferenceUserId = $profileModel['referenceUserId'];
+             $userObj->migratedUserId = isset($profileModel['migratedUserId'])?$profileModel['migratedUserId']:"";
+             $userObj->referralLinkId = $profileModel['referralLinkId'];
+             $userObj->referralUserEmail = $profileModel['referralUserEmail'];
+             if ($profileModel['referenceUserId'] == 0) {
+                $ReferedUserDetails = UserLinks::model()->CheckRecipienthasReferrer($profileModel['email']);
+                $userObj->ReferenceUserId = $ReferedUserDetails['ReferrerUserId'];
+                $userObj->referralLinkId = $ReferedUserDetails['LinkId'];
+                $userObj->referralUserEmail = $ReferedUserDetails['RecipientEmail'];
+            }
+             if(isset($profileModel['accessToken']))
+            {
+             $userObj->AccessToken=$profileModel['accessToken'];
+             $userObj->FromNetwork=$profileModel['fromNetwork'];
+            }
+            if ($userObj->save()) {
+                $returnValue = $userObj->UserId;
+            }
+       //The below code is used to update the referral details     
+            if($userObj->referralLinkId!="" && $userObj->referralUserEmail!=""){
+               
+                 $UserDetails = UserLinks::model()->checkRecipientEmailExist($userObj->referralUserEmail,$userObj->referralLinkId);
+                 
+            }
+      //-----End-----------------      
+            return $returnValue;
+        } catch (Exception $exc) {
+            Yii::log($exc->getTraceAsString(), 'error', 'application');
+        }
+    }
+
+    
+    
+    /*
+     * GetUserProfile: which takes 4 arguments and 
+     * by default 2 arguments are initialized with default values those are startLimit = 0 and pageLength = 10;
+     * and this function returns Users Object.
+     */
+
+    public function getUserProfile($filterValue, $searchText, $startLimit = 0, $pageLength = 10) {
+        try {
+            $searchText = trim($searchText);
+            $role='';
+            $criteria = new CDbCriteria();
+            if (trim($filterValue) == "all") {
+                $criteria = $criteria;
+            } else if (trim($filterValue) == "inprogress") {
+                $criteria->addSearchCondition('Status', '0');
+            } else if (trim($filterValue) == "active") {
+                $criteria->addSearchCondition('Status', '1');
+            } else if (trim($filterValue) == "suspended") {
+                $criteria->addSearchCondition('Status', '2');
+            }else if (trim($filterValue) == "reject") {
+                $criteria->addSearchCondition('Status', '3');
+            }
+            if (!empty($searchText) && $searchText != "undefined" && $searchText != "null") {
+                $namesArray = explode(" ",$searchText);
+               
+                if(!empty($namesArray[0])){
+                    $firstName = trim($namesArray[0]);  
+                }
+                if((isset($namesArray[1]) && !empty($namesArray[1]))){
+                    $lastName = trim($namesArray[1]);
+                }
+                
+              
+                
+                $criteria->addSearchCondition('Email', trim($searchText));
+                
+                $criteria->addSearchCondition('FirstName', $firstName , true, "OR", "LIKE");                
+                if(isset($lastName) && !empty($lastName)){                    
+                    $criteria->addSearchCondition('FirstName', $firstName , true, "AND", "LIKE");
+                    $criteria->addSearchCondition('LastName', $lastName , true, "AND", "LIKE");
+                }else{
+                   $criteria->addSearchCondition('LastName', $firstName , true, "OR", "LIKE");       
+                }
+                
+                $roleId= UserType::model()->getRoleByName($searchText);               
+                if($roleId !='false'){                   
+                   $role=$roleId ;
+                   $criteria->addSearchCondition('UserTypeId',$role,true,'OR','LIKE');
+                  
+                }
+                   
+            }
+          
+            $criteria->order = 'RegistredDate DESC, LastName,FirstName';
+            $criteria->offset = $startLimit;
+            $criteria->limit = $pageLength;
+            $result = User::model()->findAll($criteria);
+            for ($i = 0; $i < sizeof($result); $i++) {
+                $result[$i]->RegistredDate = date("m/d/Y", strtotime($result[$i]->RegistredDate));
+                $userTypeObject = UserType::model()->getUserTypeObjectById($result[$i]->UserTypeId);
+                $result[$i]->UserType = $userTypeObject->Name;
+            }
+        } catch (Exception $exc) {
+            Yii::log("Exception Occurred in getUserProfileCollection==" . $exc->getMessage(), "error", "application");
+        }
+        return $result;
+    }
+
+    /*
+     * GetUserProfileCount: which takes 2 arguments and 
+     * returns the total no. of users.
+     */
+
+    public function getUserProfileCount($filterValue, $searchText) {
+        try {
+            $criteria = new CDbCriteria();
+            if (trim($filterValue) == "all") {
+                $criteria = $criteria;
+            } else if (trim($filterValue) == "inprogress") {
+                $criteria->addSearchCondition('Status', '0');
+            } else if (trim($filterValue) == "active") {
+                $criteria->addSearchCondition('Status', '1');
+            } else if (trim($filterValue) == "suspended") {
+                $criteria->addSearchCondition('Status', '2');
+            }else if (trim($filterValue) == "reject") {
+                $criteria->addSearchCondition('Status', '3');
+            }
+            if (!empty($searchText) && $searchText != "undefined" && $searchText != "null") {
+                
+                $namesArray = explode(" ",$searchText);                
+                if(!empty($namesArray[0])){
+                    if(!empty($namesArray[0])){
+                        $firstName = trim($namesArray[0]);                        
+                    }
+                }
+                if((isset($namesArray[1]) && !empty($namesArray[1]))){
+                    $lastName = trim($namesArray[1]);
+                }  
+               
+                $criteria->addSearchCondition('Email', trim($searchText));
+                $criteria->addSearchCondition('FirstName', $firstName , true, "OR", "LIKE");                
+                if(isset($lastName) && !empty($lastName)){                    
+                    $criteria->addSearchCondition('FirstName', $firstName , true, "AND", "LIKE");
+                    $criteria->addSearchCondition('LastName', $lastName , true, "AND", "LIKE");
+                }else{
+                   $criteria->addSearchCondition('LastName', $firstName , true, "OR", "LIKE");       
+                }
+                $criteria->addSearchCondition('FirstName', $searchText , true, "OR", "LIKE");
+                $criteria->addSearchCondition('LastName', $searchText, true, "OR", "LIKE");
+                 $roleId= UserType::model()->getRoleByName($searchText);               
+                if($roleId !='false'){                   
+                   $role=$roleId ;
+                   $criteria->addSearchCondition('UserTypeId',$role,true,'OR','LIKE');
+                  
+                }
+                
+            }
+            $result = User::model()->count($criteria);
+        } catch (Exception $exc) {
+            Yii::log("==Exception Occurred in getUserProfileCount==" . $exc->getMessage(), "error", "application");
+        }
+        return $result;
+    }
+
+    /*
+     * GetUserProfileByUserId: which takes 1 argument i.e userid
+     * and returns an User Object.
+     */
+
+    public function getUserProfileByUserId($userid) {
+        try {
+            // $userProfileObject = User::model()->findByAttributes(array("UserId" => $userid));
+            $userProfileObject = Yii::app()->db->createCommand()
+                    ->select('u.*')
+                    ->from('User u')
+                    //->Join('CustomField cf',' u.UserId = cf.UserId')
+                   // ->LeftJoin('Countries cn',' cn.Id = u.Country')                    
+                    ->where('u.UserId=' . $userid)
+                    ->queryRow();
+        } catch (Exception $ex) {
+            error_log("---in exception-------------".$ex->getMessage());
+            Yii::log("Exception occurred in getUserProfileCollectionByUserId==" . $ex->getMessage(), "error", "application");
+        }
+        return $userProfileObject;
+    }
+
+    /*
+     * UpdateUserStatus: which takes 2 arguments 1: userId and 2: value.
+     * This is used to update the status of an user.
+     */
+
+    public function updateUserStatus($userId, $value) {
+        try {
+            $return = "failed";
+
+            $user = User::model()->findByAttributes(array("UserId" => $userId));
+            if (isset($user)) {
+
+                $user->Status = $value;
+                if ($user->update()) {
+                    $return = "success";
+                }
+            }
+        } catch (Exception $ex) {
+            Yii::log("Exception occurred in updateUserStatus in SkiptaUserService layer=" . $ex->getMessage(), "error", "application");
+        }
+        return $return;
+    }
+
+    /*
+     * This method checks whether the user with that email exist or not
+     */
+
+    public function checkUserEmailExist($model) {
+        try {
+            $result = 'failure';
+            $user = User::model()->findByAttributes(array("Email" => $model->email));
+            if (isset($user)) {
+                $result = $user;
+            } else {
+                
+            }
+            return $result;
+        } catch (Exception $ex) {
+            Yii::log("=====exception result========" . $ex->getMessage(), "error", "application");
+        }
+    }
+
+    /**
+     *  @author VamsiKrishna
+     *  @Description This method is used to update user by user Id and by field
+     *  @params $userId
+     *  @params $userId
+     */
+
+    public function updateUserByFieldByUserId($userId, $updateValue, $updateField) {
+        try {
+
+//            $userObj = User::model()->findByAttributes(array("UserId"=>$userId));
+//            if(isset($userObj)){
+//                $userObj->$updateField = $updateValue;
+//                $userObj->update();
+//            }
+            $query = "Update User set $updateField = '" . $updateValue . "' where UserId = $userId";
+
+            return YII::app()->db->createCommand($query)->execute();
+        } catch (Exception $exc) {
+            Yii::log("=====exception updateUserByFieldByUserId=" . $exc->getMessage(), "error", "application");
+        }
+    }
+
+    /*
+     * This method is to reset the password 
+     * Here,new password is saved in Password and old password is moved to UpdatedPassword
+     * Validates old passwords with newly entered passwod
+     * Once user update password,PasswordResetToken column is set to 'reset'
+     */
+
+    public function resetPassword($model) {
+        try {
+            $user = User::model()->findByAttributes(array("Email" => $model->email, 'PasswordResetToken' => $model->md5UserId));
+
+            if (isset($user)) {
+                $PasswordPolicyFailMessage = '';
+                $PasswordPolicyFailMessage = $this->passwordValidationWhileResetting($model->resetPass, $user);
+                if ($PasswordPolicyFailMessage == '') {
+                    $encrypted_salt = Yii::app()->params['ENCRYPTION_SALT'];
+                    $password = md5($encrypted_salt . $model->resetPass);
+                    $oldPassword1 = $user->Password;
+                    $oldPassword2 = $user->UpdatedPassword;
+                    if (($oldPassword1 != $password) && ($oldPassword2 != $password)) {
+                        $user->UpdatedPassword = $user->Password;
+                        $user->Password = $password;
+                        $user->PasswordResetToken = 'reset';
+                        if ($user->update()) {
+                            MobileSessions::model()->resetPassword($user->UserId);
+                            $PasswordPolicyFailMessage = '0'; // 0:if success
+                        } else {
+                            $PasswordPolicyFailMessage = '1'; // 1: if unable to update
+                        }
+                    } else {
+                        $PasswordPolicyFailMessage = '2'; // 2: if old password matched with new matched
+                    }
+                } else {
+                    $PasswordPolicyFailMessage;
+                }
+                return $PasswordPolicyFailMessage;
+            }
+        } catch (Exception $exc) {
+            Yii::log("=====exception resetPassword =====" . $exc->getMessage(), "error", "application");
+            $PasswordPolicyFailMessage = '1';
+        }
+    }
+
+    public function userAuthentication($email, $password) {
+        try {
+            $returnValue = 'noData';
+            $isUserExists = $this->getUserByType($email, 'Email');
+            
+            if ($isUserExists!='noUser') {
+                $userData = User::model()->findByAttributes(array('Email' => $email, 'Password' => $password));
+             
+                if (count($userData) == 1) {
+                    if ($userData['Status'] == 1) {
+                        $returnValue = 'success';
+                    } else {
+                        if ($userData['Status'] == 2)
+                            $returnValue = 'suspend';
+                        if ($userData['Status'] == 0)
+                            $returnValue = 'register';
+                        if ($userData['Status'] == 3)
+                            $returnValue = 'contactAdmin';
+                        
+                        }
+                        
+                }else {
+                    $returnValue = 'passwordIncorrect';
+                }
+            } else {
+                $returnValue = 'wrongEmail';
+            }
+
+
+           return $returnValue; 
+       } catch (Exception $exc) {           
+            Yii::log($exc->getTraceAsString(),'error','application');
+       }
+      }
+      /** Author Vamsi Krishna
+       * This method is used to get the User by Type
+       * @param type $value 
+       * @param type $type
+       * @return type
+       */
+
+      public function  getUserByType($value,$type){   
+      try {
+      $returnValue='noUser';
+      $userObj = User::model()->findByAttributes(array($type=>$value));           
+
+          
+      if(isset ($userObj)){   
+      $returnValue=$userObj;
+      }
+      return $returnValue;
+      } catch (Exception $exc) {
+      Yii::log($exc->getTraceAsString(), 'error', 'application');
+      }
+      }
+
+
+      public function checkIfUserExist($email, $type) {
+      try {
+      $user = User::model()->findByAttributes(array($type => $email));
+      if (isset($user)) {
+      return true;
+      } else {
+      return false;
+      }
+      } catch (Exception $exc) {
+      error_log("checkUserExist " . $exc->getTraceAsString());
+      }
+      }
+  /**
+   * this method is used to update the login time after the user logged in successfully 
+   * @param type $email
+   * @return string
+   */
+      public function updateUserForLoginTime($email) {
+      try {
+      $return = "failed";
+      $user = User::model()->findByAttributes(array("Email" => $email));
+      if (isset($user)) {
+      $user->PreviousLastLoginDate = $user->LastLoginDate;
+      $user->LastLoginDate = date('Y-m-d H:i:s', time());
+      $user->userSessionsCount= ($user->userSessionsCount+1);
+      if($user->userSessionsCount>=10)
+      {
+          $user->disableJoyRide=1; 
+      }
+      if ($user->update()) {
+      $return = "success";
+      }
+      }
+      } catch (Exception $ex) {
+      Yii::log("Exception occurred in updateUserLoginTime in User Model=" . $ex->getMessage(), "error", "application");
+      }
+      return $return;
+      }
+
+      public function checkUserExist($email) {
+      try {
+      $user = User::model()->findByAttributes(array('Email' => $email));
+      return $user;
+      } catch (Exception $exc) {
+      error_log("checkUserExist " . $exc->getTraceAsString());
+      }
+      }
+
+      /*
+     * Method used validate the password while resetting
+     * Takes password as argument and compares with and db values and regular expression
+     * based on the condition returns the validation message
+     */
+
+    public function passwordValidationWhileResetting($password, $object) {
+        $message = '';
+        /* check the password having user first name */
+        if ($object->FirstName != "" && $object->LastName != "") {
+            if ((strpos($password, $object->FirstName) !== false) || (strpos($password, $object->LastName) !== false)) {
+                $message = Yii::t('translation', 'Password_Check_With_UserName');
+                //$message="password can not be user name";
+            }
+        }
+
+
+        /* check the password is an email */
+
+        if (preg_match("/[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,3})/i", $password, $matches)) {
+            $message = Yii::t('translation', 'Password_Check_With_Email');
+            //$message="password can not be email";
+        }
+
+        /* check the password having domain name */
+
+        if (strpos(strtolower($password), 'skipta') !== false) {
+            $message = Yii::t('translation', 'Password_Check_With_Domain');
+            // $message="password can not be domain name";
+        }
+        /* check the password having one special charater and one small letter and one numeric and one capital letter */
+        if (!preg_match("/^.*(?=.{8,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*+_-]).*$/", $password, $matches)) {
+            $message = Yii::t('translation', 'Password_Check_With_Password_Rules');
+            //$message="Your password is too weak please enter strong password!";
+        }
+        return $message;
+    }
+    public function updateUserType($userId, $userTypeId) {
+        try {
+            $return = "failed";
+            $user = User::model()->findByAttributes(array("UserId" => $userId));
+            if (isset($user)) {
+                $user->UserTypeId = $userTypeId;
+                if ($user->update()) {
+                    $return = "success";
+                }
+            }
+            return $return;
+        } catch (Exception $ex) {
+            Yii::log("Exception occurred in updateUserType in User Model=" . $ex->getMessage(), "error", "application");
+            return "failure";
+        }
+        
+    }
+
+    public  function checkUserIsActive($userId){
+        try{ 
+             $criteria = new CDbCriteria();
+             $criteria->addSearchCondition('Status', '1');
+             $criteria->addSearchCondition('UserId', $userId);
+             $result = User::model()->find($criteria);
+             if(is_object($result)){
+                 return TRUE;
+             }else{
+                  return FALSE;
+             }
+        } catch (Exception $ex) {
+                 return "failure";
+        }
+    }
+
+    public function getUserDetailsByUserId($UserId) {
+         $user='NoUser';
+      try {
+      $user = User::model()->findByAttributes(array('UserId' => $UserId));
+      return $user;
+      } catch (Exception $exc) {
+      error_log("Get User " . $exc->getTraceAsString());
+      }
+      }
+         /**
+       * @author Karteek V
+       * This is used to fetch the total no. of Users registered in the system..
+       * @return type
+       */
+      public function getRegisteredUsersCount() {
+        try {
+            $usersCount = User::model()->count();
+            return $usersCount;
+        } catch (Exception $exc) {
+            error_log("Exception Occurred in the System==" . $exc->getTraceAsString());
+        }
+    }
+    
+      /**
+     * @author suresh reddy
+     * generate API AccessKey
+     * @return type
+     */
+    public function generateAPIKeyForUser() {
+        try {
+            $randomNumber = mt_rand(1, 999999);
+            $handle = md5($randomNumber . "" . time());
+            while ($this->checkAPIAccessKeyExist($handle)) {
+                $handle = md5($randomNumber . "" . time());
+            }
+            return $handle;
+        } catch (Exception $e) {
+            Yii::log("Exception occurred in generateAPIKeyForUser==" . $e->getMessage(), "error", "application");
+        }
+    }
+
+    /**
+     * @author suresh reddy
+     * generate API AccessKey
+     * @return type
+     */
+    public function checkAPIAccessKeyExist($apiAccessKey) {
+        try {
+            // $userProfileObject = User::model()->findByAttributes(array("UserId" => $userid));
+            $userProfileObject = Yii::app()->db->createCommand()
+                    ->select('u.*')
+                    ->from('User u')
+                    //->Join('CustomField cf',' u.UserId = cf.UserId')
+                    // ->LeftJoin('Countries cn',' cn.Id = u.Country')                    
+                    ->where('u.APIAccessKey=' . $apiAccessKey)
+                    ->queryRow();
+             return $userProfileObject;
+        } catch (Exception $ex) {
+            Yii::log("Exception occurred in checkAPIAccessKeyExist==" . $ex->getMessage(), "error", "application");
+        }
+       
+    }
+    
+    /**
+     * update user API access key for existing users.
+     * @author suresh reddy
+     * @param type $userId
+     * @param type $userTypeId
+     * @return string
+     */
+    
+       public function updateAPIAccessKeyForExistingUsers($userId) {
+        try {
+            $return = "failed";
+            $user = User::model()->findByAttributes(array("UserId" => $userId));
+            if (isset($user)) {
+            $user->APIAccessKey=  $this->generateAPIKeyForUser();
+                if ($user->update()) {
+                    $return = "success";
+                }
+            }
+            return $return;
+        } catch (Exception $ex) {
+            Yii::log("Exception occurred in updateUserType in User Model=" . $ex->getMessage(), "error", "application");
+            return "failure";
+        }
+        
+    }
+    
+
+      public function getAllRegistrationsBetweenDates($startDate,$endDate,$NetworkId,$datemode) {
+        try {
+            $returnvalue = "failure";
+            $startDate=date('Y-m-d',strtotime($startDate));
+            $endDate=date('Y-m-d',strtotime($endDate));
+            $criteria = new EMongoCriteria;
+//            $endDate =$endDate." 23:59:59";
+//            $startDate =$startDate." 00:00:00";
+//            
+//            
+//            $startDate=date('Y-m-d H:i:s',strtotime($startDate));
+//            $endDate=date('Y-m-d H:i:s',strtotime($endDate));
+//           
+           $query = "SELECT count(UserId)as count, $datemode(RegistredDate) as CreatedDate FROM User WHERE NetworkId='$NetworkId' and RegistredDate BETWEEN('$startDate')AND('$endDate') group by $datemode(RegistredDate) " ;
+           //$query = "SELECT count(UserId)as user FROM User WHERE NetworkId='$NetworkId' and DATE_FORMAT(RegistredDate, '%Y-%m-%d')  BETWEEN('$startDate')AND('$endDate')";
+          //  $query = "SELECT count(UserId)as user FROM User WHERE DATE_FORMAT(RegistredDate, '%Y-%m-%d')= '$startDate'";
+            $results = Yii::app()->db->createCommand($query)->queryAll();
+
+//            if (is_array($results)) {
+//                $returnvalue = (int)$results['0']['user'];
+//            }
+
+            return $results;
+        } catch (Exception $exc) {
+            Yii::log("=====exception updateUserByFieldByUserId=" . $exc->getMessage(), "error", "application");
+        }
+    }
+    public function saveCuratorAccessToken($userId,$accessToken)
+    {
+        error_log("update User set CuratorAccessToken = '".$accessToken."' where UserId=".$userId);
+       $query = "update User set CuratorAccessToken = '".$accessToken."' where UserId=".$userId;
+       $results = Yii::app()->db->createCommand($query)->execute();
+  
+    }
+    public function getCuratorAccessToken($url)
+    {
+       
+       $query = "Select * from NetWork where NetworkURL='".$url."'";
+       $data = Yii::app()->db->createCommand($query)->queryRow();
+       return $data;
+  
+    }
+    public function getActiveUsers($users){
+        try {
+            $returnValue='failure';
+            $query="select UserId from User where UserId in  (".implode(',',$users).") and Status=1";            
+             $users = Yii::app()->db->createCommand($query)->queryAll();
+             if(count($users)>0){
+                 $returnValue= $users;
+             }
+             return $returnValue;
+        } catch (Exception $exc) {
+            Yii::log("error".$exc->getTraceAsString(),'error','application');
+        }
+        }
+        
+    public function getUserByMigratedUserId($migratedUserId){
+        try {
+            $returnValue='failure';
+            $query="select UserId from User where MigratedUserId ='".$migratedUserId."'";            
+             $users = Yii::app()->db->createCommand($query)->queryRow();
+             if(count($users)>0){
+                 $returnValue= $users;
+             }
+             return $returnValue;
+        } catch (Exception $exc) {
+           error_log("+++++++++++++++++++++++".$exc->getMessage());
+        }
+        }  
+        
+        public function enableOrDisableJoyRide($action,$userId)
+        {
+            
+             try {
+               $query = "update User set disableJoyRide = ".$action." where UserId=".$userId;
+               $results = Yii::app()->db->createCommand($query)->execute();
+            } catch (Exception $exc) {
+               error_log("+++++++++++++enableOrDisableJoyRide++++++++++".$exc->getMessage());
+            }
+            
+            return $results;
+        }
+
+        
+         public function getAllActiveUsers(){
+        try {
+            $returnValue='failure';
+            $query="select UserId from User where  Status=1";            
+             $users = Yii::app()->db->createCommand($query)->queryAll();
+             if(count($users)>0){
+                 $returnValue= $users;
+             }
+             return $returnValue;
+        } catch (Exception $exc) {
+            Yii::log("error".$exc->getTraceAsString(),'error','application');
+        }
+        }
+
+        public function isNetworkUser($userId)
+        {
+            try {
+            $query="select count(UserId) from User where UserId =".$userId." and Email like'".YII::app()->params['NetworkAdminEmail']."'";            
+            $users = Yii::app()->db->createCommand($query)->queryRow();
+            return $users;
+        } catch (Exception $exc) {
+           error_log("+++++++++++++++++++++++".$exc->getMessage());
+        }
+            
+        }
+
+   public function updateUser($profileModel,$userId) {
+        try {
+            $userObj = $this->getUserDetailsByUserId($userId);
+            $returnValue = false;
+            $userObj->UserId=$userId;
+            $userObj->FirstName = $profileModel['firstName'];
+            $userObj->LastName = $profileModel['lastName'];
+            $userObj->DisplayName = $profileModel['firstName'] . $profileModel['lastName'];
+            $userObj->Email = $profileModel['email'];
+            $userObj->Country = $profileModel['country'];;
+            $userObj->State = $profileModel['state'];
+            $userObj->City = $profileModel['city'];
+            $userObj->Zip = $profileModel['zip'];
+            $userObj->Company = $profileModel['companyName'];
+            
+            if ($userObj->update()) {
+               $returnValue="success"; 
+            }   
+            return $returnValue;
+        } catch (Exception $exc) {
+            error_log("====3====updateUser=========".$exc->getMessage());
+        }
+    } 
+    
+    public function updateUserPassword1($userId,$password){
+        try {
+             $encryption_salt = Yii::app()->params['ENCRYPTION_SALT'];
+             $password = md5($encryption_salt . $password);
+               $query = "update User set disableJoyRide = ".$action." where UserId=".$userId;
+               $results = Yii::app()->db->createCommand($query)->execute();
+            } catch (Exception $exc) {
+               error_log("+++++++++++++enableOrDisableJoyRide++++++++++".$exc->getMessage());
+            }
+            
+            return $results;  
+        
+    }
+    
+        public function updateUserPassword($userId,$model) {
+        try {
+            $user = User::model()->findByAttributes(array("UserId" =>$userId ));
+            $encrypted_salt = Yii::app()->params['ENCRYPTION_SALT'];
+            if($user->Password==md5($encrypted_salt . $model->password)){
+               if (isset($user)) {
+                $PasswordPolicyFailMessage = '';
+                $PasswordPolicyFailMessage = $this->passwordValidationWhileResetting($model->newPassword, $user);
+                
+                if ($PasswordPolicyFailMessage == '') {
+                    
+                    $password = md5($encrypted_salt . $model->newPassword);
+                    $oldPassword1 = $user->Password;
+                    $oldPassword2 = $user->UpdatedPassword;
+                    if (($oldPassword1 != $password) && ($oldPassword2 != $password)) {
+                        $user->UpdatedPassword = $user->Password;
+                        $user->Password = $password;
+//                        $user->PasswordResetToken = 'reset';
+                        if ($user->update()) {
+                            MobileSessions::model()->resetPassword($user->UserId);
+                            $PasswordPolicyFailMessage = '0'; // 0:if success
+                        } else {
+                            $PasswordPolicyFailMessage = '1'; // 1: if unable to update
+                        }
+                    } else {
+                        $PasswordPolicyFailMessage = '2'; // 2: if old password matched with new matched
+                    }
+                } else {
+                    $PasswordPolicyFailMessage;
+                }
+                return $PasswordPolicyFailMessage;
+            }  
+            }
+            else{
+                $PasswordPolicyFailMessage = '3'; // 2: if entered password does't matched with existing password  
+            }
+
+           
+        } catch (Exception $exc) {
+            Yii::log("=====exception resetPassword =====" . $exc->getMessage(), "error", "application");
+            $PasswordPolicyFailMessage = '1';
+        }
+        return $PasswordPolicyFailMessage;
+    }
+     public function getAllUsersByType($userTypeId,$userId='')
+    {
+        if($userId!='')
+        $condition = array("UserTypeId" => $userTypeId,'UserId'=>$userId);
+        else
+        $condition=array("UserTypeId" => $userTypeId);
+        
+        $users = User::model()->findAllByAttributes($condition);
+        return $users;
+    }
+    public function getRegisteredUserByDate($date)
+    {
+        $query="select UserId from User where date_format(RegistredDate,'%Y-%m-%d')='".$date."'";            
+        $users = Yii::app()->db->createCommand($query)->queryAll();
+        return $users;
+    }
+    public function deleteuser($user)
+    {
+        $query1="delete from UserHierarchy where UserId=".$user;    
+        $query2="delete from User where UserId=".$user; 
+        Yii::app()->db->createCommand($query1)->execute();
+        Yii::app()->db->createCommand($query2)->execute();
+    }
+    
+    public function updateUserWithLatestDate($Email)
+    {
+        error_log("update User set WhenUpdated='".date('Y-m-d')."' where Email='".addslashes($Email)."'\n");
+        $query="update User set WhenUpdated='".date('Y-m-d')."' where Email='".addslashes($Email)."'";            
+        Yii::app()->db->createCommand($query)->execute();
+    }
+}
