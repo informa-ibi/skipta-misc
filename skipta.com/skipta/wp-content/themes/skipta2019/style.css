@@ -542,9 +542,11 @@ body:not(.custom-background-image):after {
 }
 
 /** NEPHROLOGIST CONNECT **/
-#menu-communities .menu-item-21 {
+/* #menu-communities .menu-item-21 {
 	display: none;
-}
+} */
+
+
 #menu-communities .menu-item-21 a {
 	color: #dfa364;
     background-image: url('/wp-content/themes/skipta2019/images/community-icon-nephrologist-connect.png');
@@ -1855,6 +1857,116 @@ body:not(.custom-background-image):after {
 	position: fixed;
     top: 0px;
 }
+
+
+/*** Breast Cancer Connect ***/
+.widget .focus-centers .breast-cancer-connect {}
+.widget .focus-centers .breast-cancer-connect a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0 4px;
+}
+.widget .focus-centers .breast-cancer-connect a:link,
+.widget .focus-centers .breast-cancer-connect a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .breast-cancer-connect a:hover,
+.widget .focus-centers .breast-cancer-connect a:active,
+.widget .focus-centers .breast-cancer-connect a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .breast-cancer-connect .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #1B4145;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-breast-cancer-connect.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .breast-cancer-connect .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+
+/*** DLBCL Connect ***/
+.widget .focus-centers .dlbcl-connect {}
+.widget .focus-centers .dlbcl-connect a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0 4px;
+}
+.widget .focus-centers .dlbcl-connect a:link,
+.widget .focus-centers .dlbcl-connect a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .dlbcl-connect a:hover,
+.widget .focus-centers .dlbcl-connect a:active,
+.widget .focus-centers .dlbcl-connect a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .dlbcl-connect .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #5C6C75;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-dlbcl-connect.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .dlbcl-connect .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+
+/*** Lung Cancer Connect ***/
+.widget .focus-centers .lung-cancer-connect {}
+.widget .focus-centers .lung-cancer-connect a {
+	box-shadow: none;
+    color: #6E795C;
+    font-weight: 500;
+	display: block;
+	padding: 4px 0 4px;
+}
+.widget .focus-centers .lung-cancer-connect a:link,
+.widget .focus-centers .lung-cancer-connect a:visited {
+	background-color: #fff;
+}
+.widget .focus-centers .lung-cancer-connect a:hover,
+.widget .focus-centers .lung-cancer-connect a:active,
+.widget .focus-centers .lung-cancer-connect a:focus {
+	background-color: #efefef;
+}
+.widget .focus-centers .lung-cancer-connect .name {
+	font-family: 'Gotham-Bold', sans-serif;
+	color: #2F515D;
+    background-image: url('/wp-content/themes/skipta2019/images/focus-center-icon-lung-cancer-connect.png');
+    background-repeat: no-repeat;
+    background-position: 10px 10px;
+    padding: 10px 0 20px 50px;
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: 13px;
+	display: block;
+    line-height: 1.3125;
+}
+.widget .focus-centers .lung-cancer-connect .text {
+	margin: -15px 0 0 50px;
+    display: block;
+}
+
 
 /****** Footer ******/
 .site-footer {
